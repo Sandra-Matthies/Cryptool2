@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SHA1.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">SHA-1</title>
+  <summary lang="en">Usage of the <i>SHA-1</i> hash function</summary>
+  <description lang="en">This template shows the usage of the <i>SHA-1</i> hash function.</description>
+  <keywords>Hash, nist, secure, 160</keywords>
+  <replacements lang="en">
+    <replacement key="$Message$" value="Message" />
+    <replacement key="$Hash$" value="Hash Value" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">SHA-1</title>
+  <summary lang="de">Benutzung der <i>SHA-1</i>-Hash-Funktion</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>SHA-1</i>-Hash-Funktion.</description>
+  <keywords lang="de">hash</keywords>
+  <replacements lang="de">
+    <replacement key="$Message$" value="Nachricht" />
+    <replacement key="$Hash$" value="Hashwert" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SHA1.png" />
+  <relevantPlugins>
+    <plugin name="SHA" />
+  </relevantPlugins>
+</sample>

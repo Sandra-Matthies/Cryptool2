@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: KeccakStreamcipher.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Keccak Cipher</title>
+  <summary lang="en">Usage of <i>Keccak</i> as a stream cipher</summary>
+  <description lang="en">This template shows how the <i>Keccak</i> component can be used as a keystream generator.</description>
+  <keywords>stream cipher, keccak</keywords>
+  <replacements lang="en">
+    <replacement key="$Sender$" value="Sender" />
+    <replacement key="$Receiver$" value="Receiver" />
+    <replacement key="$Sender Key$" value="Sender Key" />
+    <replacement key="$Receiver Key$" value="Receiver Key" />
+    <replacement key="$Keystream$" value="Keystream" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Encryption$" value="Encryption" />
+    <replacement key="$Decryption$" value="Decryption" />
+    <replacement key="$StringEncoder$" value="StringEncoder" />
+    <replacement key="$Transmitted Message$" value="Transmitted Message" />
+    <replacement key="$Transmission Channel$" value="Transmission Channel" />
+    <replacement key="$text$" value="A secret Message to myself.&#xD;&#xA;This is a test.&#xD;&#xA;Sending messages is kind of fun." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Keccak-Chiffre</title>
+  <summary lang="de">Benutzung von <i>Keccak</i> als Stromchiffre</summary>
+  <description lang="de">Diese Vorlage zeigt, wie die <i>Keccak</i>-Komponente als Schlüsselstromgenerator eingesetzt werden kann.</description>
+  <keywords lang="de">stromchiffre, keccak</keywords>
+  <replacements lang="de">
+    <replacement key="$Sender$" value="Sender" />
+    <replacement key="$Receiver$" value="Empfänger" />
+    <replacement key="$Sender Key$" value="Sender-Schlüssel" />
+    <replacement key="$Receiver Key$" value="Empfänger-Schlüssel" />
+    <replacement key="$Keystream$" value="Schlüsselstrom" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Encryption$" value="Verschlüsselung" />
+    <replacement key="$Decryption$" value="Entschlüsselung" />
+    <replacement key="$StringEncoder$" value="String-Codierer" />
+    <replacement key="$Transmitted Message$" value="Übertragene Nachricht" />
+    <replacement key="$Transmission Channel$" value="Übertragungskanal" />
+    <replacement key="$text$" value="Eine geheime Nachricht für mich selbst.&#xD;&#xA;Dies ist ein Test.&#xD;&#xA;Nachrichten verschicken macht Spaß." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Keccak.png" />
+  <relevantPlugins>
+    <plugin name="Keccak" />
+    <plugin name="Xor" />
+  </relevantPlugins>
+</sample>

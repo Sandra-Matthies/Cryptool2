@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Paillier_Vote.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Paillier Cipher (Voting)</title>
+  <summary lang="en">Usage of the <i>Pailler</i> cipher for voting</summary>
+  <description lang="en">This template shows the usage of the <i>Pailler</i> cipher for voting.</description>
+  <keywords>homomorphic, voting, E-Voting, Damgard, Eurocrypt, Jurik, asymmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$Voter$" value="Voter" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$KeyGenerator$" value="KeyGenerator" />
+    <replacement key="$Encrypt$" value="Encrypt" />
+    <replacement key="$Decrypt$" value="Decrypt" />
+    <replacement key="$Add$" value="Add" />
+    <replacement key="$Voting Result$" value="Voting Result" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Paillier-Chiffre (Wahlen)</title>
+  <summary lang="de">Benutzung der <i>Paillier</i>-Chiffre für Wahlen</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Paillier</i>-Chiffre für Wahlen.</description>
+  <keywords lang="de">homomorph, Wahl, wählen, asymmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$Voter$" value="Wähler" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$KeyGenerator$" value="Schlüsselgenerator" />
+    <replacement key="$Encrypt$" value="Verschlüsselung" />
+    <replacement key="$Decrypt$" value="Entschlüsselung" />
+    <replacement key="$Add$" value="Addition" />
+    <replacement key="$Voting Result$" value="Wahlergebnis" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Pailler_Vote.png" />
+  <relevantPlugins>
+    <plugin name="BooleanInput" />
+    <plugin name="Paillier" />
+    <plugin name="PaillierKeyGenerator" />
+  </relevantPlugins>
+</sample>

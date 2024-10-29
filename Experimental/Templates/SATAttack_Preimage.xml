@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SATAttack_Preimage.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">SAT Attack (Preimage Attack on Hash Function)</title>
+  <summary lang="en">Usage of the <i>SAT Attack</i> component demonstrating a preimage attack on a hash function.</summary>
+  <description lang="en">This template demonstrates how to use the <i>SAT Attack</i> component and to perform a preimage attack on the hash function Keccak (SHA-3).</description>
+  <keywords>satsolver, sat, solver, satisfiability, hash, hash function, analyse, attack, preimage, second preimage</keywords>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">SAT-Angriff (Preimage-Angriff auf Hashfunktion)</title>
+  <summary lang="de">Benutzung der <i>SAT Attack</i> Komponente, welche einen Preimage-Angriff auf eine Hashfunktion zeigt.</summary>
+  <description lang="de">Diese Vorlage zeigt wie die <i>SAT Attack</i> Komponente verwendet werden kann und wie ein Preimage-Angriff auf die Hashfunktion Keccak (SHA-3) durchgeführt wird.</description>
+  <keywords lang="de">satsolver, sat, solver, erfüllbarkeit, hash, hashfunktion, analyse, attack, angriff, preimage, second preimage</keywords>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SATAttack.png" />
+</sample>

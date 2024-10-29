@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Booleans.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Booleans</title>
+  <summary lang="en">Usage of the <i>Boolean</i> components</summary>
+  <description lang="en">This template shows the usage of the <i>Boolean</i> components.</description>
+  <keywords>Boole, binary, and, or, nand, nor, xor, exor, nor</keywords>
+  <replacements lang="en">
+    <replacement key="$BooleanInput$" value="Boolean input" />
+    <replacement key="$BooleanOutput$" value="Boolean output" />
+    <replacement key="$memo$" value="This template demonstrates the {\b boolean algebra} components implemented in CrypTool 2.\line
+\line
+The following boolean operations are performed: OR, AND, NOR, NAND, XOR.\line
+In the input and output components, a green light with small light beams represents TRUE and a red light without lights beams represents FALSE."/>
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Boole'sche Werte</title>
+  <summary lang="de">Benutzung der Komponente für <i>Boolsche Operationen</i></summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der Komponente für <i>Boolsche Operationen</i>.</description>
+  <keywords lang="de">binär, und, oder, nicht</keywords>
+  <replacements lang="de">
+    <replacement key="$BooleanInput$" value="Boolesche Eingabe" />
+    <replacement key="$BooleanOutput$" value="Boolesche Ausgabe" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die {\b booleschen Algebra}-Komponenten, die in CrypTool 2 implementiert sind.\line
+\line
+Die folgenden booleschen Operationen werden durchgeführt: OR, AND, NOR, NAND, XOR.\line
+In den Eingabe- und Ausgabekomponenten repräsentiert ein grünes Licht mit kleinen Lichtstrahlen WAHR und ein rotes Licht ohne Lichtstrahlen repräsentiert FALSCH."/>
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Booleans.png" />
+  <relevantPlugins>
+    <plugin name="BooleanBinaryOperators" />
+    <plugin name="BooleanInput" />
+    <plugin name="BooleanOutput" />
+  </relevantPlugins>
+</sample>

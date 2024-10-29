@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: DESVisualization.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">DES Visualization</title>
+  <summary lang="en">Usage of the <i>DESVisualization</i></summary>
+  <description lang="en">With this template you can have a step-by-step look at the encryption process of the Data Encryption Standard (DES). As the plugin's goal is the actual
+ visualization of the DES algorithm, it does not offer the usage of padding or modes of operation. This means the plugin expects exactly one block with 64 bits as plaintext.</description>
+  <keywords>advanced, modern, cipher, encryption, Lucifer, symmetric, nist, visualization, DES</keywords>
+  <replacements lang="en">
+    <replacement key="$Text$" value="Plaintext (hex)" />
+    <replacement key="$Ciphertext$" value="Ciphertext after last round (hex)" />
+    <replacement key="$CiphertextBin$" value="Ciphertext after last round (bin)" />
+    <replacement key="$Key$" value="Key (hex)" />
+    <replacement key="$TextDecoder$" value="Text Decoder" />
+    <replacement key="$KeyDecoder$" value="Key Decoder" />
+    <replacement key="$OutputEncoder$" value="Output Encoder" />
+    <replacement key="$DESVisualization$" value="DES Visualization" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">DES-Visualisierung</title>
+  <summary lang="de">Benutzung der <i>DES-Visualisierung</i></summary>
+  <description lang="de">Mit dieser Vorlagen können Sie sich den Verschlüsselungsprozess des Data Encryption Standards schrittweise anschauen. Da das eigentliche Ziel die
+ Visualisierung des DES-Algorithmus ist, wurden Methoden des Padding und Betriebsmodi nicht integriert. Das bedeutet, dass das Plugin genau ein Block mit 64 Bits als Klartext
+  erwartet.</description>
+  <keywords lang="de">symmetrisch, modern, Blockchiffre, Verschlüsselung, Lucifer, Visualisierung, DES</keywords>
+  <replacements lang="de">
+    <replacement key="$Text$" value="Klartext (Hexwerte)" />
+    <replacement key="$Ciphertext$" value="Geheimtext nach letzter Runde (Hexwerte)" />
+    <replacement key="$CiphertextBin$" value="Geheimtext nach letzter Runde (Binärwerte)" />
+    <replacement key="$Key$" value="Schlüssel (Hexwerte)" />
+    <replacement key="$TextDecoder$" value="Text-Decodierer" />
+    <replacement key="$KeyDecoder$" value="Schlüssel-Decodierer" />
+    <replacement key="$OutputEncoder$" value="Ausgabe-Codierer" />
+    <replacement key="$DESVisualization$" value="DES-Visualisierung" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="DESVisualization.png" />
+  <relevantPlugins>
+    <plugin name="DESVisualization" />
+  </relevantPlugins>
+</sample>

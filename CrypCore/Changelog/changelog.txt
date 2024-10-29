@@ -1,0 +1,57 @@
+[b]CrypTool 2 Release 2023.2[/b]
+
+Dear CrypTool 2 users,
+
+CrypTool 2 (CT2) is a free, open-source e-learning software about cryptography and cryptanalysis with a visual user interface. CT2 is used in schools, universities, companies, and administrations all over the world since more than 10 years. In December 2023, we published the release "2023.2" which is the second release this year. The previous CT2 release was published in June 2023.
+
+Since June of this year, we've enriched CrypTool 2 with new components, enhanced existing templates, and fixed various bugs. In the field of modern cryptography, we've integrated the Simplified AES cipher. As implied by its name, this is a streamlined variant of the Advanced Encryption Standard (AES). Designed primarily for educational purposes, it offers a more accessible implementation and understanding compared to the full AES. We've also introduced a new encryption machine component: the Lorenz SZ 42. This machine, used by German forces during World War II, facilitated high-level encrypted communications. Additionally, the release includes two classical ciphers: The first is the Affine cipher, which employs straightforward mathematical operations. The second is the Grandpré cipher, originally described by A. de Grandpré and published in Paris in 1905. Moreover, a new cryptanalysis component has been added to CrypTool 2. Developed from algorithms by George Lasry, the M-209 analyzer enables users to perform cryptanalysis on M-209 messages using ciphertext-only and known-plaintext attacks. We also replaced all existing dictionaries with newly generated ones and limited these to 100,000 words each. Otherwise, the algorithms that use these dictionaries would take too much execution time.
+
+We are grateful for the valuable feedback, requests, compliments, and insightful criticism provided by our extensive user community. 
+Our hope is that you find as much enjoyment in using CT2 as we do in its development!
+
+Sincerely yours,
+The CrypTool 2 Developer Team, December 2023
+
+------------------------
+Changelog summary
+------------------------
+
+Here is a detailed overview of the updates and additions that have been implemented:
+
+------------------------
+New components
+------------------------
+- S-AES
+- Affine Cipher
+- Grandpré Cipher
+- Lorenz SZ 42
+- M209 Analyzer
+
+------------------------
+Existing components
+------------------------
+- ADFGVX Analyzer (code cleanup)
+- Alphabets (are now based on language models of CT2)
+- Hill Cipher (localized messages)
+- Workspace Manager (fixed a null pointer bug)
+- Frequency Analysis (supports now frequency analysis of symbol-separated tokens)
+- Hagelin Machine (fixed wrong active pins with M209)
+- Vigenere Analyzer (know uses alphabet of selected language per default)
+
+CrypConsole:
+The capabilities of CrypConsole were expanded by enabling it to load JSON configuration files and allowing users to modify settings of components within workspaces.
+
+------------------------
+Templates
+------------------------
+We worked on the following templates 
+(and added templates for the aforementioned new components):
+- ADFGVX
+- Cost Function
+- Caesar Analysis
+- Diffie-Hellman Key-Exchange
+- Image Steganography
+- Split Text
+- Diffie-Hellman AES Video Audio Chat
+
+... many more small updates and fixes, which are not listed here. See logs of the official CrypTool 2 GitHub repository for more information.

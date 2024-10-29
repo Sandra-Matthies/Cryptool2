@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: VIC.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">VIC Cipher</title>
+  <summary lang="en">Usage of the <i>VIC</i> cipher</summary>
+  <description lang="en">
+  The VIC cipher is a pencil and paper cipher used by the Soviet spy Reino Häyhänen, codenamed "VICTOR". <newline />
+  In modern terminology, this cipher is a straddling bipartite monoalphabetic substitution superenciphered by a modified double columnar transposition. The cipher is part of the Nihilist family of ciphers. 
+  Source: <external ref="https://en.wikipedia.org/wiki/VIC_cipher" /></description>
+  <keywords>VIC, VICTOR, substitution, monoalphabetic, straddling checkerboard, columnar transposition, VIC, VICTOR, Substitution, monoalphabetisch, Schachbrettmuster, Spaltentransposition, VIC, VICTOR, подстановка, моноалфавит, сдвиг в шахматном порядке, столбчатое транспонирование, VIC, VICTOR, 替换, 单字母, 跨棋盘, 柱状换位</keywords>
+  <replacements lang="en">
+    <replacement key="$plaintext$" value="Plaintext" />
+    <replacement key="$ciphertext$" value="Ciphertext" />
+    <replacement key="$date$" value="Date" />
+    <replacement key="$password$" value="Password" />
+    <replacement key="$phrase$" value="Phrase" />
+    <replacement key="$number$" value="Number" />
+    <replacement key="$initializationstring$" value="Initialization string" />
+    <replacement key="$memo$" value="This template shows the usage of the VIC cipher. The VIC cipher has 5 different inputs for the key and one for the plaintext.\line \line The inputs and their recommended formats for the key are:\line \line {\b Date:} The date has to be in a continental format (numeric), e.g. 3rd September 1945 is formatted to 391945. The minimum length should be 6 digits.\line {\b Password:} The password should consist of at least 7 unique characters.\line {\b Phrase:} The pass phrase should consist of at least 20 unique letters (exluding spaces and interpunction). This template uses a short passage from a folk song (Katjuscha). This song was also used in the original messages enciphered with the VIC cipher.\line {\b Number:} The number should should be between 0 and 33, however the optimal value is between 10 and 13. Originally, the agent's number was used.\line {\b Initializing string:} This string should consist only of digits and should be at least 5 digits long. It is inserted at the end of the output string at a position determined by the last digit of the date.\line \line The VIC cipher internally creates und uses random numbers which are incorporated in the ciphertext. Therefore, every time the template is restarted, the ciphertext is different." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">VIC-Chiffre</title>
+  <summary lang="de">Verwendung der <i>VIC</i>Chiffre</summary>
+  <description lang="de">
+  Die VIC-Chiffre ist eine Bleistift- und Papierchiffre, die vom sowjetischen Spion Reino Häyhänen mit dem Codenamen "VICTOR" verwendet wird. <newline />
+  In der modernen Terminologie ist diese Chiffre eine übergreifende bipartite monoalphabetische Substitution, die durch eine modifizierte doppelte säulenförmige Transposition superchiffriert ist. Die Chiffre ist Teil der nihilistischen Chiffrenfamilie.
+  Quelle: <external ref="https://en.wikipedia.org/wiki/VIC_cipher" /></description>
+  <replacements lang="de">
+    <replacement key="$plaintext$" value="Klartext" />
+    <replacement key="$ciphertext$" value="Geheimtext" />
+    <replacement key="$date$" value="Datum" />
+    <replacement key="$password$" value="Passwort" />
+    <replacement key="$phrase$" value="Phrase" />
+    <replacement key="$number$" value="Zahl" />
+    <replacement key="$initializationstring$" value="Initialisierungsstring" />
+    <replacement key="$memo$" value="Diese Vorlage zeigt die Verwendung der VIC-Chiffre. Die VIC-Chiffre hat 5 verschiedene Eingaben für den Schlüssel und eine für den Klartext.\line \line Die Eingaben und ihre empfohlenen Formate für den Schlüssel sind:\line \line {\b Datum:} Das Datum muss in einem kontinentalen Format (numerisch) vorliegen, z.B. 3. September 1945 hat das Format 391945. Die Mindestlänge sollte 6 Stellen betragen.\line {\b Passwort:} Das Passwort sollte aus mindestens 7 eindeutigen Zeichen bestehen.\line {\b Phrase:} Die Passphrase sollte aus mindestens 20 eindeutigen Buchstaben bestehen (ohne Leerzeichen und Interpunktionszeichen). Diese Vorlage verwendet eine kurze Passage aus einem Volkslied (Katjuscha). Dieses Lied wurde auch in den ursprünglichen Nachrichten verwendet, die mit der VIC-Chiffre verschlüsselt wurden.\line {\b Nummer:} Die Zahl sollte zwischen 0 und 33 liegen, der optimale Wert liegt jedoch zwischen 10 und 13. Ursprünglich wurde die Nummer des Agenten verwendet.\line {\b Initialisierungsstring:} Dieser String sollte nur aus Ziffern bestehen und mindestens 5 Ziffern lang sein. Es wird am Ende des Ausgabestrings an einer Position eingefügt, die durch die letzte Ziffer des Datums bestimmt wird.\line \line Die VIC-Chiffre erstellt und verwendet intern Zufallszahlen, die in den Geheimtext einfließen. Daher ist der Geheimtext jedes Mal, wenn die Vorlage neu gestartet wird, ein anderer." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="VIC.png" />
+  <relevantPlugins>
+    <plugin name="VIC" />
+  </relevantPlugins>
+</sample>

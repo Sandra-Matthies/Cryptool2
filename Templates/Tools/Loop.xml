@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Loop.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Loop</title>
+  <summary lang="en">How to build loops in CrypTool 2</summary>
+  <description lang="en">This template shows how to build loops in CrypTool 2.</description>
+  <keywords>loop</keywords>
+  <replacements lang="en">
+    <replacement key="$Initial Value$" value="Initial Value" />
+    <replacement key="$Stop Value$" value="Stop Value" />
+    <replacement key="$Gate$" value="Gate" />
+    <replacement key="$Comparator$" value="Comparator" />
+    <replacement key="$Counter Output$" value="Counter Output" />
+    <replacement key="$memo$" value="This loop starts counting from the &quot;Initial Value&quot;. The counter stops at the &quot;Stop Value&quot;.\line This loop prevents the IncDec component to use CPU when the count is done by closing the gate with the input to that component." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Schleife</title>
+  <summary lang="de">Wie baut man Schleifen in CrypTool 2</summary>
+  <description lang="de">Diese Vorlage zeigt, wie man Schleifen in CrypTool 2 baut.</description>
+  <keywords lang="de">Schleife</keywords>
+  <replacements lang="de">
+    <replacement key="$Initial Value$" value="Startwert" />
+    <replacement key="$Stop Value$" value="Stopwert" />
+    <replacement key="$Gate$" value="Gatter" />
+    <replacement key="$Comparator$" value="Vergleicher" />
+    <replacement key="$Counter Output$" value="Ausgabe des Zählers" />
+    <replacement key="$memo$" value="Die Schleife wird mit dem &quot;Startwert&quot; initialisiert. Der Zähler endet, wenn der &quot;Stopwert&quot; erreicht wurde.\line Die IncDec-Komponente wird nach Erreichen des Stopwertes durch das Gatter blockiert, indem der Zählerwert nicht weitergegeben wird. Dadurch wird keine weitere CPU-Zeit durch die IncDec-Komponente verbraucht." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="loop.png" />
+  <relevantPlugins>
+    <plugin name="Gate" />
+    <plugin name="IncDec" />
+  </relevantPlugins>
+</sample>

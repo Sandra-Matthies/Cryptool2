@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: BPCSSteganography.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Image Steganography with BPCS</title>
+  <summary lang="en">Hide and extract messages with BPCS steganography</summary>
+  <description lang="en">Bit Plane Complexity Segmentation (BPCS) is a steganography technique used to hide a secret message in a cover image, this technique can hide secret messages
+  with a higher capacity than the classical steganography techniques without changing the image in a way that is noticeable to the human eye.</description>
+  <keywords>Steganography, BPCS, Image steganography</keywords>
+  <replacements lang="en">
+    <replacement key="$secretmessage$" value="Secret message" />
+    <replacement key="$coverimage$" value="Cover image" />
+    <replacement key="$bpcshide$" value="BPCS hide" />
+    <replacement key="$stegoimage$" value="Stego image" />
+    <replacement key="$bpcsextract$" value="BPCS extract" />
+    <replacement key="$extractedmessage$" value="Extracted message" />
+    <replacement key="$secretmessagetext$" value="Hi, this is a secret message!" />
+    <replacement key="$memotext$" value="This template is used to demonstrate {\b image steganography} using the {\b BPCS technique}. After starting the program you can see the created message and image blocks in the hiding process view (2). You can also compare the pixels between the original and the cover image in the pixel conversion view (3). The different bit planes of the image can be seen by navigating to the bit planes view (4). In the settings you can set the complexity threshold and the order of the color channels used when hiding/extracting the message." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Bild-Steganografie mit BPCS</title>
+  <summary lang="de">Geheime Nachrichten in Bilder verstecken und wieder extrahieren</summary>
+  <description lang="de">Die Bit Plane Complexity Segmentation (BPCS) ist eine Steganografietechnik, mit der eine geheime Nachricht in einem Bild versteckt wird. Diese Technik kann geheime Nachrichten verstecken
+  mit einer höheren Kapazität als die klassischen Steganografietechniken, ohne das Bild auf eine Weise zu verändern, die für das menschliche Auge wahrnehmbar ist</description>
+  <keywords lang="de">Steganografie, BPCS, Bild-Steganografie</keywords>
+  <replacements lang="de">
+    <replacement key="$secretmessage$" value="Geheime Nachricht" />
+    <replacement key="$coverimage$" value="Coverbild" />
+    <replacement key="$bpcshide$" value="BPCS verstecken" />
+    <replacement key="$stegoimage$" value="Stego-Bild" />
+    <replacement key="$bpcsextract$" value="BPCS extrahieren" />
+    <replacement key="$extractedmessage$" value="Extrahierte Nachricht" />
+    <replacement key="$secretmessagetext$" value="Hallo, dies ist eine geheime Nachricht!" />
+    <replacement key="$memotext$" value="Diese Vorlage wird verwendet, um die {\b Bildsteganographie} mit der {\b BPCS-Methode} zu demonstrieren. Nach dem Starten des Programms können Sie die erstellten Nachrichten- und Bildblöcke in der Versteckprozess Ansicht (2) sehen. Sie können auch die Pixel zwischen dem Original und dem Coverbild in der Pixelkonvertierung Ansicht (3) vergleichen. Die verschiedenen Bitebenen des Bildes können durch Navigieren zur Ansicht der Bitebenen (4) angezeigt werden. In den Einstellungen können Sie den Komplexitätsschwellenwert und die Reihenfolge der Farbkanäle festlegen, die beim Verstecken/Extrahieren der Nachricht verwendet werden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="ImageSteganography.png" />
+  <relevantPlugins>
+    <plugin name="ImageSteganographyVisualization" />
+  </relevantPlugins>
+</sample>

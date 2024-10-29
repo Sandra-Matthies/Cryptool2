@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SATSolverTextInput.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">SAT Solver (Text Input)</title>
+  <summary lang="en">Usage of the <i>SAT Solver</i> with text input</summary>
+  <description lang="en">This template shows how to use the <i>SAT Solver</i> with text input.</description>
+  <keywords>satsolver, sat, solver</keywords>
+  <replacements lang="en">
+    <replacement key="$String Encoder$" value="String Encoder" />
+    <replacement key="$Text Input$" value="Text Input" />
+    <replacement key="$Text Output$" value="Text Output" />
+    <replacement key="$SAT Solver$" value="SAT Solver" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">SAT-Solver (Texteingabe)</title>
+  <summary lang="de">Benutzung des <i>SAT Solver</i> mit Texteingabe</summary>
+  <description lang="de">Diese Vorlage zeigt, wie der <i>SAT-Solver</i> mit Texteingabe verwendet wird.</description>
+  <keywords lang="de">satsolver, sat, solver, erfüllbarkeit</keywords>
+  <replacements lang="de">
+    <replacement key="$String Encoder$" value="String-Kodierer" />
+    <replacement key="$Text Input$" value="Texteingabe" />
+    <replacement key="$Text Output$" value="Textausgabe" />
+    <replacement key="$SAT Solver$" value="SAT-Solver" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SATSolver.png" />
+  <relevantPlugins>
+    <plugin name="SATSolver" />
+  </relevantPlugins>
+</sample>

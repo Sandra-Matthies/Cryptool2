@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SimpleAESChat.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Simple AES Chat</title>
+  <summary lang="en">Chatting over network using AES-256 encryption</summary>
+  <description lang="en">This template shows how the network component of CT2 can be used to create a simple encrypted chat.</description>
+  <keywords>AES, chat, network, UDP, TCP</keywords>
+  <replacements lang="en">
+    <replacement key="$Message to send$" value="Message to send" />
+    <replacement key="$Shared key$" value="Shared key" />
+    <replacement key="$Network receiver$" value="Network receiver" />
+    <replacement key="$Network sender$" value="Network sender" />
+    <replacement key="$Destination IP$" value="Destination IP" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Received decrypted message$" value="Received decrypted message" />
+    <replacement key="$memo$" value="This sample demonstrates the usage of the network sender and the network receiver.\line\line In the destination IP enter the IP address you want the message to be delivered to.\line\line If you use two CrypTool 2 instances and the same secret key, you may send an AES 256 encrypted message from one PC to the other." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Einfacher AES-Chat</title>
+  <summary lang="de">Übers Netzwerk chatten mit AES-256 Verschlüsselung</summary>
+  <description lang="de">Diese Vorlage zeigt, wie die Netzwerkkomponenten von CT2 genutzt werden können, um einen einfachen verschlüsselten Chat zu bauen.</description>
+  <keywords lang="de">AES, Chat, Netzwerk, UDP, TCP</keywords>
+  <replacements lang="de">
+    <replacement key="$Message to send$" value="Zu sendende Nachricht" />
+    <replacement key="$Shared key$" value="Gemeinsamer Schlüssel" />
+    <replacement key="$Network receiver$" value="Netzwerk-Empfänger" />
+    <replacement key="$Network sender$" value="Netzwerk-Sender" />
+    <replacement key="$Destination IP$" value="Ziel-IP" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Received decrypted message$" value="Entschlüsselte empfangene Nachricht" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Verwendung der Komponenten Netzwerk-Sender und Netzwerk-Empfänger.\line\line In der Ziel-IP wird die IP-Adresse eingegeben, an die die Nachricht geschickt werden soll.\line\line Wenn diese Vorlage in CrypTool 2 auf zwei Rechnern läuft und beide den selben geheimen Schlüssel haben, können mit AES-256 verschlüsselte Nachrichten zwischen den Rechnern ausgetauscht werden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SimpleAESChat.png" />
+  <relevantPlugins>
+    <plugin name="AES" />
+    <plugin name="NetworkInput" />
+    <plugin name="NetworkReceiver" />
+    <plugin name="SHA" />
+  </relevantPlugins>
+</sample>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: CreateQRCode.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">QR Code Creation</title>
+  <summary lang="en">Create a <i>QR code</i></summary>
+  <description lang="en">This template shows how to create a <i>QR code</i>.</description>
+  <keywords>qr, qrcode, code</keywords>
+  <replacements lang="en">
+    <replacement key="$Visual Encoder$" value="Visual Encoder" />
+    <replacement key="$text$" value="This template creates a QR code and explains how the code is constructed." />
+    <replacement key="$Text Input$" value="Text to be encoded" />
+    <replacement key="$memo$" value="With this template, you can create a QR code, which contains a user-defined text.\line\line To change the QR code's text, enter a text in the &quot;Text to be encoded&quot; Text Input component." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">QR-Code erstellen</title>
+  <summary lang="de">Erstellt einen <i>QR-Code</i></summary>
+  <description lang="de">Diese Vorlage zeigt, wie man einen <i>QR-Code</i> erstellt.</description>
+  <replacements lang="de">
+    <replacement key="$Visual Encoder$" value="Visueller Codierer" />
+    <replacement key="$Text Input$" value="Zu codierender Text" />
+    <replacement key="$text$" value="Diese Vorlage codiert einen Text in einem QR-Code. Textänderungen werden nach dem Start direkt umgesetzt. Klickt man in der Komponente &quot;Visueller Codierer&quot; auf &quot;Erklärung&quot;, werden die verschieden-farbig markierten Bestandteile des QR-Codes erklärt." />
+    <replacement key="$memo$" value="Mit dieser Vorlage können Sie einen QR-Code erstellen, der einen benutzerdefinierten Text enthält.\line\line Um den Text des QR-Codes zu ändern, geben Sie einen Text in die Texteingabekomponente &quot;Zu codierender Text&quot; ein." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="CreateQRCode.png" />
+  <relevantPlugins>
+    <plugin name="VisualEncoder" />
+  </relevantPlugins>
+</sample>

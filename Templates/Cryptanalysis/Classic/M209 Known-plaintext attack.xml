@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: M209 Known-plaintext attack.xml-->
+  <!--Last edited: 2023.09.28-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Known-plaintext attack against the Hagelin M-209</title>
+  <summary lang="en">This template shows a known-plaintext attack against the Hagelin M-209.</summary>
+  <description lang="en">This template shows a known-plaintext attack against the Hagelin M-209.</description>
+  <keywords>cryptanalysis, Hagelin, cipher, M209, M-209, ciphertext, ciphertext-only</keywords>
+  <replacements lang="en">
+    <replacement key="$M209Analyzer$" value="Hagelin M-209 Analyzer" />
+    <replacement key="$Ciphertext$" value = "BMBEKMOOZNSCPEWKNNLVBZHXPCMRWMZNFBABQRJJXLIIPBXGFIMXOQEKIWSBSNKATJNKENNKUHCTREUPKAZWZQNZQJILJUGMHVSK"/>
+    <replacement key="$ciphertext$" value="Ciphertext" />
+	<replacement key="$Plaintext$" value="EQUALITY AS THEY WERE FREQUENTLY TOGETHER MCCARTHY HAD ONE SON A LAD OF EIGHTEEN AND TURNER HAD AN O" />
+	<replacement key="$plaintext$" value="Plaintext" />
+    <replacement key="$$decryptedText$$" value="Decrypted text" />
+	<replacement key="$textoutput$" value="Text output" />
+	<replacement key="$key$" value="Key" />
+    <replacement key="$memo$" value="The Hagelin M-209 is a portable rotor cipher machine that was used by the U.S. military mainly during World War II, but as late as the Korean War.\line
+Very compact and handy, it is also completely analog and has a larger key space than the Enigma used by the Germans in World War II.
+\line
+\line
+To get encrypted text for attack, you can use the M-209 component component. \line
+It should be noted that the present attack assumes that one of the known instructions for the key settings was followed when encrypting. \line
+These instructions include certain defaults to avoid creating keys that are easily cracked. The following instructions are known: \line \line
+- TM 11-380 April 27, 1942 (https://maritime.org/tech/csp1500inst.php) \line
+- TM 11-380B September 20, 1943 (http://www.jfbouch.fr/crypto/m209/TM_11-380B_20Sep1943.pdf) \line
+- TM 11-380 March 17, 1944 (http://www.jfbouch.fr/crypto/m209/manual.html) \line
+- TM 11-380 May 1947 \line
+\line
+The known-plaintext attack uses hillclimbing in three nested loops. Each loop applies different types of transformations to the key to obtain the correct key.
+" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Known-Plaintext Angriff gegen die Hagelin M-209</title>
+  <summary lang="de">Diese Vorlage zeigt einen Known-Plaintext Angriff gegen die Hagelin M-209.</summary>
+  <description lang="de">Diese Vorlage zeigt einen Known-Plaintext Angriff gegen die Hagelin M-209.</description>
+  <keywords>Kryptoanalyse, Hagelin, cipher, M209, M-209, ciphertext, ciphertext-only</keywords>
+  <replacements lang="de">
+	<replacement key="$M209Analyzer$" value="Hagelin M-209 Analysator" />
+    <replacement key="$Ciphertext$" value = "BMBEKMOOZNSCPEWKNNLVBZHXPCMRWMZNFBABQRJJXLIIPBXGFIMXOQEKIWSBSNKATJNKENNKUHCTREUPKAZWZQNZQJILJUGMHVSK"/>
+    <replacement key="$ciphertext$" value="Verschlüsselter Text" />
+	<replacement key="$Plaintext$" value="EQUALITYZASZTHEYZWEREZFREQUENTLYZTOGETHERZMCCARTHYZHADZONEZSONZAZLADZOFZEIGHTEENZANDZTURNERZHADZANZO" />
+	<replacement key="$plaintext$" value="Klartext" />
+    <replacement key="$decryptedText$" value="Entschlüsselter Text" />
+	<replacement key="$textoutput$" value="Text Ausgabe" />
+	<replacement key="$key$" value="Schlüssel" />
+    <replacement key="$memo$" value="Die Hagelin M-209 ist eine tragbare Rotor-Chiffriermaschine, die hauptsächlich während des Zweiten Weltkriegs, aber noch bis zum Korea Krieg, vom US-Militär eingesetzt wurde.\line
+Sie ist sehr kompakt und handlich, zudem vollständig analog und hat einen größeren Schlüsselraum als die Enigma, die von den Deutschen im zweiten Weltkrieg verwendet wurde.
+\line
+\line
+Um verschlüsselten Text für den Angriff zu erhalten, kann man die M-209 Komponente verwenden. \line
+Zu beachten ist, dass der vorliegende Angriff annimmt, dass sich beim Verschlüsseln an eine der bekannten Anleitungen für die Schlüsseleinstellungen gehalten wurde. \line
+Diese Anleitungen beinhalten bestimmte Vorgaben, um keine leicht zu knackenden Schlüssel zu erzeugen. Folgende Anleitungen sind bekannt: \line \line
+- TM 11-380 27.April 1942 (https://maritime.org/tech/csp1500inst.php) \line
+- TM 11-380B 20.September 1943 (http://www.jfbouch.fr/crypto/m209/TM_11-380B_20Sep1943.pdf) \line
+- TM 11-380 17.März 1944 (http://www.jfbouch.fr/crypto/m209/manual.html) \line
+- TM 11-380 Mai 1947 \line
+\line
+Der Known-Plaintext (bekannter Klartext) Angriff verwendet Hillclimbing in drei verschachtelten Schleifen. Jede Schleife wendet verschiedene Arten von Transformationen auf den Schlüssel an, um den richtigen Schlüssel zu erhalten." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="M209Analyzer.png" />
+  <relevantPlugins>
+    <plugin name="M209Analyzer" />
+  </relevantPlugins>
+</sample>

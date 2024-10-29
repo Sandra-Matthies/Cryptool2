@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: WordPatterns_LoadDictionary.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Wordpattern Analysis with Self-Defined Dictionary</title>
+  <summary lang="en">Usage of the <i>Wordpattern Analysis</i> with a self-defined dictionary</summary>
+  <description lang="en">This sample demonstrates how to use the WordPatterns component together with a self defined dictionary. The dictionary is provided as a text file where each line defines one entry of the dictionary.</description>
+  <keywords>WordPatterns, pattern, search, match, Attack, Analysis</keywords>
+  <replacements lang="en">
+    <replacement key="$Dictionary file$" value="Dictionary file" />
+    <replacement key="$Dictionary size$" value="Dictionary size" />
+    <replacement key="$Convert to string$" value="Convert to string" />
+    <replacement key="$Word pattern$" value="Word pattern" />
+    <replacement key="$Separators$" value="Separators" />
+    <replacement key="$Split input$" value="Split input" />
+    <replacement key="$Search$" value="Search" />
+    <replacement key="$Matching entries$" value="Matching entries" />
+    <replacement key="$memo$" value="This sample demonstrates how to use the WordPatterns component together with a self defined dictionary. The dictionary is provided as a text file where each line defines one entry of the dictionary." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Wortmusteranalyse mit selbstdefiniertem Wörterbuch</title>
+  <summary lang="de">Benutzung der <i>Wortmusteranalyse</i> mit einem selbstdefinierten Wörterbuch</summary>
+  <description lang="de">Diese Vorlage demonstriert, wie die Wortmuster-Komponente in Verbindung mit einem selbstdefinierten Wörterbuch verwendet werden kann. Das Wörterbuch muss als Textdatei vorliegen, wobei jede Zeile der Textdatei als ein Eintrag des Wörterbuches interpretiert wird.</description>
+  <keywords lang="de">Wortmuster, Suche, Treffer, Angriff</keywords>
+  <replacements lang="de">
+    <replacement key="$Dictionary file$" value="Wörterbuch-Datei" />
+    <replacement key="$Dictionary size$" value="Größe des Wörterbuchs" />
+    <replacement key="$Convert to string$" value="Konvertiere nach String" />
+    <replacement key="$Word pattern$" value="Wortmuster" />
+    <replacement key="$Separators$" value="Trennzeichen" />
+    <replacement key="$Split input$" value="Trenne Eingabe" />
+    <replacement key="$Search$" value="Suche" />
+    <replacement key="$Matching entries$" value="Passende Einträge" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert, wie die Wortmuster-Komponente in Verbindung mit einem selbstdefinierten Wörterbuch verwendet werden kann. Das Wörterbuch muss als Textdatei vorliegen, wobei jede Zeile der Textdatei als ein Eintrag des Wörterbuches interpretiert wird." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="WordPatterns.png" />
+  <relevantPlugins>
+    <plugin name="FileInputClass" />
+    <plugin name="WordPatterns" />
+  </relevantPlugins>
+</sample>

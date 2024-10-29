@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE category SYSTEM "..\wizard.dtd"[]>
+<!-- This is the XML file defining the modern symmetric encryption/decryption categories a user can select from. -->
+<category image="Sym">
+  <name lang="en">Symmetric Encryption/Decryption</name>
+  <name lang="de">Symmetrische Verschlüsselungsverfahren</name>
+  <description lang="en">Selecting this allows you to encrypt a plaintext or decrypt a ciphertext with a symmetric algorithm. Symmetric algorithms are those, where the same key is used both for encryption and decryption. You can choose which algorithm you want to use for doing this.</description>
+  <description lang="de-DE">Wählen Sie diesen Punkt, um mit Hilfe eines symmetrischen Verschlüsselungsverfahrens einen Klartext zu verschlüsseln oder einen Geheimtext zu entschlüsseln. Bei der symmetrischen Verschlüsselung wird derselbe Schlüssel für die Ver- und Entschlüsselung benutzt. Das zu verwendende Verfahren kann von Ihnen ausgewählt werden.</description>
+  <!-- This is the step's headline. It should be short, but precise. -->
+  <headline lang="en">Algorithm Selection</headline>
+  <headline lang="de">Algorithmenauswahl</headline>
+  <!-- This is the step's description. -->
+  <task lang="en">Select a modern symmetric encryption/decryption algorithm.</task>
+  <task lang="de">Wählen Sie ein symmetrisches Verschlüsselungsverfahren.</task>
+  <!-- AES input -->
+  <input image="AES">
+    <name lang="en">AES</name>
+    <description lang="en">The Advanced Encryption Standard (AES) is a symmetric encryption standard adopted by the U.S. government. The standard comprises three block ciphers, AES-128, AES-192 and AES-256, adopted from a larger collection originally published as Rijndael.</description>
+    <description lang="de">Der "Advanced Encryption Standard" (AES) ist der modernste symmetrische Verschlüsselungsstandard. Der Standard beinhaltet drei Blockchiffren, AES-128, AES-192 and AES-256, welche einer größeren Kollektion, die ursprünglich als Rijndael veröffentlicht wurde, entnommen sind.</description>
+    <headline lang="en">Message Input</headline>
+    <headline lang="de">Nachrichteneingabe</headline>
+    <task lang="en">Here, you can input the message and the key to use.</task>
+    <task lang="de">Hier können Sie die Nachricht und den zu benutzenden Schlüssel eingeben.</task>
+    <!-- Note: setting the property Action on the plugin AES as attributes (in crontrast to plugin setter) is a workarround for now. Without this 
+         setting, the wizard forgets the settings from the laste page. Hence going one step backward shos the right settings in the GUI, but 
+         in the background the wizard uses the initail value. Can be removed if this is fully fixed in #665
+    -->
+    <comboBox plugin="AES" property="Action" alignment="Left">
+      <description lang="en">Encrypt or Decrypt:</description>
+      <description lang="de">Verschlüsseln oder Entschlüsseln:</description>
+      <item lang="en" content="Encrypt">
+        <!-- Set AES to encrypt -->
+        <pluginSetter plugin="AES" property="Action">0</pluginSetter>
+        <!-- Set input format of the message decoder to Text -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message decoder to ASCII -->
+        <pluginSetter plugin="$Message Decoder$" property="Encoding">4</pluginSetter>
+        <!-- Set output format of the message encoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">4</pluginSetter>
+      </item>
+      <item lang="de" content="Verschlüsseln" />
+      <item lang="en" content="Decrypt">
+        <!-- Set AES to decrypt -->
+        <pluginSetter plugin="AES" property="Action">1</pluginSetter>
+        <!-- Set input format of the message decoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">4</pluginSetter>
+        <!-- Set output format of the message encoder to Text -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message encoder to ASCII -->
+        <pluginSetter plugin="$Message Encoder$" property="Encoding">4</pluginSetter>
+      </item>
+      <item lang="de" content="Entschlüsseln" />
+    </comboBox>
+    <comboBox plugin="AES" property="Mode" alignment="Left" defaultValue="0">
+      <description lang="en">Chaining mode:</description>
+      <description lang="de">Verkettungsmodus:</description>
+      <item content="Electronic Code Book (ECB)" lang="en" />
+      <item content="Cipher Block Chaining (CBC)" lang="en" />
+      <item content="Cipher Feedback (CFB)" lang="en" />
+      <item content="Output Feedback (OFB)" lang="en" />
+    </comboBox>
+    <comboBox plugin="AES" property="Keysize" defaultValue="0" alignment="Left">
+      <description lang="en">Keysize:</description>
+      <description lang="de">Schlüsselgröße:</description>
+      <item content="128 Bits" />
+      <item content="192 Bits" />
+      <item content="256 Bits" />
+    </comboBox>
+    <inputBox plugin="$Key$" property="Text" alignment="Stretch" visibleLines="1" regex="([0-9a-fA-F]{2}[\s-]*){16,}">
+      <storage key="key" showLoadAddButtons="true" />
+      <description lang="en">Key (hex values):</description>
+      <description lang="de">Schlüssel (in hexadezimaler Notation):</description>
+      <defaultvalue>FD E8 F7 A9 B8 6C 3B FF 07 C0 D3 9D 04 60 5E DD</defaultvalue>
+    </inputBox>
+    <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+      <description lang="en">
+        <condition plugin="AES" property="Action" value="0">Message to encrypt:</condition>
+        <condition plugin="AES" property="Action" value="1">Message to decrypt (hex values):</condition>
+      </description>
+      <description lang="de">Zu verschlüsselnde/entschlüsselnde Nachricht:
+        <condition plugin="AES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition><condition plugin="AES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition></description>
+      <defaultvalue>The quick brown fox jumps over the lazy dog.</defaultvalue>
+    </inputBox>
+    <sampleViewer image="AES" file="Cryptography\Modern\Symmetric\AES.cwm">
+      <name lang="en">AES Output</name>
+      <name lang="de">AES-Ausgabe</name>
+      <description lang="en">The Advanced Encryption Standard (AES) is a symmetric encryption standard adopted by the U.S. government. The standard comprises three block ciphers, AES-128, AES-192 and AES-256, adopted from a larger collection originally published as Rijndael.</description>
+      <description lang="de">Der "Advanced Encryption Standard" (AES) ist der modernste symmetrische Verschlüsselungsstandard. Der Standard beinhaltet drei Blockchiffren, AES-128, AES-192 and AES-256, welche einer größeren Kollektion, die ursprünglich als Rijndael veröffentlicht wurde, entnommen sind.</description>
+      <headline lang="en">AES Output</headline>
+      <headline lang="de">AES-Ausgabe</headline>
+      <task lang="en">Here, you can change the message and view the results.</task>
+      <task lang="de">Hier können Sie die Nachricht verändern und die Ergebnisse sehen.</task>
+      <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+        <description lang="en">
+          <condition plugin="AES" property="Action" value="0">Message to encrypt:</condition>
+          <condition plugin="AES" property="Action" value="1">Message to decrypt (hex values):</condition>
+        </description>
+        <description lang="de">
+          <condition plugin="AES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition>
+          <condition plugin="AES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition>
+        </description>
+      </inputBox>
+      <presentation plugin="$Ciphertext$" alignment="Stretch" height="150">
+        <description lang="en">AES Output:</description>
+        <description lang="de">AES-Ausgabe:</description>
+      </presentation>
+    </sampleViewer>
+  </input>
+  <!-- DES input -->
+  <input image="DES">
+    <name lang="en">DES</name>
+    <description lang="en">The Data Encryption Standard (DES) is a symmetric block cipher algorithm. It was selected by the National Bureau of Standards as an official Federal Information Processing Standard (FIPS) for the United States in 1976 and which has subsequently enjoyed widespread use internationally. It is based on a symmetric algorithm that uses a 56-bit key.</description>
+    <description lang="de">Der "Data Encryption Standard" (DES) ist eine symmetrische Blockchiffre. Er wurde 1976 vom "National Bureau of Standards" als offizieller "Federal Information Processing Standard" (FIPS) für die Vereinigten Staaten ausgewählt und hat daraufhin weitreichende internationale Verbreitung gefunden. Er basiert auf einem symmetrischen Algorithmus, welcher 56-bit Schlüssel benutzt.</description>
+    <headline lang="en">Message Input</headline>
+    <headline lang="de">Nachrichteneingabe</headline>
+    <task lang="en">Here, you can input the message and the key to use.</task>
+    <task lang="de">Hier können Sie die Nachricht und den zu benutzenden Schlüssel eingeben.</task>
+    <comboBox plugin="DES" property="Action" alignment="Left">
+      <description lang="en">Encrypt or Decrypt:</description>
+      <description lang="de">Verschlüsseln oder Entschlüsseln:</description>
+      <item lang="en" content="Encrypt">
+        <!-- Set DES to encrypt -->
+        <pluginSetter plugin="DES" property="Action">0</pluginSetter>
+        <!-- Set input format of the message decoder to Text -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message decoder to ASCII -->
+        <pluginSetter plugin="$Message Decoder$" property="Encoding">4</pluginSetter>
+        <!-- Set output format of the message encoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">4</pluginSetter>
+      </item>
+      <item lang="de" content="Verschlüsseln" />
+      <item lang="en" content="Decrypt">
+        <!-- Set DES to decrypt -->
+        <pluginSetter plugin="DES" property="Action">1</pluginSetter>
+        <!-- Set input format of the message decoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">4</pluginSetter>
+        <!-- Set output format of the message encoder to Text -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message encoder to ASCII -->
+        <pluginSetter plugin="$Message Encoder$" property="Encoding">4</pluginSetter>
+      </item>
+      <item lang="de" content="Entschlüsseln" />
+    </comboBox>
+    <comboBox plugin="DES" property="Mode" alignment="Left" defaultValue="0">
+      <description lang="en">Chaining mode:</description>
+      <description lang="de">Verkettungsmodus:</description>
+      <item content="Electronic Code Book (ECB)" lang="en" />
+      <item content="Cipher Block Chaining (CBC)" lang="en" />
+      <item content="Cipher Feedback (CFB)" lang="en" />
+      <item content="Output Feedback (OFB)" lang="en" />
+    </comboBox>
+    <inputBox plugin="$Key$" property="Text" alignment="Stretch" visibleLines="1" regex="([0-9a-fA-F]{2}[\s-]*){8}">
+      <storage key="key" showLoadAddButtons="true" />
+      <description lang="en">Key (hex values):</description>
+      <description lang="de">Schlüssel (in hexadezimaler Notation):</description>
+      <defaultvalue>A1 B1 C1 11 11 11 11 11</defaultvalue>
+    </inputBox>
+    <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+      <description lang="en">
+        <condition plugin="DES" property="Action" value="0">Message to encrypt:</condition>
+        <condition plugin="DES" property="Action" value="1">Message to decrypt (hex values):</condition>
+      </description>
+      <description lang="de">Zu verschlüsselnde/entschlüsselnde Nachricht:
+        <condition plugin="DES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition><condition plugin="DES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition></description>
+      <defaultvalue>The quick brown fox jumps over the lazy dog.</defaultvalue>
+    </inputBox>
+    <sampleViewer image="DES" file="Cryptography\Modern\Symmetric\DES.cwm">
+      <name lang="en">DES Output</name>
+      <name lang="de">DES-Ausgabe</name>
+      <description lang="en">The Data Encryption Standard (DES) is a symmetric block cipher algorithm. It was selected by the National Bureau of Standards as an official Federal Information Processing Standard (FIPS) for the United States in 1976 and which has subsequently enjoyed widespread use internationally. It is based on a symmetric algorithm that uses a 56-bit key.</description>
+      <description lang="de">Der "Data Encryption Standard" (DES) ist ein symmetrische Blockchiffre. Er wurde 1976 vom "National Bureau of Standards" als offizieller "Federal Information Processing Standard" (FIPS) für die Vereinigten Staaten ausgewählt und hat daraufhin weitreichende internationale Verbreitung gefunden. Er basiert auf einem symmetrischen Algorithmus, welcher 56-bit Schlüssel benutzt.</description>
+      <headline lang="en">DES Output</headline>
+      <headline lang="de">DES-Ausgabe</headline>
+      <task lang="en">Here, you can change the message and view the results.</task>
+      <task lang="de">Hier können Sie die Nachricht verändern und die Ergebnisse sehen.</task>
+      <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+        <description lang="en">
+          <condition plugin="DES" property="Action" value="0">Message to encrypt:</condition>
+          <condition plugin="DES" property="Action" value="1">Message to decrypt (hex values):</condition>
+        </description>
+        <description lang="de">
+          <condition plugin="DES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition>
+          <condition plugin="DES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition>
+        </description>
+      </inputBox>
+      <presentation plugin="$Ciphertext$" alignment="Stretch" height="150">
+        <description lang="en">DES Output:</description>
+        <description lang="de">DES-Ausgabe:</description>
+      </presentation>
+    </sampleViewer>
+  </input>
+  <!-- SDES input -->
+  <input image="SDES">
+    <name lang="en">SDES</name>
+    <description lang="en">SDES or Simple DES is a simpler form of DES (Data Encryption Standard) and is mainly used for teaching purposes.</description>
+    <description lang="de">SDES oder "Simple DES" ist eine einfachere Form von DES (Data Encryption Standard) und wird hauptsächlich für Lehrzwecke verwendet.</description>
+    <headline lang="en">Message Input</headline>
+    <headline lang="de">Nachrichteneingabe</headline>
+    <task lang="en">Here, you can input the message and the key to use.</task>
+    <task lang="de">Hier können Sie die Nachricht und den zu benutzenden Schlüssel eingeben.</task>
+    <comboBox plugin="SDES" property="Action" alignment="Left">
+      <description lang="en">Encrypt or Decrypt:</description>
+      <description lang="de">Verschlüsseln oder Entschlüsseln:</description>
+      <item lang="en" content="Encrypt">
+        <!-- Set SDES to encrypt -->
+        <pluginSetter plugin="SDES" property="Action">0</pluginSetter>
+        <!-- Set input format of the message decoder to Text -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message decoder to ASCII -->
+        <pluginSetter plugin="$Message Decoder$" property="Encoding">4</pluginSetter>
+        <!-- Set output format of the message encoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">4</pluginSetter>
+      </item>
+      <item lang="de" content="Verschlüsseln" />
+      <item lang="en" content="Decrypt">
+        <!-- Set SDES to decrypt -->
+        <pluginSetter plugin="SDES" property="Action">1</pluginSetter>
+        <!-- Set input format of the message decoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">4</pluginSetter>
+        <!-- Set output format of the message encoder to Text -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message encoder to ASCII -->
+        <pluginSetter plugin="$Message Encoder$" property="Encoding">4</pluginSetter>
+      </item>
+      <item lang="de" content="Entschlüsseln" />
+    </comboBox>
+    <comboBox plugin="SDES" property="Mode" alignment="Left" defaultValue="0">
+      <description lang="en">Chaining mode:</description>
+      <description lang="de">Verkettungsmodus:</description>
+      <item content="Electronic Code Book (ECB)" lang="en" />
+      <item content="Cipher Block Chaining (CBC)" lang="en" />
+      <item content="Cipher Feedback (CFB)" lang="en" />
+      <item content="Output Feedback (OFB)" lang="en" />
+    </comboBox>
+    <inputBox plugin="$Key$" property="Text" alignment="Stretch" visibleLines="1" regex="[01]{10}">
+      <description lang="en">Key (binary values):</description>
+      <description lang="de">Schlüssel (in binärer Notation):</description>
+      <defaultvalue>1010101010</defaultvalue>
+    </inputBox>
+    <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+      <description lang="en">
+        <condition plugin="SDES" property="Action" value="0">Message to encrypt:</condition>
+        <condition plugin="SDES" property="Action" value="1">Message to decrypt (hex values):</condition>
+      </description>
+      <description lang="de">Zu verschlüsselnde/entschlüsselnde Nachricht:
+        <condition plugin="SDES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition><condition plugin="SDES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition></description>
+      <defaultvalue>The quick brown fox jumps over the lazy dog.</defaultvalue>
+    </inputBox>
+    <sampleViewer image="SDES" file="Cryptography\Modern\Symmetric\SDES.cwm">
+      <name lang="en">SDES Output</name>
+      <name lang="de">SDES-Ausgabe</name>
+      <description lang="en">SDES or Simple DES is a simpler form of DES (Data Encryption Standard) and is mainly used for teaching purposes.</description>
+      <description lang="de">SDES oder "Simple DES" ist eine einfachere Form von DES (Data Encryption Standard) und wird hauptsächlich für Lehrzwecke verwendet.</description>
+      <headline lang="en">SDES Output</headline>
+      <headline lang="de">SDES-Ausgabe</headline>
+      <task lang="en">Here, you can change the message and view the results.</task>
+      <task lang="de">Hier können Sie die Nachricht verändern und die Ergebnisse sehen.</task>
+      <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+        <description lang="en">
+          <condition plugin="SDES" property="Action" value="0">Message to encrypt:</condition>
+          <condition plugin="SDES" property="Action" value="1">Message to decrypt (hex values):</condition>
+        </description>
+        <description lang="de">
+          <condition plugin="SDES" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition>
+          <condition plugin="SDES" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition>
+        </description>
+      </inputBox>
+      <presentation plugin="$Ciphertext$" alignment="Stretch" height="150">
+        <description lang="en">SDES Output:</description>
+        <description lang="de">SDES-Ausgabe:</description>
+      </presentation>
+    </sampleViewer>
+  </input>
+  <!-- TEA input -->
+  <input image="TEA">
+    <name lang="en">TEA</name>
+    <description lang="en">The Tiny Encryption Algorithm (TEA) is a block cipher notable for its simplicity of description and implementation, typically a few lines of code.</description>
+    <description lang="de">Der "Tiny Encryption Algorithmus" (TEA) ist eine Blockchiffre, die sich durch Einfachheit von Beschreibung und Implementierung (typischerweise einige wenige Codezeilen) auszeichnet.</description>
+    <headline lang="en">Message Input</headline>
+    <headline lang="de">Nachrichteneingabe</headline>
+    <task lang="en">Here, you can input the message and the key to use.</task>
+    <task lang="de">Hier können Sie die Nachricht und den zu benutzenden Schlüssel eingeben.</task>
+    <comboBox plugin="TEA" property="Action" alignment="Left">
+      <description lang="en">Encrypt or Decrypt:</description>
+      <description lang="de">Verschlüsseln oder Entschlüsseln:</description>
+      <item lang="en" content="Encrypt">
+        <!-- Set TEA to encrypt -->
+        <pluginSetter plugin="TEA" property="Action">0</pluginSetter>
+        <!-- Set input format of the message decoder to Text -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message decoder to ASCII -->
+        <pluginSetter plugin="$Message Decoder$" property="Encoding">4</pluginSetter>
+        <!-- Set output format of the message encoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">4</pluginSetter>
+      </item>
+      <item lang="de" content="Verschlüsseln" />
+      <item lang="en" content="Decrypt">
+        <!-- Set TEA to decrypt -->
+        <pluginSetter plugin="TEA" property="Action">1</pluginSetter>
+        <!-- Set input format of the message decoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">4</pluginSetter>
+        <!-- Set output format of the message encoder to Text -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message encoder to ASCII -->
+        <pluginSetter plugin="$Message Encoder$" property="Encoding">4</pluginSetter>
+      </item>
+      <item lang="de" content="Entschlüsseln" />
+    </comboBox>
+    <comboBox plugin="TEA" property="Mode" alignment="Left" defaultValue="0">
+      <description lang="en">Chaining mode:</description>
+      <description lang="de">Verkettungsmodus:</description>
+      <item content="Electronic Code Book (ECB)" lang="en" />
+      <item content="Cipher Block Chaining (CBC)" lang="en" />
+      <item content="Cipher Feedback (CFB)" lang="en" />
+      <item content="Output Feedback (OFB)" lang="en" />
+    </comboBox>
+    <inputBox plugin="$Key$" property="Text" alignment="Stretch" visibleLines="1" regex="([0-9a-fA-F]{2}[\s-]*){16}">
+      <storage key="key" showLoadAddButtons="true" />
+      <description lang="en">Key (hex values):</description>
+      <description lang="de">Schlüssel (in hexadezimaler Notation):</description>
+      <defaultvalue>00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F</defaultvalue>
+    </inputBox>
+    <comboBox plugin="TEA" property="Version" defaultValue="0" alignment="Left">
+      <description lang="en">TEA Version:</description>
+      <item content="TEA (1994)" />
+      <item content="XTEA (1997)" />
+      <item content="XXTEA (1998)" />
+    </comboBox>
+    <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+      <description lang="en">
+        <condition plugin="TEA" property="Action" value="0">Message to encrypt:</condition>
+        <condition plugin="TEA" property="Action" value="1">Message to decrypt (hex values):</condition>
+      </description>
+      <description lang="de">Zu verschlüsselnde/entschlüsselnde Nachricht:
+        <condition plugin="TEA" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition><condition plugin="TEA" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition></description>
+      <defaultvalue>The quick brown fox jumps over the lazy dog.</defaultvalue>
+    </inputBox>
+    <sampleViewer image="TEA" file="Cryptography\Modern\Symmetric\TEA.cwm">
+      <name lang="en">TEA Output</name>
+      <name lang="de">TEA-Ausgabe</name>
+      <description lang="en">The Tiny Encryption Algorithm (TEA) is a block cipher notable for its simplicity of description and implementation, typically a few lines of code.</description>
+      <description lang="de">Der "Tiny Encryption Algorithmus" (TEA) ist eine Blockchiffre, die sich durch Einfachheit von Beschreibung und Implementierung (typischerweise einige wenige Codezeilen) auszeichnet.</description>
+      <headline lang="en">TEA Output</headline>
+      <headline lang="de">TEA-Ausgabe</headline>
+      <task lang="en">Here, you can change the message and view the results.</task>
+      <task lang="de">Hier können Sie die Nachricht verändern und die Ergebnisse sehen.</task>
+      <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+        <description lang="en">
+          <condition plugin="TEA" property="Action" value="0">Message to encrypt:</condition>
+          <condition plugin="TEA" property="Action" value="1">Message to decrypt (hex values):</condition>
+        </description>
+        <description lang="de">
+          <condition plugin="TEA" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition>
+          <condition plugin="TEA" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition>
+        </description>
+      </inputBox>
+      <presentation plugin="$Ciphertext$" alignment="Stretch" height="150">
+        <description lang="en">TEA Output:</description>
+        <description lang="de">TEA-Ausgabe:</description>
+      </presentation>
+    </sampleViewer>
+  </input>
+  <!-- RC2 input -->
+  <input image="RC2">
+    <name lang="en">RC2</name>
+    <description lang="en">RC2 is a block cipher designed by Ron Rivest in 1987. "RC" stands for "Ron's Code" or "Rivest Cipher".</description>
+    <description lang="de">RC2 ist eine Blockchiffre, die 1987 von Ron Rivest entworfen wurde. "RC" steht für "Ron's Code" oder "Rivest Cipher".</description>
+    <headline lang="en">Message Input</headline>
+    <headline lang="de">Nachrichteneingabe</headline>
+    <task lang="en">Here, you can input the message and the key to use.</task>
+    <task lang="de">Hier können Sie die Nachricht und den zu benutzenden Schlüssel eingeben.</task>
+    <comboBox plugin="RC2" property="Action" alignment="Left">
+      <description lang="en">Encrypt or Decrypt:</description>
+      <description lang="de">Verschlüsseln oder Entschlüsseln:</description>
+      <item lang="en" content="Encrypt">
+        <!-- Set RC2 to encrypt -->
+        <pluginSetter plugin="RC2" property="Action">0</pluginSetter>
+        <!-- Set input format of the message decoder to Text -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message decoder to ASCII -->
+        <pluginSetter plugin="$Message Decoder$" property="Encoding">4</pluginSetter>
+        <!-- Set output format of the message encoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">4</pluginSetter>
+      </item>
+      <item lang="de" content="Verschlüsseln" />
+      <item lang="en" content="Decrypt">
+        <!-- Set RC2 to decrypt -->
+        <pluginSetter plugin="RC2" property="Action">1</pluginSetter>
+        <!-- Set input format of the message decoder to Hexadecimal -->
+        <pluginSetter plugin="$Message Decoder$" property="PresentationFormatSetting">4</pluginSetter>
+        <!-- Set output format of the message encoder to Text -->
+        <pluginSetter plugin="$Message Encoder$" property="PresentationFormatSetting">0</pluginSetter>
+        <!-- Set Encoding of the message encoder to ASCII -->
+        <pluginSetter plugin="$Message Encoder$" property="Encoding">4</pluginSetter>
+      </item>
+      <item lang="de" content="Entschlüsseln" />
+    </comboBox>
+    <comboBox plugin="RC2" property="Mode" alignment="Left" defaultValue="0">
+      <description lang="en">Chaining mode:</description>
+      <description lang="de">Verkettungsmodus:</description>
+      <item content="Electronic Code Book (ECB)" lang="en" />
+      <item content="Cipher Block Chaining (CBC)" lang="en" />
+      <item content="Cipher Feedback (CFB)" lang="en" />
+      <item content="Output Feedback (OFB)" lang="en" />
+    </comboBox>
+    <inputBox plugin="$Key$" property="Text" alignment="Stretch" visibleLines="1" regex="([0-9a-fA-F]{2}[\s-]*){16,}">
+      <storage key="key" showLoadAddButtons="true" />
+      <description lang="en">Key (hex values):</description>
+      <description lang="de">Schlüssel (in hexadezimaler Notation):</description>
+      <defaultvalue>0F 1E 2D 3C 4B 5A 69 78 87 96 A5 B4 C3 D2 E1 F0</defaultvalue>
+    </inputBox>
+    <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+      <description lang="en">
+        <condition plugin="RC2" property="Action" value="0">Message to encrypt:</condition>
+        <condition plugin="RC2" property="Action" value="1">Message to decrypt (hex values):</condition>
+      </description>
+      <description lang="de">Zu verschlüsselnde/entschlüsselnde Nachricht:
+        <condition plugin="RC2" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition><condition plugin="RC2" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition></description>
+      <defaultvalue>The quick brown fox jumps over the lazy dog.</defaultvalue>
+    </inputBox>
+    <sampleViewer image="RC2" file="Cryptography\Modern\Symmetric\RC2.cwm">
+      <name lang="en">RC2 Output</name>
+      <name lang="de">RC2-Ausgabe</name>
+      <description lang="en">RC2 is a block cipher designed by Ron Rivest in 1987. "RC" stands for "Ron's Code" or "Rivest Cipher".</description>
+      <description lang="de">RC2 ist eine Blockchiffre, die 1987 von Ron Rivest entworfen wurde. "RC" steht für "Ron's Code" oder "Rivest Cipher".</description>
+      <headline lang="en">RC2 Output</headline>
+      <headline lang="de">RC2-Ausgabe</headline>
+      <task lang="en">Here, you can change the message and view the results.</task>
+      <task lang="de">Hier können Sie die Nachricht verändern und die Ergebnisse sehen.</task>
+      <inputBox plugin="$Plaintext$" property="Text" alignment="Stretch" visibleLines="5">
+        <description lang="en">
+          <condition plugin="RC2" property="Action" value="0">Message to encrypt:</condition>
+          <condition plugin="RC2" property="Action" value="1">Message to decrypt (hex values):</condition>
+        </description>
+        <description lang="de">
+          <condition plugin="RC2" property="Action" value="0">Zu verschlüsselnde Nachricht:</condition>
+          <condition plugin="RC2" property="Action" value="1">Zu entschlüsselnde Nachricht (in Hex):</condition>
+        </description>
+      </inputBox>
+      <presentation plugin="$Ciphertext$" alignment="Stretch" height="150">
+        <description lang="en">RC2 Output:</description>
+        <description lang="de">RC2-Ausgabe:</description>
+      </presentation>
+    </sampleViewer>
+  </input>
+</category>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en">
+    Trivium is a synchronous stream cipher, that was designed by the cryptographers Bart Preneel and Christophe De Cannière.
+    It is one of the three winners for the profile 2 (Hardware) of the eSTREAM Project of the ECRYPT network and has the simplest design of all eSTREAM candidates.
+    Trivium requires a key of length 80 bits and an initialization vector of up to 80 bits and generates a key stream of up to 2^64 bits.
+    <newline /><newline />
+    Trivium is patent-free and was adopted as ISO/IEC 29192-3 standard.
+  </introduction>
+  <introduction lang="de-DE">
+    Trivium ist eine synchrone Stromchiffre, die von den Kryptographen Bart Preneel und Christophe De Cannière entwickelt wurde.
+    Trivium ist einer der drei Gewinner für das Profil 2 (Hardware-Verfahren) des eSTREAM-Wettbewerbs des ECRYPT-Netzwerkes und hat von allen eSTREAM-Kandidaten das einfachste Design.
+    Trivium erzeugt aus einem 80-bit-Schlüssel und einem 80-bit-Initialisierungsvektor einen Schlüsselstrom von bis zu 2^64 Bits.
+    <newline /><newline />
+    Trivium ist nicht patentiert und wurde als ISO/IEC 29192-3 standardisiert.
+  </introduction>
+  <usage lang="en">   
+  </usage>
+  <usage lang="de-DE">    
+  </usage>
+  <presentation lang="en"></presentation>
+  <presentation lang="de-DE"></presentation>
+  <references>
+    <linkReference id="wikipedia">
+      <link url="https://en.wikipedia.org/wiki/Trivium_(cipher)" lang="en" />
+      <caption lang="en">Trivium (Wikipedia)</caption>
+      <link url="http://de.wikipedia.org/wiki/Trivium_(Algorithmus)" lang="de-DE" />
+      <caption lang="de-DE">Trivium (Wikipedia)</caption>
+    </linkReference>
+    <linkReference id="ecrypt">
+      <link url="http://www.ecrypt.eu.org/stream/triviumpf.html" lang="en" />
+      <caption lang="en">Trivium at the eSTREAM Project</caption>
+      <link url="http://www.ecrypt.eu.org/stream/triviumpf.html" lang="de-DE" />
+      <caption lang="de-DE">Trivium beim eSTREAM Project (Englisch)</caption>
+    </linkReference>
+    <linkReference id="ecryptpdf">
+      <link url="http://www.ecrypt.eu.org/stream/p3ciphers/trivium/trivium_p3.pdf" lang="en" />
+      <caption lang="en">Trivium Specifications (PDF)</caption>
+      <link url="http://www.ecrypt.eu.org/stream/p3ciphers/trivium/trivium_p3.pdf" lang="de-DE" />
+      <caption lang="de-DE">Trivium Specifications (PDF, Englisch)</caption>
+    </linkReference>
+  </references>
+</documentation>

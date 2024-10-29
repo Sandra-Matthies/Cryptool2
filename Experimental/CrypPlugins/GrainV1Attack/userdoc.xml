@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en">    
+  
+    Grain v1 is a symmetric stream cipher which is based on two shift registers and a non-linear output function. 
+    The key size is 80 bits and the size of the initialization vector is 64 bits.
+    According to the attack, we need to set the internal state of the LFSR in the final clock to zero state and then select NFSR randomly.
+    Then in reverse we compute the keystream, LFSR, NFSR.
+    Attack terminates if the LFSR bits in positions 64 to 79 are 1.
+    The same attack algorithm is applied to Grain v0 cipher as well; the difference between these two ciphers is in the terms of the variables
+    in equations that define the NFSR and the filter function (the function that defines the LFSR is the same for both of the ciphers).
+  
+  </introduction>
+  <introduction lang="de-DE"></introduction>
+  <usage lang="en">
+    After dragging the GrainV1Attack component onto your workspace, you will have to attach a "Random Generator" to data sources, which is used to
+    generate the NFSR in the final clocking randomly. 
+    
+    Then you have to connect three text output components to the 'Output' connectors, which correspond to: the LFSR at the initial state, 
+    NFSR at the initial state, and NFSR in the 160th clocking.
+    NFSR bits in the output component indicate the secret key.
+    LFSR bits from positions 0 to 63 in the output component indicate the IV.
+
+  </usage>
+  <usage lang="de-DE"></usage>
+  <presentation lang="en"></presentation>
+  <presentation lang="de-DE"></presentation>
+  <references>
+    <linkReference>
+      <link url="https://eprint.iacr.org/2009/109.pdf" lang="en" />
+      <caption lang="en">Cryptanalysis of Stream Cipher Grain Family</caption>
+    </linkReference>
+  </references>
+</documentation>

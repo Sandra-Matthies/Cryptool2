@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Avalanche (Modern Ciphers).xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Avalanche (Modern Ciphers)</title>
+  <summary lang="en">This template demonstrates the Avalanche effect in modern ciphers.</summary>
+  <description lang="en">This template shows how the Avalanche Visualization component can be used to demonstrate the Avalanche effect in modern ciphers.</description>
+  <keywords>Avalanche, Analysis, modern</keywords>
+  <replacements lang="en">
+    <replacement key="$Avalanche Visualization$" value="Avalanche Visualization" />
+    <replacement key="$Sender Key$" value="Sender Key" />
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$String Decoder$" value="String Decoder" />
+    <replacement key="$Generated Data$" value="Generated Data" />
+    <replacement key="$Memo$" value="This template helps visualize the avalanche effect on modern ciphers.\line\line After pressing &quot;Play&quot; the initial ciphertext resulting from the input feed is shown (In this case the input feed consists of plaintext and key. Other ciphers might require a third entry such as an IV. For instance in the Achterbahn cipher). If you modify any of the input entries you will get a new corresponding ciphertext. Subsequently, the two ciphertexts obtained are compared and their avalanche effect values are shown. Besides the value of the avalanche effect itself other relevant statistical data is displayed." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Avalanche (moderne Verschlüsselungsverfahren)</title>
+  <summary lang="de">Diese Vorlage demonstriert den Avalanche-Effekt bei modernen Verschlüsselungsverfahren.</summary>
+  <description lang="de">Diese Vorlage zeigt, wie man mit der Komponente 'Avalanche-Visualisierung' den Avalanche-Effekt bei modernen Verschlüsselungsverfahren demonstrieren kann.</description>
+  <keywords lang="de">Avalanche, Analyse, moderne</keywords>
+  <replacements lang="de">
+    <replacement key="$Avalanche Visualization$" value="Avalanche-Visualisierung" />
+    <replacement key="$Sender Key$" value="Sender-Schlüssel" />
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$String Decoder$" value="String-Dekodierer" />
+    <replacement key="$Generated Data$" value="Generierte Daten" />
+    <replacement key="$Memo$" value="Diese Vorlage veranschaulicht den Avalanche-Effekt bei modernen Verschlüsselungsverfahren.\line\line Nach &quot;Starten&quot; wird der aus den Eingaben resultierende Geheimtext angezeigt. Verändern Sie nun die Eingabe, erhalten Sie einen entsprechenden neuen Geheimtext (Die Eingabe besteht in diesem Fall aus dem Klartext und dem Sender-Schlüssel. Bei anderen Verfahren wird noch eine zusätzliche Eingabe benötigt, z.B. ein IV bei der Achterbahn-Chiffre). Anschließend werden beide Geheimtexte hinsichtlich des Avalanche-Effekts verglichen. Auf der Präsentation sind neben dem Wert des Avalanche-Effekts auch andere relevante statistische Daten zu finden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Avalanche.PNG" />
+  <relevantPlugins>
+    <plugin name="AvalancheVisualization" />
+  </relevantPlugins>
+</sample>

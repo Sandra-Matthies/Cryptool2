@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Cramer-Shoup-with-AES.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Cramer-Shoup with AES</title>
+  <summary lang="en">Usage of the <i>Cramer-Shoup</i> cipher with AES</summary>
+  <description lang="en">This template shows the usage of the <i>Cramer-Shoup</i> cipher with AES.</description>
+  <keywords>asymmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Decrypted Ciphertext$" value="Decrypted Ciphertext" />
+    <replacement key="$StringEncoder$" value="StringEncoder" />
+    <replacement key="$StringDecoder$" value="StringDecoder" />
+    <replacement key="$Decrypt$" value="Decrypt" />
+    <replacement key="$Encrypt$" value="Encrypt" />
+    <replacement key="$CS KeyGen$" value="CS Key Generator" />
+    <replacement key="$CS Encaps$" value="CS Encaps" />
+    <replacement key="$CS Decaps$" value="CS Decaps" />
+    <replacement key="$text$" value="Cramer-Shoup is an asymmetric key encryption algorithm based on ElGamal. Cramer-Shoup was presented by Ronald Cramer and Victor Shoup in 1998. It was the first efficient cryptosystem against adaptive chosen ciphertext attacks. In comparison to ElGamal, Cramer-Shoup is extended to ensure non-mallebility even against a resourceful attacker. This non-malleability is achieved through the use of a universal one-way hash function and additional computations, resulting in a ciphertext which is twice as large as in ElGamal."/>
+    <replacement key="$memo$" value="{\b Cramer-Shoup} is a public-key encryption algorithm based on ElGamal.\line\line This example shows a possible hybrid scheme for Cramer-Shoup with EAX-AES." />    
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Cramer-Shoup mit AES</title>
+  <summary lang="de">Benutzung der <i>Cramer-Shoup</i>-Chiffre mit AES</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Cramer-Shoup</i>-Chiffre mit AES.</description>
+  <keywords lang="de">asymmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Decrypted Ciphertext$" value="Entschlüsselter Geheimtext" />
+    <replacement key="$StringEncoder$" value="String-Codierer" />
+    <replacement key="$StringDecoder$" value="String-Decodierer" />
+    <replacement key="$Decrypt$" value="Entschlüsselung" />
+    <replacement key="$Encrypt$" value="Verschlüsselung" />
+    <replacement key="$CS KeyGen$" value="CS-Schlüsselgenerator" />
+    <replacement key="$CS Encaps$" value="CS-Encaps" />
+    <replacement key="$CS Decaps$" value="CS-Decaps" />
+    <replacement key="$text$" value="Cramer-Shoup ist ein asymmetrischer Verschlüsselungsalgorithmus, der auf ElGamal basiert. Cramer-Shoup wurde von Ronald Cramer und Victor Shoup im Jahr 1998 vorgestellt. Es war das erste effiziente Kryptosystem gegen adaptive chosen ciphertext attacks. Im Vergleich zu ElGamal ist Cramer-Shoup so erweitert, dass es selbst gegen einen findigen Angreifer nicht mehr angreifbar ist. Diese Nicht-Angreifbarkeit wird durch die Verwendung einer universellen Einweg-Hash-Funktion und zusätzlicher Berechnungen erreicht, die zu einem doppelt so großen Geheimtext wie bei ElGamal führen."/>
+    <replacement key="$memo$" value="{\b Cramer-Shoup} ist ein asymmetrischer Verschlüsselungsalgorithmus, der auf ElGamal basiert. \line\line Dieses Beispiel zeigt ein mögliches Hybridschema für Cramer-Shoup mit EAX-AES." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="CS.png" />
+  <relevantPlugins>
+    <plugin name="CramerShoupKeyGenerator" />
+    <plugin name="CramerShoup" />
+    <plugin name="AES" />
+  </relevantPlugins>
+</sample>

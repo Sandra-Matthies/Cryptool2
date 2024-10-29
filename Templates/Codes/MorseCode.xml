@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: MorseCode.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Morse Code</title>
+  <summary lang="en">Shows how a morse code is encoded and decoded</summary>
+  <description lang="en">This template shows how a text is encoded to a morse code and how a morse code is decoded to a text.</description>
+  <keywords>morse code</keywords>
+  <replacements lang="en">
+    <replacement key="$Morse Encoder$" value="Morse Encoder" />
+    <replacement key="$Morse Decoder$" value="Morse Decoder" />
+    <replacement key="$Cleartext to send$" value="Plaintext to be sent" />
+    <replacement key="$Morse Code$" value="Morse code" />
+    <replacement key="$Decoded Morse Code$" value="Decoded Morse code" />
+    <replacement key="$memo$" value="This template demonstrates the usage of the Morse Code components.\line\line The component &quot;Morse Encoder&quot; encodes the given text into a morse code sequence. &quot;Morse Decoder&quot; decodes the given morse code from the &quot;Morse Encoder&quot; to plaintext.\line\line Both Morse code components are set to the International Morse Code\line Besides that, they also support the American Morse code, the Continental Morse code, and the Navy Morse code." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Morsecode</title>
+  <summary lang="de">Zeigt, wie Morsecode erstellt und decodiert wird</summary>
+  <description lang="de">Diese Vorlage zeigt die Codierung eines Textes in einen Morsecode und die Decodierung eines Morsecodes in einen Text.</description>
+  <keywords lang="de">Morsecode</keywords>
+  <replacements lang="de">
+    <replacement key="$Cleartext to send$" value="Zu sendender Klartext" />
+    <replacement key="$Morse Code$" value="Morsecode" />
+    <replacement key="$Decoded Morse Code$" value="Decodierter Morsecode" />
+    <replacement key="$Morse Encoder$" value="Morse-Codierer" />
+    <replacement key="$Morse Decoder$" value="Morse-Decodierer" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Verwendung der Morse-Komponenten.\line\line Die Komponente &quot;Morse-Codierer&quot; konvertiert den eingegebenen Text in eine Folge von Morsezeichen. &quot;Morse-Decodierer&quot; verwandelt den Morse-Code vom &quot;Morse-Codierer&quot; wieder in den Klartext zurück. \line\line Beide Morsecode-Komponenten sind auf den internationalen Morsecode eingestellt.\line Außerdem unterstützen sie den amerikanischen Morsecode, den kontinentalen Morsecode und den Navy-Morsecode." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="MorseCode.png" />
+  <relevantPlugins>
+    <plugin name="MorseCode" />
+  </relevantPlugins>
+</sample>

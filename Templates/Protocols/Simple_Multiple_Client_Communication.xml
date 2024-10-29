@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Simple_Multiple_Client_Communication.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Simple Multi Client Communication</title>
+  <summary lang="en">Usage of the <i>Simple Multi Client Communication</i></summary>
+  <description lang="en">The data packets will be transmitted asynchronously via the TCP/IP protocol.</description>
+  <keywords>protocol, asynchronous, tcp, tcp/ip</keywords>
+  <replacements lang="en">
+    <replacement key="$Network Sender$" value="Network Sender" />
+    <replacement key="$Network Receiver$" value="Network Receiver" />
+    <replacement key="$Text Input$" value="Text Input" />
+    <replacement key="$memo$" value="This template shows how to build a workspace which sends and receives multiple text messages over a network.\line \line Our three senders Alice, Bob, and Charlie each use three different Network Sender components to send a text message to the IP address 127.0.0.1 (localhost) to port 1234 using TCP/IP.\line \line The receiver Ronald, a Network Receiver component, receives all three messages and forwards these to the &quot;Received messages&quot; Text Output component, where all messages are concatenated.\line \line Each network sender uses an individual thread for sending, thus, the order of the received messages varies with each new execution of this workspace. This is a normal behavior when working with network communication. \line \line You may also test this using two different computers in your local network. Instead of using 127.0.0.1, you may enter the actual IP address of the receiver's computer. Then, you should also receive the messages from the other computer at the receiver's computer. " />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Einfache Multi-Client-Kommunikation</title>
+  <summary lang="de">Anwenden der <i>einfachen Multi-Client-Kommunikation</i></summary>
+  <description lang="de">Die Datenpakete werden asynchron mit dem TCP/IP-Protokoll übermittelt.</description>
+  <keywords lang="de">protokoll, asynchron, tcp, tcp/ip</keywords>
+  <replacements lang="de">
+    <replacement key="$Network Sender$" value="Netzwerk-Sender" />
+    <replacement key="$Network Receiver$" value="Netzwerk-Empfänger" />
+    <replacement key="$Text Input$" value="Texteingabe" />
+    <replacement key="$memo$" value="Diese Vorlage zeigt, wie Sie einen Arbeitsbereich erstellen, der mehrere Textnachrichten über ein Netzwerk sendet und empfängt. \line \line Unsere drei Sender Alice, Bob und Charlie verwenden jeweils drei verschiedene Netzwerksender-Komponenten, um eine Textnachricht mittels TCP/IP an die IP-Adresse 127.0.0.1 (localhost) an Port 1234 zu senden.\line \line Der Empfänger Ronald, eine Netzwerkempfänger-Komponente, empfängt alle drei Nachrichten und leitet diese an die &quot;Empfangenen Nachrichten&quot;-Textausgabekomponente weiter, in der alle Nachrichten angezeigt werden. \line \line Jeder Netzwerksender verwendet einen eigenen Thread zum Senden. Daher ändert sich die Reihenfolge der empfangenen Nachrichten mit jeder neuen Ausführung dieses Arbeitsbereichs. Dies ist ein normales Verhalten bei Netzwerkkommunikation. \line \line Sie können dies auch mit zwei verschiedenen Computern in Ihrem lokalen Netzwerk testen. Anstatt 127.0.0.1 zu verwenden, können Sie die tatsächliche IP-Adresse des Computers des Empfängers eingeben. Anschließend sollten Sie die Nachrichten am Computer des Empfängers empfangen." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Simple_Multiple_Client_Communication.png" />
+  <relevantPlugins>
+    <plugin name="NetworkInput" />
+    <plugin name="NetworkReceiver" />
+  </relevantPlugins>
+</sample>

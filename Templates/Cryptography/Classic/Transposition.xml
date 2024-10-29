@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Transposition.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Transposition Cipher</title>
+  <summary lang="en">Usage of the <i>Transposition</i> cipher</summary>
+  <description lang="en">In cryptography, a transposition cipher is a method of encryption by which the positions held by units of plaintext (which are commonly characters or groups of characters) are shifted according to a regular system, so that the ciphertext constitutes a permutation of the plaintext. That is, the order of the units is changed. Mathematically a bijective function is used on the characters' positions to encrypt and an inverse function to decrypt.<newline /><newline />
+Source: <external ref="http://en.wikipedia.org/wiki/Transposition_cipher" /></description>
+  <keywords>Transposition</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$Decrypted Ciphertext$" value="Decrypted Ciphertext" />
+    <replacement key="$Transposition (Encryption)$" value="Transposition (Encryption)" />
+    <replacement key="$Transposition (Decryption)$" value="Transposition (Decryption)" />
+    <replacement key="$text$" value="We were discovered, flee if you can" />
+    <replacement key="$memo$" value="This template demonstrates the use of the {\b Transposition Cipher Component} of CrypTool 2.\line
+The plaintext is entered into the plaintext TextInput component.\line
+\line
+The key is entered into the 'Key' TextInput. This is used for the encryption of the text. The first transposition cipher component then performs a columnar transposition that encrypts the text using the specified key. The encryption is performed live in the first transposition component and output in the ciphertext TextOutput component.\line
+\line
+Decryption is carried out by the second transposition cipher component in the reverse order and with the same key, so that the original plaintext is restored from the encrypted text. This is then available in the decrypted ciphertext TextOutput component." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Transpositions-Chiffre</title>
+  <summary lang="de">Benutzung der <i>Transpositions</i>-Chiffre</summary>
+  <description lang="de">In der Kryptografie ist die Transposition eine der beiden grundlegenden Verschlüsselungsklassen. Dabei werden die Zeichen einer Botschaft (des Klartextes) umsortiert. Jedes Zeichen bleibt zwar unverändert erhalten, jedoch wird die Stelle, an der es steht, geändert. Dies steht im Gegensatz zu der Klasse der (monoalphabetischen oder polyalphabetischen) Substitution, bei der jedes Zeichen des Klartextes zwar seinen Platz behält, jedoch durch ein anderes Zeichen ersetzt („substituiert“) wird.<newline /><newline />
+Quelle: <external ref="http://de.wikipedia.org/wiki/Transposition_(Kryptografie)" /></description>
+  <keywords lang="de">Transposition</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$Decrypted Ciphertext$" value="Entschlüsselter Geheimtext" />
+    <replacement key="$Transposition (Encryption)$" value="Transposition (Verschlüsselung)" />
+    <replacement key="$Transposition (Decryption)$" value="Transposition (Entschlüsselung)" />
+    <replacement key="$text$" value="Wir wurden entdeckt, flieh wenn du kannst" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert den Einsatz der {\b Transpositionschiffre-Komponente} von CrypTool 2.\line
+\line
+Der Klartext steht in der Klartext-TexteingabeKomponente. Der Schlüssel steht in der 'Schlüssel'-Texteingabe. Dieser wird für die Verschlüsselung des Textes verwendet wird. Die erste Transpositionschiffre-Komponente führt dann eine Spaltentransposition durch, die den Text unter Verwendung des angegebenen Schlüssels verschlüsselt. Die Verschlüsselung wird in der ersten Transpositionschiffre-Komponente live durchgeführt und in der Geheimtext-Textausgabe-Komponente ausgegeben.\line
+\line
+Die Entschlüsselung erfolgt durch die zweite Transpositions-Komponente in umgekehrter Reihenfolge und dem selben Schlüssel, sodass der ursprüngliche Klartext aus dem verschlüsselten Text wiederhergestellt wird. Dieser steht dann in der Entschlüsselter-Geheimtext-Textsausgabe-Komponente." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Transposition.png" />
+  <relevantPlugins>
+    <plugin name="Transposition" />
+  </relevantPlugins>
+</sample>

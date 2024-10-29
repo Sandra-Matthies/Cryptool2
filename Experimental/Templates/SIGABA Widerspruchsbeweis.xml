@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SIGABA Widerspruchsbeweis.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">SIGABA Contraposition Analysis</title>
+  <summary lang="en">Cryptanalysis of the <i>SIGABA</i> using contraposition</summary>
+  <description lang="en">This template shows the cryptanalysis of the <i>SIGABA</i> using contraposition.</description>
+  <keywords>SGIABA, USA, Navy</keywords>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">SIGABA Widerspruchs-Analyse</title>
+  <summary lang="de">Kryptoanalyse der <i>SIGABA</i> mit dem Widerspruchsverfahren</summary>
+  <description lang="de">Diese Vorlage zeigt die Kryptoanalyse der <i>SIGABA</i> mit dem Widerspruchsverfahren.</description>
+  <keywords lang="de">SIGABA, USA, Navy</keywords>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SIGABA Widerspruchsbeweis.png" />
+  <relevantPlugins>
+    <plugin name="TextInput" />
+    <plugin name="TextOutput" />
+    <plugin name="KeySearcher" />
+    <plugin name="Sigaba" />
+    <plugin name="SigabaKnownPlaintext" />
+  </relevantPlugins>
+</sample>

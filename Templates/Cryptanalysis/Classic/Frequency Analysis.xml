@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Frequency Analysis.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Frequency Analysis</title>
+  <summary lang="en">Usage of the <i>Frequency Analysis</i></summary>
+  <description lang="en">This template shows the usage of the <i>Frequency Analysis</i> component.</description>
+  <keywords>frequency, letters, language, Attack, Analysis, grams</keywords>
+  <replacements lang="en">
+    <replacement key="$Text$" value="Text" />
+    <replacement key="$Unigrams$" value="Unigrams" />
+    <replacement key="$Bigrams$" value="Bigrams" />
+    <replacement key="$memo$" value="Frequency analysis is a cryptanalytic method. Statistical properties of the encrypted text are used to draw conclusions about the unencrypted message.\line \line In this template, the distribution of the unigrams and the distribution of the bigrams of plaintext are shown using two frequency analysis components. Only the 30 most common bigrams are shown. This number can be changed in the component settings." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Häufigkeitsanalyse</title>
+  <summary lang="de">Benutzung der <i>Häufigkeitsanalyse</i></summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der Häufigkeitsanalyse.</description>
+  <keywords lang="de">Häufigkeit, Frequenz, Buchstaben, Sprache, Angriff, Analyse, Gramme</keywords>
+  <replacements lang="de">
+    <replacement key="$Text$" value="Text" />
+    <replacement key="$Unigrams$" value="Unigramme" />
+    <replacement key="$Bigrams$" value="Bigramme" />
+    <replacement key="$memo$" value="Die Häufigkeitsanalyse ist eine Methode der Kryptoanalyse. Dabei werden statistische Eigenschaften des verschlüsselten Textes ausgenutzt, um Rückschlüsse auf die unverschlüsselte Nachricht zu ziehen. \line \line In dieser Vorlage werden mittels zweier Häufigkeitsanalyse-Komponenten die Verteilung der Unigramme sowie die Verteilung der Bigramme eines Klartextes gezeigt. Bei den Bigrammen werden nur die 30 häufigsten Bigramme angezeigt. Die Anzahl kann in den Einstellungen der Komponente geändert werden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Frequency Analysis.png" />
+  <relevantPlugins>
+    <plugin name="FrequencyTest" />
+  </relevantPlugins>
+</sample>

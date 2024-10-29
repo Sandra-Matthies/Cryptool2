@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: RandomDecimalNumber.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Random Decimal Number</title>
+  <summary lang="en">Generating a <i>random decimal number</i></summary>
+  <description lang="en">With this template you can create a random decimal number. To do so, first a set of random bytes (preset to <i>1000</i>) is generated. These bytes are then used by the <b>Decimalization</b> component to generate a random number with a certain amount of decimal digits (preset to <i>100</i>). The decimalization component is set to use the <i>modulo</i> approach to generate the random decimal number. For further details, please read the help page for the decimalization component.</description>
+  <keywords>Random, Number, Decimal</keywords>
+  <replacements lang="en">
+    <replacement key="$Random input$" value="Random input" />
+    <replacement key="$Decimalisation$" value="Decimalization" />
+    <replacement key="$Random decimal number$" value="Random decimal number" />
+    <replacement key="$memo$" value="With this template you can create a random decimal number. To do so, first a set of random bytes (preset to 1000) is generated. These bytes are then used by the {\b Decimalization} component to generate a random number with a certain amount of decimal digits (preset to 100). The decimalization component is set to use the modulo approach to generate the random decimal number. For further details, please read the help page for the decimalization component." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Zufällige Dezimalzahl</title>
+  <summary lang="de">Erzeugen einer <i>zufälligen Dezimalzahl</i></summary>
+  <description lang="de">Mit dieser Vorlage können Sie eine zufällige Dezimalzahl erstellen. Dafür werden zunächst eine Menge von zufälligen Bytes erstellt (voreingestellt auf <i>1000</i>). Diese Bytes werden anschließend mit Hilfer der <b>Dezimalisierungs</b>-Komponente auf Basis der <i>Modulo</i>-Methode in eine Dezimalzahl mit fester Anzahl von Stellen (voreingestellt auf <i>100</i>) umgewandelt. Weitere Details zu diesem Ansatz finden Sie in der Hilfe zur Dezimalisierungs-Komponente.</description>
+  <keywords lang="de">Zufall, Zahl, Dezimal</keywords>
+  <replacements lang="de">
+    <replacement key="$Random input$" value="Zufallseingabe" />
+    <replacement key="$Decimalisation$" value="Dezimalisierung" />
+    <replacement key="$Random decimal number$" value="Zufällige Dezimalzahl" />
+    <replacement key="$memo$" value="Mit dieser Vorlage kann eine zufällige Dezimalzahl erzeugt werden. Dazu wird zuerst eine Folge von zufälligen Bytes generiert (voreingestellt sind 1000 Bytes). Diese Bytes werden dann von der {\b Dezimalisierungs}-Komponente in eine Dezimalzahl mit einer angegebenen Zahl von Stellen konvertiert (voreingestellt sind 100 Dezimalstellen). Die Dezimalisierungs-Komponente verwendet in der Grundeinstellung die Modulo-Methode, um die zufällige Dezimalzahl zu erzeugen. Weitere Details zu den Einstellungsmöglichkeiten stehen in der Dokumentation der Komponente." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="RandomDecimalNumber.png" />
+  <relevantPlugins>
+    <plugin name="Decimalization" />
+    <plugin name="RandomNumberGenerator" />
+  </relevantPlugins>
+</sample>

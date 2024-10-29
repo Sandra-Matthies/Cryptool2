@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Chaocipher.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Chaocipher</title>
+  <summary lang="de">Einfache Ver- und Entschlüsselung mit dem <i>Chaocipher</i>-Verfahren</summary>
+  <description lang="de">Diese Vorlage zeigt einen einfachen Ver- und Entschlüsselungsprozess mit der Chaocipher. Das Verfahren basiert auf zwei Scheiben, die, durch Zahnräder verbunden, sich gegenläufig drehen. Die Buchstabenanordnung auf den Scheiben wird nach jedem Zeichen vertauscht.</description>
+  <keywords lang="de">Chaocipher, John F. Byrne, Scheiben, Substitution</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$key$" value="Schlüssel" />
+    <replacement key="$encipheredPlaintext$" value="Entschlüsselter Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$example$" value="cryptool" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Funktionsweise des Chaocipher-Verfahrens.\line\line Dieses Verfahren wurde im 20. Jahrhundert entwickelt, jedoch wurde es erst im Jahre 2010 durch die Erben des Erfinders öffentlich zugänglich gemacht.\line\line Das Verfahren basiert auf zwei Scheiben, die in der Visualisierung der Komponente dargestellt werden. Auf der rechten Seite der Visualisierung werden die durchgeführten Schritte beschrieben. Die Zeichenanordnungen auf den Scheiben kann über den Schlüssel bestimmt werden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Chaocipher</title>
+  <summary lang="en">Simple encryption and decryption with the <i>Chaocipher</i> method</summary>
+  <description lang="en">This template shows a simple encryption and decryption process with the Chaocipher. The process is based on two disks that, connected by gears, rotate in opposite directions. The arrangement of letters on the disks is reversed after each character.</description>
+  <keywords>Chaocipher, John F. Byrne, slices, substitution</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$key$" value="Key" />
+    <replacement key="$encipheredPlaintext$" value="Decrypted plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$example$" value="cryptool" />
+    <replacement key="$memo$" value="This template demonstrates how the Chaocipher process works.\line\line This method was developed in the 20th century, but it was only made publicly available in 2010 by the inventor's heirs.\line\line The procedure is based on two slices, which are shown in the visualization of the component. On the right side of the visualization the performed steps are described. The character arrangements on the slices can be determined via the key." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Chaocipher.png" />
+  <relevantPlugins>
+    <plugin name="Chaocipher" />
+  </relevantPlugins>
+</sample>

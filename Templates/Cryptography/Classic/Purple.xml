@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Purple.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">PURPLE Cipher Machine</title>
+  <summary lang="en">Usage of the <i>PURPLE</i> cipher machine</summary>
+  <description lang="en">This template shows the usage of the <i>PURPLE</i> cipher machine.<newline /><newline />
+Source: <external ref="http://en.wikipedia.org/wiki/Purple_(cipher_machine)" /></description>
+  <keywords>japan, angooki, angoki, machine, World War</keywords>
+  <replacements lang="en">
+    <replacement key="$Ciphertext$" value="Ciphertext (same as in the template on the left)" />
+    <replacement key="$Revealed Plaintext$" value="Revealed Plaintext" />
+    <replacement key="$memo$" value="This template demonstrates the decipherment of the famous &quot;Nomura Note&quot;, which was encoded with the Japanese cipher machine PURPLE. It was delivered from Tokio to the Japanese ambassador in the United States one day before the attack on Pearl Harbor." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">PURPLE-Chiffre</title>
+  <summary lang="de">Benutzung der <i>PURPLE</i>-Chiffriermaschine</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>PURPLE</i>-Chiffriermaschine.<newline /><newline />
+Quelle: <external ref="http://de.wikipedia.org/wiki/PURPLE" /></description>
+  <keywords lang="de">Japan, Angooki, Angoki, Maschine, Weltkrieg</keywords>
+  <replacements lang="de">
+    <replacement key="$Ciphertext$" value="Geheimtext (der gleiche Text wie in der Vorlage links)" />
+    <replacement key="$Revealed Plaintext$" value="Entschlüsselter Klartext" />
+    <replacement key="$memo$" value="Diese Vorlage zeigt die Entschlüsselung der berühmten &quot;Nomura Note&quot;, die mit der japanischen Chiffriermaschine PURPLE verschlüsselt wurde. Sie wurde von Tokio an den japanischen Botschafter in den Vereinigten Staaten geschickt, einen Tag vor dem Angriff auf Pearl Harbor." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Purple.png" />
+  <relevantPlugins>
+    <plugin name="Purple" />
+  </relevantPlugins>
+</sample>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SolitaireAnalyzer.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Solitaire Brute-Force Analysis</title>
+  <summary lang="en">Cryptanalysis of the <i>Solitaire</i> cipher using brute-force</summary>
+  <description lang="en">This template shows how to analyse a ciphertext encrypted with the <i>Solitaire</i> cipher using a dictionary attack. Any dictionary can be used for both the keywords to try as well as for the word recognition.</description>
+  <keywords>Dictionary, Analysis, Attack</keywords>
+  <replacements lang="en">
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Revealed Plaintext$" value="Revealed Plaintext" />
+    <replacement key="$Keyword$" value="Keyword" />
+    <replacement key="$Word dictionary$" value="Word dictionary" />
+    <replacement key="$Key dictionary$" value="Key dictionary" />
+    <replacement key="$SolitaireAnalyser$" value="SolitaireAnalyzer" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Solitaire Brute-Force-Analyse</title>
+  <summary lang="de">Kryptoanalyse der <i>Solitaire</i>-Verschlüsselung mit Brute-Force</summary>
+  <description lang="de">Diese Vorlage zeigt, wie ein mit der <i>Solitaire</i>-Verschlüsselung verschlüsselter Text mit einem Wörterbuch-Angriff analysiert werden kann. Die Wörterbücher für die zu testenden Schlüsselwörter und für die Texterkennung können frei gewählt werden.</description>
+  <keywords lang="de">Wörterbuch, Angriff</keywords>
+  <replacements lang="de">
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Revealed Plaintext$" value="Entschlüsselter Klartext" />
+    <replacement key="$Keyword$" value="Schlüsselwort" />
+    <replacement key="$Word dictionary$" value="Nachrichten-Wörterbuch" />
+    <replacement key="$Key dictionary$" value="Schlüssel-Wörterbuch" />
+    <replacement key="$SolitaireAnalyser$" value="Solitaire-Analysierer" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="solitaireanalyzer.jpg" />
+  <relevantPlugins>
+    <plugin name="CrypToolDictionary" />
+    <plugin name="SolitaireAnalyser" />
+  </relevantPlugins>
+</sample>

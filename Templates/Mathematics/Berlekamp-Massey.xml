@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Berlekamp-Massey.xml-->
+  <!--Last edited: 2024.02.09-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Berlekamp-Massey</title>
+  <summary lang="en">Usage of the <i>Berlekamp-Massey</i> component</summary>
+  <description lang="en">This template shows the usage of the <i>Berlekamp-Massey</i> component. The <i>Berlekamp-Massey</i> algorithm is an algorithm that will find the shortest linear feedback shift register (LFSR) for a given binary output sequence.</description>
+  <keywords>Berlekamp-Massey, feedback, shift, register, minimal</keywords>
+  <replacements lang="en">
+    <replacement key="$Input Sequence$" value="Input Sequence" />
+    <replacement key="$Minimal Length$" value="Minimal Length" />
+    <replacement key="$Feedback Polynomial$" value="Feedback Polynomial" />
+    <replacement key="$memo$" value="The {\b Berlekamp-Massey} algorithm finds the shortest linear feedback shift register (LFSR) for a given binary output sequence. 
+The algorithm also finds the minimal polynomial of a linear recurrent sequence in an arbitrary field.
+\line\line 
+See: https://en.wikipedia.org/wiki/Berlekamp-Massey_algorithm" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Berlekamp-Massey</title>
+  <summary lang="de">Benutzung der <i>Berlekamp-Massey</i>-Komponente</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Berlekamp-Massey</i>-Komponente. Der <i>Berlekamp-Massey</i>-Algorithmus dient dazu, das kürzeste linear rückgekoppelte Schieberegister (LFSR) zu finden, das eine gegebene Folge von Nullen und Einsen ausgibt.</description>
+  <keywords lang="de">Berlekamp-Massey, rückkopplung</keywords>
+  <replacements lang="de">
+    <replacement key="$Input Sequence$" value="Eingabe-Sequenz" />
+    <replacement key="$Minimal Length$" value="Minimale Länge" />
+    <replacement key="$Feedback Polynomial$" value="Feedback-Polynom" />
+    <replacement key="$memo$" value="Der {\b Berlekamp-Massey-Algorithmus} findet das kürzeste lineare Rückkopplungs-Schieberegister (LFSR) für eine gegebene binäre Ausgabesequenz. Der Algorithmus findet auch das Minimalpolynom einer linear-rekurrenten Sequenz in einem beliebigen Feld.
+\line
+\line
+Siehe auch:
+\line
+https://de.wikipedia.org/wiki/Berlekamp-Massey-Algorithmus\line
+http://www.informationsuebertragung.ch/indexAlgorithmen.html" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Berlekamp-Massey.png" />
+  <relevantPlugins>
+    <plugin name="BerlekampMassey" />
+  </relevantPlugins>
+</sample>

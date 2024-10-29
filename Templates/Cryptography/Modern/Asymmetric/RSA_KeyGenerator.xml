@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: RSA_KeyGenerator.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">RSA Key Generator</title>
+  <summary lang="en">Usage of the <i>RSA Key Generator</i></summary>
+  <description lang="en">The RSA Key Generator generates random prime numbers p and q and the public key (N,e) and the private key d.</description>
+  <keywords>Adleman, Shamir, PKI, Rivest, public key, asymmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$RSAKeyGenerator$" value="RSA KeyGenerator" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">RSA-Schlüsselgenerator</title>
+  <summary lang="de">Benutzung des <i>RSA-Schüsselgenerators</i></summary>
+  <description lang="de">Der RSA-Schlüsselgenerator generiert zufällig Primzahlen p und q sowie den öffentlichen Schlüssel (N,e) und den privaten Schlüssel d.</description>
+  <keywords lang="de">Adleman, Shamir, PKI, Rivest, public key, asymmetrisch, öffentlicher Schlüssel</keywords>
+  <replacements lang="de">
+    <replacement key="$RSAKeyGenerator$" value="RSA-Schlüsselgenerator" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="RSA_KeyGenerator.png" />
+  <relevantPlugins>
+    <plugin name="RSAKeyGenerator" />
+  </relevantPlugins>
+</sample>

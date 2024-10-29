@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Sosemanuk.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Sosemanuk Cipher</title>
+  <summary lang="en">Usage of the <i>Sosemanuk</i> cipher</summary>
+  <description lang="en">This template shows the usage of the <i>Sosemanuk</i> cipher.</description>
+  <keywords>estream, stream, symmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$StringDecoder$" value="StringDecoder" />
+    <replacement key="$memo$" value="Sosemanuk is a streamcipher. The Sosemanuk component generates a keystream and encrypts a plaintext by XORing the input with the keystream. To demonstrate the correctness of the component, in this example the input is chosen to be exactly the keystream that the component should generate for the given key and IV. As XORing a byte with itself gives zero, XORing the input with the keystream should produce a sequence of zero bytes." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Sosemanuk-Chiffre</title>
+  <summary lang="de">Benutzung der <i>Sosemanuk</i>-Chiffre</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Sosemanuk</i>-Chiffre.</description>
+  <keywords lang="de">estream, stromchiffre, symmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$StringDecoder$" value="String-Decodierer" />
+    <replacement key="$memo$" value="Sosemanuk ist eine Stromchiffre. Die Sosemanuk-Komponente erzeugt einen Schlüsselstrom und verschlüsselt den Klartext, indem sie ihn mit dem Schlüsselstrom XOR-verknüpft. Um die Korrektheit der Komponente zu demonstrieren, wird in diesem Beispiel die Eingabe gerade so gewählt, dass sie dem Schlüsselstrom entspricht, den die Komponente mit dem angegebenen Schlüssel und IV erzeugen müsste. Da die XOR-Verknüpfung eines Bytes mit sich selbst Null ergibt, muss die Komponente eine Folge von Nullbytes ausgeben." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Sosemanuk.jpg" />
+  <relevantPlugins>
+    <plugin name="Sosemanuk" />
+  </relevantPlugins>
+</sample>

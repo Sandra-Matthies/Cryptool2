@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Salsa20.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Salsa20 Cipher</title>
+  <summary lang="en">Usage of the <i>Salsa20</i> cipher</summary>
+  <description lang="en">This template shows the usage of the <i>Salsa20</i> cipher.</description>
+  <keywords>estream, stream, symmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext (Hex)" />
+    <replacement key="$Ciphertext$" value="Ciphertext (Hex)" />
+    <replacement key="$Key$" value="Key (Hex)" />
+    <replacement key="$StringDecoder$" value="StringDecoder" />
+    <replacement key="$memo$" value="Salsa20 is a streamcipher. The Salsa20 component generates a keystream and encrypts a plaintext by XORing the input with the keystream. To demonstrate the correctness of the component, in this example the input is chosen to be exactly the keystream that the component should generate for the given key and IV. As XORing a byte with itself gives zero, XORing the input with the keystream should produce a sequence of zero bytes." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Salsa20-Chiffre</title>
+  <summary lang="de">Benutzung der <i>Salsa20</i>-Chiffre</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Salsa20</i>-Chiffre.</description>
+  <keywords lang="de">estream, stromchiffre, symmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext (Hex)" />
+    <replacement key="$Ciphertext$" value="Geheimtext (Hex)" />
+    <replacement key="$Key$" value="Schlüssel (Hex)" />
+    <replacement key="$StringDecoder$" value="String-Decodierer" />
+    <replacement key="$memo$" value="Salsa20 ist eine Stromchiffre. Die Salsa20-Komponente erzeugt einen Schlüsselstrom und verschlüsselt den Klartext, indem sie ihn mit dem Schlüsselstrom XOR-verknüpft. Um die Korrektheit der Komponente zu demonstrieren, wird in diesem Beispiel die Eingabe gerade so gewählt, dass sie dem Schlüsselstrom entspricht, den die Komponente mit dem angegebenen Schlüssel und IV erzeugen müsste. Da die XOR-Verknüpfung eines Bytes mit sich selbst Null ergibt, muss die Komponente eine Folge von Nullbytes ausgeben." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Salsa20.png" />
+  <relevantPlugins>
+    <plugin name="Salsa20" />
+  </relevantPlugins>
+</sample>

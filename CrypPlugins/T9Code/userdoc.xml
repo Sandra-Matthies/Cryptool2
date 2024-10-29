@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- You can edit this file manually or with the Util/CrypDocumentationEditor -->
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en">
+    The T9 code is a coding inspired by the layout of keyboards on old cell phones. Cell phone keypads contain the letters a-z on keys 2-9, with the letters mostly grouped into groups of three letters each. The keys 7 and 9 are an exception to this; instead of three, four letters are listed on them. <ref id="Kuhlemann" /></introduction>
+  <introduction lang="de-DE">
+    Der T9-Code ist eine Codierung, die durch das Layout von Tastaturen auf alten Handys inspiriert ist. Tastaturen von Mobiltelefonen enthalten auf den Tasten 2-9 die Buchstaben a-z, wobei die Buchstaben zumeist in Gruppen zu je drei Buchstaben zusammengefasst sind. Eine Ausnahme davon stellen die Tasten 7 und 9 dar, auf ihnen sind statt drei, vier Buchstaben gelistet.  <ref id="Kuhlemann" /></introduction>
+  <usage lang="de-DE">
+    Nachdem Sie die T9-Code-Komponente auf den Arbeitsbereich gezogen haben, müssen Sie zum Codieren eine Datenquelle mit dem Eingang 'Texteingabe' verbinden und den Ausgang mit einer Textausgabe-Komponente. Danach können Sie die Ausführung der Komponente starten.<newline /><newline />
+
+    Um die Decodierung der Komponenten nutzen zu können, müssen Sie eine Wörterbuch-Komponente Ihrem Arbeitsbereich hinzufügen. Diese Komponente muss mit dem zweiten Eingang verbunden werden. Außerdem müssen Sie in den Einstellungen der Komponente den Modus auf 'Decodieren' ändern und die Sprache des Wörterbuches auswählen. Bitte beachten Sie, dass das initiale Starten der Komponente in diesem Modus einige Sekunden dauern kann.
+  </usage>
+  <usage lang="en">
+    After dragging the T9 code component onto the workspace, you need to connect a data source to the 'Text input' input and the output to a text output component for coding. After that you can start the execution of the component.<newline /><newline />
+
+    To be able to use component decoding, you need to add a dictionary component to your workspace. This component must be connected to the second input. You also need to change the mode to 'Decode' in the component's settings and select the dictionary language. Please note that initial startup of the component in this mode may take a few seconds.
+  </usage>
+  <presentation lang="de-DE">
+    Die Präsentation stellt ein generisches Mobiltelefon dar, wie es früher typischerweise für Eingaben auf Basis des T9-Codes verwendete. Über die Präsentation können Zahlen zum Dekodieren eingegeben werden. Diese Zahlen werden dann durch die Komponente dekodierte und am Ausgang der Komponente ausgegeben. Es können alle Zahlen sowie
+  </presentation>
+  <presentation lang="en">
+    The presentation represents a generic cell phone as typically used in the past for inputs based on the T9 code. Numbers can be entered via the presentation for decoding. These numbers are then decoded by the component and output at the component's output.
+  </presentation>
+  <references>
+    <linkReference id="Kuhlemann">
+      <link url="https://kryptografie.de/kryptografie/chiffre/handy.htm" lang="de-DE" />
+      <caption lang="de-DE">Weitere Informationen über den T9-Code.</caption>
+      <link url="https://kryptografie.de/kryptografie/chiffre/handy.htm" lang="ru" />
+      <caption lang="ru">Дополнительная информация о коде T9.</caption>
+      <link url="https://kryptografie.de/kryptografie/chiffre/handy.htm" lang="en" />
+      <caption lang="en">More information about the T9 code.</caption>
+      <link url="https://kryptografie.de/kryptografie/chiffre/handy.htm" lang="zh-CN" />
+      <caption lang="zh-CN">关于T9代码的更多信息。</caption>
+    </linkReference>
+  </references>
+</documentation>

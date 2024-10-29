@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: TakePicture.xml-->
+  <!--Last edited: 2021.04.30-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Take a Picture Using the Webcam</title>
+  <summary lang="en">Take a Picture using the webcam</summary>
+  <description lang="en">This template shows how to take a picture with the camera component and the webcam (e.g. for scanning a QR code).</description>
+  <keywords>picture, photo, camera</keywords>
+  <replacements lang="en">
+    <replacement key="$Take Picture$" value="Take Picture" />
+    <replacement key="$Camera$" value="Camera" />
+    <replacement key="$Picture Output$" value="Picture Output" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Foto erstellen</title>
+  <summary lang="de">Ein Foto mit der Webcam erstellen</summary>
+  <description lang="de">Diese Vorlage zeigt das Erstellen eines Fotos mittels der Kamerakomponente und der Webcam (z.B. um einen QR-Code zu scannen).</description>
+  <keywords lang="de">kamera, foto</keywords>
+  <replacements lang="de">
+    <replacement key="$Take Picture$" value="Bild aufnehmen" />
+    <replacement key="$Camera$" value="Kamera" />
+    <replacement key="$Picture Output$" value="Bildausgabe" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="TakePicture.png" />
+  <relevantPlugins>
+    <plugin name="BooleanInput" />
+    <plugin name="PictureOutput" />
+    <plugin name="Webcam" />
+  </relevantPlugins>
+</sample>

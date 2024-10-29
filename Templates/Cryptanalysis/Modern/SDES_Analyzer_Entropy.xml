@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: S-DES_Analyzer_Entropy.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">S-DES Analysis Using Entropy</title>
+  <summary lang="en">Cryptanalysis of the <i>S-DES</i> algorithm using the <i>KeySearcher</i> component and an entropy function</summary>
+  <description lang="en">This template shows the cryptanalysis of the <i>S-DES</i> algorithm using the <i>KeySearcher</i> component and an entropy function.</description>
+  <keywords>advanced, standard, NIST, Rijndael, Daemen, Rijmen, symmetric, keysearcher, Attack, Analysis</keywords>
+  <replacements lang="en">
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Revealed Plaintext$" value="Revealed Plaintext" />
+    <replacement key="$Key$" value="Best key found yet" />
+    <replacement key="$KeySearcher$" value="KeySearcher" />
+    <replacement key="$StringDecoder$" value="String Decoder" />
+    <replacement key="$StringEncoder$" value="String Encoder" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">S-DES-Analyse per Entropie</title>
+  <summary lang="de">Kryptoanalyse der <i>S-DES</i>-Verschlüsselung mittels der <i>KeySearcher</i>-Komponente und einer Entropie-Funktion</summary>
+  <description lang="de">Diese Vorlage zeigt die Kryptoanalyse der <i>S-DES</i>-Verschlüsselung mittels der <i>KeySearcher</i>-Komponente und einer Entropie-Funktion.</description>
+  <keywords lang="de">symmetrisch, NIST, Rijndael, Daemen, Rijmen, Standard, Keysearcher, Angriff</keywords>
+  <replacements lang="de">
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Revealed Plaintext$" value="Entschlüsselter Klartext" />
+    <replacement key="$Key$" value="Bester gefundener Schlüssel" />
+    <replacement key="$KeySearcher$" value="Schlüsselsuche" />
+    <replacement key="$StringDecoder$" value="String-Dekodierer" />
+    <replacement key="$StringEncoder$" value="String-Kodierer" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SDES.png" />
+  <relevantPlugins>
+    <plugin name="CostFunction" />
+    <plugin name="KeySearcher" />
+    <plugin name="SDES" />
+  </relevantPlugins>
+</sample>

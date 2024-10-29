@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: TripleDES.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Triple DES Cipher</title>
+  <summary lang="en">Usage of the <i>DES</i> cipher for Triple DES</summary>
+  <description lang="en">This template shows the usage of the <i>DES</i> cipher for Triple DES.</description>
+  <keywords>symmetric, standard, 56, NSA</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext (Hex)" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$StringEncoder$" value="StringEncoder" />
+    <replacement key="$StringDecoder$" value="StringDecoder" />
+    <replacement key="$Decrypted_Ciphertext$" value="Decrypted Ciphertext" />
+    <replacement key="$DES Encrypt$" value="DES Encrypt" />
+    <replacement key="$DES Decrypt$" value="DES Decrypt" />
+    <replacement key="$text$" value="Hello world! This is a test!" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Triple-DES-Chiffre</title>
+  <summary lang="de">Benutzung der <i>DES</i>-Chiffre für Triple-DES</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>DES</i>-Chiffre für Triple-DES.</description>
+  <keywords lang="de">symmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext (Hex)" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$StringEncoder$" value="String-Codierer" />
+    <replacement key="$StringDecoder$" value="String-Decodierer" />
+    <replacement key="$Decrypted Ciphertext$" value="Entschlüsselter Geheimtext" />
+    <replacement key="$DES Encrypt$" value="DES Verschlüsselung" />
+    <replacement key="$DES Decrypt$" value="DES Entschlüsselung" />
+    <replacement key="$text$" value="Hallo, Welt! Dies ist ein Test!" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="TripleDES.png" />
+  <relevantPlugins>
+    <plugin name="DES" />
+  </relevantPlugins>
+</sample>

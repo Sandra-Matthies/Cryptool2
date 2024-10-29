@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Cost Functions.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Cost Functions</title>
+  <summary lang="en">Usage of the <i>Cost Function</i> component</summary>
+  <description lang="en">This template shows, how the cost function component can be used to compute different cost values (index of coincedence, entropy, n-gram score)</description>
+  <keywords>Cost function, IoC, index of coincedence, entropy, n-grams, fitness</keywords>
+  <replacements lang="en">
+    <replacement key="$text$" value="Text" />
+    <replacement key="$string-decoder$" value="String-decoder" />
+    <replacement key="$cost function$" value="Cost function" />
+    <replacement key="$ioc$" value="IoC" />
+    <replacement key="$entropy$" value="Entropy" />
+    <replacement key="$n-grams$" value="n-gram score" />
+    <replacement key="$memo$" value="This template shows how the {\b cost function} component can be used to compute different cost functions for the given text.\line \line First, the index of coincedence (IoC) is calculated. Second, the Shannon entropy is calculated. Finally, the sum of log n-grams, in this case bigrams, is computed.\line\line
+Cost functions are used in heuristic algorithms like hill climbing and simulated annealing to rate a given key during the analysis. The closer the decrypted text comes to a real text, the &quot;higher&quot; the cost value is." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Kostenfunktionen</title>
+  <summary lang="de">Verwendung der <i>Kostenfunktion</i>-Komponente</summary>
+  <description lang="de">Diese Vorlage zeigt, wie die Kostenfunktion-Komponente verwendet werden kann, um verschiedene Kostenwerte zu berechnen (Koinzidenzindex, Entropie, n-Gramm-Score)</description>
+  <keywords lang="de">Kostenfunktion, IoC, Koinzidenzindex, Entropie, n-Gramme</keywords>
+  <replacements lang="de">
+    <replacement key="$text$" value="Text" />
+    <replacement key="$string-decoder$" value="String-Decodierer" />
+    <replacement key="$cost function$" value="Kostenfunktion" />
+    <replacement key="$ioc$" value="IoC" />
+    <replacement key="$entropy$" value="Entropie" />
+    <replacement key="$n-grams$" value="n-Gramm-Summe" />
+    <replacement key="$memo$" value="Diese Vorlage zeigt, wie mit der {\b Kostenfunktionskomponente} verschiedene Kostenfunktionen für den gegebenen Text berechnet werden können.\line \line Zunächst wird der Koinzidenzindex  (IoC) berechnet. Zweitens wird die Shannon-Entropie berechnet. Schließlich wird die Summe von log-n-Grammen, in diesem Fall Bigrammen, berechnet.\line\line
+Kostenfunktionen werden in heuristischen Algorithmen wie Hill Climbing und Simulated Annealing verwendet, um einen bestimmten Schlüssel während der Analyse zu bewerten. Je näher der entschlüsselte Text an einen echten Text herankommt, desto höher ist der Kostenwert." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Cost Function.png" />
+  <relevantPlugins>
+    <plugin name="CostFunction" />
+  </relevantPlugins>
+</sample>

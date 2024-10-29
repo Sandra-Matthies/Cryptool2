@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Gematria.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Gematria</title>
+  <summary lang="en">Shows how to compute a gematria sum of a given text</summary>
+  <description lang="en">This template shows how the gematria sum of a given text (using Latin letters) can be computed.</description>
+  <keywords>gematria, alphanumeric, code, Hebrew, 数字, 字母数字, 代码, 希伯来语, гематрия, буквенно-цифровой, код, иврит, Gematrie, alphanumerisch, Code, Hebräisch</keywords>
+  <replacements lang="en">
+    <replacement key="$Text$" value="Text" />
+    <replacement key="$String operations$" value="String operations" />
+    <replacement key="$Source alphabet$" value="Source alphabet (Latin)" />
+    <replacement key="$Destination alphabet$" value="Destination alphabet (gematria numbers)" />
+    <replacement key="$Substitution$" value="Substitution" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Single gematria numbers$" value="Single gematria numbers" />
+    <replacement key="$Gate$" value="Gate" />
+    <replacement key="$Array indexer$" value="Array indexer" />
+    <replacement key="$Length$" value="Length" />
+    <replacement key="$Comparators$" value="Comparators" />
+    <replacement key="$Number operations$" value="Number operations" />
+    <replacement key="$Gematria sum$" value="Gematria sum" />
+    <replacement key="$Boolean input$" value="Boolean input" />
+    <replacement key="$memo$" value="{\b Gematria} is an alphanumeric code of assigning a numerical value to a name, word or phrase according to its letters. A single word can yield several values depending on the cipher used.\line \line Gematria is a Hebrew alphanumeric code or cipher that was probably used in biblical times and was later adopted by other cultures. It is still widely used in Jewish culture. Similar systems have been used in other languages and cultures: the Greeks isopsephy, and later, derived from or inspired by Hebrew gematria, Arabic abjad numerals, and English gematria. \line \line This template computes the gematria sum of a given text. In the example shown here, the phrase {\b IOSEPHUS IMPERATOR REGNAT AMORE ET TIMORE} is used. The phrase is based on the motto of Josep I. who was Holy Roman Emperor and ruler of the Austrian Habsburg Monarchy from 1705 until his death in 1711. Coincidently, the gematria sum of this sentence is 1705, which is the first year of Joseph's reign as Roman Emperor.\line \line To compute the gematria sum, a table is used, which maps all letters to numbers. Then, the sum over all these numbers is computed. Letters A to I are mapped to 1 to 9, letters K to S are mapped to 10 to 90, and letters T to Z are mapped to 100 to 600. In this Latin alphabet here, there is no letter J and there is no letter V." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Gematrie</title>
+  <summary lang="de">Zeigt, wie man eine Gematrie-Summe eines Textes berechnet</summary>
+  <description lang="de">Diese Vorlage zeigt, wie die Gematrie-Summe eines Textes (mit lateinischen Buchstaben) berechnet werden kann.</description>
+  <replacements lang="de">
+    <replacement key="$Text$" value="Text" />
+    <replacement key="$String operations$" value="Zeichenketten-Operationen" />
+    <replacement key="$Source alphabet$" value="Quellalphabet (Latein)" />
+    <replacement key="$Destination alphabet$" value="Zielalphabet (Gematrie-Zahlen)" />
+    <replacement key="$Substitution$" value="Substitution" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Single Gematrie numbers$" value="Einzelne Gematrie-Zahlen" />
+    <replacement key="$Gate$" value="Gate" />
+    <replacement key="$Array-Indexer$" value="Array-Indizierer" />
+    <replacement key="$Length$" value="Length" />
+    <replacement key="$Comparators$" value="Komparatoren" />
+    <replacement key="$Number operations$" value="Zahlenoperationen" />
+    <replacement key="$Gematrie sum$" value="Gematrie-Summe" />
+    <replacement key="$Boolean input$" value="Boolesche Eingabe" />
+    <replacement key="$memo$" value="{\b Gematrie} ist ein alphanumerischer Code, der einem Namen, Wort oder Satz anhand seiner Buchstaben einen numerischen Wert zuweist. Ein einzelnes Wort kann je nach verwendeter Chiffre mehrere Werte ergeben .\line \line Gematrie ist ein hebräischer alphanumerischer Code oder eine Chiffre, die wahrscheinlich in biblischen Zeiten verwendet und später von anderen Kulturen übernommen wurde. Es ist immer noch weit verbreitet in der jüdischen Kultur. Ähnliche Systeme wurden in anderen Sprachen und Kulturen verwendet: die Griechen Isopsephy, und später, abgeleitet oder inspiriert von hebräischer Gematrie, arabischen Abjad-Zahlen und englische Gematrie. \line \line Diese Vorlage berechnet die Gematrie-Summe eines gegebenen Textes. Im hier gezeigten Beispiel wird der Satz {\b IOSEPHUS IMPERATOR REGNAT AMORE ET TIMORE} verwendet. Der Satz basiert auf dem Motto von Josep I., der von 1705 bis zu seinem Tod im Jahr 1711 Kaiser des Heiligen Römischen Reiches und Herrscher der österreichischen Habsburgermonarchie war.\line \line Um die Gematrie-Summe zu berechnen, wird eine Tabelle verwendet, die alle Buchstaben auf Zahlen abbildet. Dann wird die Summe von all diesen Zahlen berechnet. Die Buchstaben A bis I werden auf 1 bis 9 abgebildet, die Buchstaben K bis S werden auf 10 bis 90 abgebildet und die Buchstaben T bis Z werden auf 100 bis 600 abgebildet. In dem hier genutzten lateinischen Alphabet gibt es keinen Buchstaben J und keinen Buchstaben V." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Gematria.png" />
+  <relevantPlugins>
+    <plugin name="Substitution" />
+  </relevantPlugins>
+</sample>

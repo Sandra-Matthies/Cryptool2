@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Paillier_Blinding.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Paillier Cipher with Blinding</title>
+  <summary lang="en">Usage of the <i>Pailler</i> cipher with blinding</summary>
+  <description lang="en">This template shows the usage of the <i>Pailler</i> cipher with blinding.</description>
+  <keywords>homomorphic, Blinding, Eurocrypt, Jurik, Damgard, Paillier, asymmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$KeyGenerator$" value="KeyGenerator" />
+    <replacement key="$Encrypt$" value="Encrypt" />
+    <replacement key="$Decrypt$" value="Decrypt" />
+    <replacement key="$Encryption$" value="Encryption" />
+    <replacement key="$Decryption$" value="Decryption" />
+    <replacement key="$Input$" value="Input" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Paillier-Chiffre mit Blinding</title>
+  <summary lang="de">Benutzung der <i>Paillier</i>-Chiffre mit Blinding</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Paillier</i>-Chiffre mit Blinding.</description>
+  <keywords lang="de">homomorph, asymmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$KeyGenerator$" value="Schlüsselgenerator" />
+    <replacement key="$Encrypt$" value="Verschlüsselung" />
+    <replacement key="$Decrypt$" value="Entschlüsselung" />
+    <replacement key="$Encryption$" value="Verschlüsselung" />
+    <replacement key="$Decryption$" value="Entschlüsselung" />
+    <replacement key="$Input$" value="Eingabe" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Pailler_Blinding.png" />
+  <relevantPlugins>
+    <plugin name="Paillier" />
+    <plugin name="PaillierKeyGenerator" />
+  </relevantPlugins>
+</sample>

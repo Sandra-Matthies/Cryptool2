@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en"> 
+    This component checks whether the given number is a prime number.
+  </introduction>
+  <introduction lang="de-DE">
+    Diese Komponente testet, ob die eingegebene Zahl eine Primzahl ist.
+  </introduction>
+  <usage lang="en">
+    The input to the component is the number whose primality is to be checked. First, it uses trial division to check if the number has
+    a small prime factor. If it has no small factor, it then uses the Miller-Rabin primality test, that
+    can determine whether a given number is a prime number with a very high probability. The result of the test is presented
+    as a boolean value at the output of the component. When the result is 'false', the number is definitely composite.
+    When the result is 'true', the number is a prime number with a very high probability.
+  </usage>
+  <usage lang="de-DE">
+    Diese Komponente erwartet als einzige Eingabe die zu testende Zahl. Zuerst wird geprüft, ob die zu untersuchende Zahl 
+    einen kleinen Primfaktor hat. Hat sie keinen kleinen Faktor, so wird der Miller-Rabin-Test ausgeführt, der
+    mit hoher Wahrscheinlichkeit feststellen kann, ob eine Zahl eine Primzahl ist oder nicht. Das Ergebnis des Tests wird am
+    Ausgang der Komponente als boolescher Wert ausgegeben. Wird 'falsch' ausgegeben, so ist die Zahl auf jeden Fall zusammengesetzt.
+    Wird 'wahr' ausgegeben, so ist die Zahl mit sehr hoher Wahrscheinlichkeit eine Primzahl.
+  </usage>
+  <references>
+    <linkReference>
+      <link lang="en" url="http://en.wikipedia.org/wiki/Miller–Rabin_primality_test" />
+      <caption lang="en">Miller–Rabin primality test</caption>
+      <link lang="de-DE" url="http://de.wikipedia.org/wiki/Miller-Rabin-Test" />
+      <caption lang="de-DE">Miller-Rabin-Test</caption>
+    </linkReference>
+  </references>
+</documentation>

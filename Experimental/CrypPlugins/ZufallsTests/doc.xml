@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- You can edit this file manually or with the Util/CrypDocumentationEditor -->
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en">
+    This component checks a random number generator on its randomness according to the <i>Dieharder</i> tests.
+  </introduction>
+  <introduction lang="de-DE">
+    Diese Komponente testet den Output eines Zufallszahlengenerators auf seine Zufälligkeit mittels der <i>Dieharder</i>-Testbatterie.
+  </introduction>
+  <usage lang="en">
+    <list>
+      <item>Put a random number generator on the workspace and connect its output with the input of this component.</item>
+      <item>Choose one of the tests of randomness listed in the settings of this component.</item>
+      <item>Connect the output of this component with a TextOutput component.</item>
+      <item>Start the workspace and you will get information about whether or not the generator was random according to the selected test.</item>
+    </list>
+    <section headline="Minimum amount of data needed for each test:">
+      <table border="1">
+        <tr>
+          <th>Test name</th>
+          <th>Amount of numbers needed (each 4 byte)</th>
+          <th>Needs additional n-tuple information?</th>
+        </tr>
+        <tr>
+          <td>Diehard Birthdays Test</td>
+          <td>3,840,006</td>
+        </tr>
+        <tr>
+          <td>Diehard OPERM5 Test</td>
+          <td>100,000,500</td>
+        </tr>
+        <tr>
+          <td>Diehard 32x32 Binary Rank Test</td>
+          <td>128,000,000</td>
+        </tr>
+        <tr>
+          <td>Diehard 6x8 Binary Rank Test</td>
+          <td>60,000,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Bitstream Test</td>
+          <td>26,214,600</td>
+        </tr>
+        <tr>
+          <td>Diehard DNA Test</td>
+          <td>65,537,100 (may take a long time)</td>
+        </tr>
+        <tr>
+          <td>Diehard Count the 1s (stream) Test</td>
+          <td>6,400,100</td>
+        </tr>
+        <tr>
+          <td>Diehard Count the 1s Test (byte)</td>
+          <td>128,000,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Parking Lot Test</td>
+          <td>2,400,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Minimum Distance (2d Circle) Test</td>
+          <td>1,600,000</td>
+        </tr>
+        <tr>
+          <td>Diehard 3d Sphere (Minimum Distance) Test</td>
+          <td>1,200,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Squeeze Test</td>
+          <td>230,640,860</td>
+        </tr>
+        <tr>
+          <td>Diehard Sums Test</td>
+          <td>19,900</td>
+        </tr>
+        <tr>
+          <td>Diehard Runs Test</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Craps Test</td>
+          <td>135,012,382</td>
+        </tr>
+        <tr>
+          <td>Marsaglia and Tsang GCD Test</td>
+          <td>2,000,000,000 (may take a long time)</td>
+        </tr>
+        <tr>
+          <td>STS Monobit Test</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>STS Runs Test</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>STS Serial Test (Generalized) </td>
+          <td>10,000,000 (may take a long time)</td>
+        </tr>
+        <tr>
+          <td>RGB Bit Distribution Test</td>
+          <td>
+            Depends on the value of n-tuple: <newline /> 20,000,000 * n-tuple + 100
+          </td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>RGB Generalized Minimum Distance Test</td>
+          <td>
+            Depends on the value of n-tuple: <newline /> 10,000,000 * n-tuple
+          </td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>RGB Permutations Test</td>
+          <td>50,000,000</td>
+        </tr>
+        <tr>
+          <td>RGB Lagged Sum Test</td>
+          <td>100,000,000</td>
+        </tr>
+        <tr>
+          <td>RGB Kolmogorov-Smirnov Test</td>
+          <td>10,000,000</td>
+        </tr>
+        <tr>
+          <td>Byte Distribution</td>
+          <td>153,600,000</td>
+        </tr>
+        <tr>
+          <td>DAB DCT</td>
+          <td>12,800,000</td>
+        </tr>
+        <tr>
+          <td>DAB Fill Tree Test</td>
+          <td>112,989,058</td>
+        </tr>
+        <tr>
+          <td>DAB Fill Tree 2 Test</td>
+          <td>29,216,429</td>
+        </tr>
+        <tr>
+          <td>DAB Monobit 2 Test</td>
+          <td>65,000,000</td>
+        </tr>
+        <tr>
+          <td>Diehard Birthdays Test</td>
+          <td>3,400,000</td>
+        </tr>
+      </table>
+    </section>
+  </usage>
+  <usage lang="de-DE">
+    <list>
+      <item>Erstelle einen Zufallszahlengenerator und verbinde dessen Ausgabe mit dem Eingang dieser Komponente.</item>
+      <item>Wähle einen der Tests auf Zufälligkeit aus der Liste in den Einstellungen der Komponente.</item>
+      <item>Verbinde den Ausgang dieser Komponente mit einer Textausgabe.</item>
+      <item>Starte das Programm und erhalte die Information über das Bestehen des Generators entsprechend des ausgewählten Tests.</item>
+    </list>
+    <section headline="Benötigte Anzahl an Zahlen pro Test:">
+      <table border="1">
+        <tr>
+          <th>Test-Name</th>
+          <th>Benötigte Anzahl an Zahlen (jede 4 Byte)</th>
+          <th>Benötigt zusätzlich n-Tupel-Informationen?</th>
+        </tr>
+        <tr>
+          <td>Diehard Birthdays Test</td>
+          <td>3.840.006</td>
+        </tr>
+        <tr>
+          <td>Diehard OPERM5 Test</td>
+          <td>100.000.500</td>
+        </tr>
+        <tr>
+          <td>Diehard 32x32 Binary Rank Test</td>
+          <td>128.000.000</td>
+        </tr>
+        <tr>
+          <td>Diehard 6x8 Binary Rank Test</td>
+          <td>60.000.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Bitstream Test</td>
+          <td>26.214.600</td>
+        </tr>
+        <tr>
+          <td>Diehard DNA Test</td>
+          <td>65.537.100 (Vorsicht, könnte lange dauern)</td>
+        </tr>
+        <tr>
+          <td>Diehard Count the 1s (stream) Test</td>
+          <td>6.400.100</td>
+        </tr>
+        <tr>
+          <td>Diehard Count the 1s Test (byte)</td>
+          <td>128.000.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Parking Lot Test</td>
+          <td>2.400.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Minimum Distance (2d Circle) Test</td>
+          <td>1.600.000</td>
+        </tr>
+        <tr>
+          <td>Diehard 3d Sphere (Minimum Distance) Test</td>
+          <td>1.200.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Squeeze Test</td>
+          <td>230.640.860</td>
+        </tr>
+        <tr>
+          <td>Diehard Sums Test</td>
+          <td>19.900</td>
+        </tr>
+        <tr>
+          <td>Diehard Runs Test</td>
+          <td>10.000.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Craps Test</td>
+          <td>135.012.382</td>
+        </tr>
+        <tr>
+          <td>Marsaglia and Tsang GCD Test</td>
+          <td>2.000.000.000 (Vorsicht, könnte lange dauern)</td>
+        </tr>
+        <tr>
+          <td>STS Monobit Test</td>
+          <td>10.000.000</td>
+        </tr>
+        <tr>
+          <td>STS Runs Test</td>
+          <td>10.000.000</td>
+        </tr>
+        <tr>
+          <td>STS Serial Test (Generalized) </td>
+          <td>10.000.000 (Vorsicht, könnte lange dauern)</td>
+        </tr>
+        <tr>
+          <td>RGB Bit Distribution Test</td>
+          <td>
+            Abhängig vom eingestellten n-Tupel-Wert:<newline /> 20.000.000 * n-Tupel + 100
+          </td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>RGB Generalized Minimum Distance Test</td>
+          <td>
+            Abhängig vom eingestellten n-Tupel-Wert:<newline /> 10.000.000 * n-Tupel
+          </td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>RGB Permutations Test</td>
+          <td>50.000.000</td>
+        </tr>
+        <tr>
+          <td>RGB Lagged Sum Test</td>
+          <td>100.000.000</td>
+        </tr>
+        <tr>
+          <td>RGB Kolmogorov-Smirnov Test</td>
+          <td>10.000.000</td>
+        </tr>
+        <tr>
+          <td>Byte Distribution</td>
+          <td>153.600.000</td>
+        </tr>
+        <tr>
+          <td>DAB DCT</td>
+          <td>12.800.000</td>
+        </tr>
+        <tr>
+          <td>DAB Fill Tree Test</td>
+          <td>112.989.058</td>
+        </tr>
+        <tr>
+          <td>DAB Fill Tree 2 Test</td>
+          <td>29.216.429</td>
+        </tr>
+        <tr>
+          <td>DAB Monobit 2 Test</td>
+          <td>65.000.000</td>
+        </tr>
+        <tr>
+          <td>Diehard Birthdays Test</td>
+          <td>3.400.000</td>
+        </tr>
+      </table>
+    </section>
+  </usage>
+  <presentation lang="en"></presentation>
+  <presentation lang="de-DE"></presentation>
+  <references>
+    <linkReference>
+      <link url="http://www.phy.duke.edu/~rgb/General/dieharder.php" lang="en" />
+      <caption lang="en">DieHarder homepage by Robert G. Brown</caption>
+      <link url="http://www.phy.duke.edu/~rgb/General/dieharder.php" lang="de-DE" />
+      <caption lang="de-DE">DieHarder-Homepage von Robert G. Brown (englisch)</caption>
+    </linkReference>
+  </references>
+</documentation>

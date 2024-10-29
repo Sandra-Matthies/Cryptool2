@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentation>
+  <language culture="en" />
+  <language culture="de-DE" />
+  <introduction lang="en">
+    This analyzer brute-force searches through all possible key (26*26*26*22 = 386,672) of the <docRef item="CrypTool.MexicanArmyCipherDisk.MexicanArmyCipherDisk"/>.<newline/>
+    <newline/>
+    In every step, it changes the rotation of a single wheel, then decrypts the given ciphertext using the current key, and then rates the resulting plaintext using a n-gram cost function.<newline/>
+    It further keeps track of the 100 &quot;best&quot; plaintexts with respect to the cost function and shows these in the presentation of the component.<newline/>
+    The correct key should at the end of the cryptanalysis be on the first position of the bestlist.
+  </introduction>
+  <introduction lang="de-DE">
+    Dieser Analysator durchsucht mittels Brute-Force alle möglichen Schlüssel (26*26*26*22 = 386.672) der <docRef item="CrypTool.MexicanArmyCipherDisk.MexicanArmyCipherDisk"/>.<newline/>
+    <newline/>
+    In jedem Schritt ändert er die Drehung einer einzelnen Scheibe, entschlüsselt dann den gegebenen Geheimtext mit dem aktuellen Schlüssel und bewertet dann den resultierenden Klartext mit einer n-gram Kostenfunktion.<newline/>
+    Er merkt sich ferner die 100 &quot;besten&quot; Klartexte in Bezug auf die Kostenfunktion und zeigt diese in der Präsentation der Komponente.<newline/>
+    Der richtige Schlüssel sollte am Ende der Kryptoanalyse auf der ersten Position der Bestenliste stehen.
+  </introduction>
+  <usage lang="en">
+  </usage>
+  <usage lang="de-DE">
+  </usage>
+  <presentation lang="en">
+  </presentation>
+  <presentation lang="de-DE">
+  </presentation>
+  <references>
+  </references>
+</documentation>

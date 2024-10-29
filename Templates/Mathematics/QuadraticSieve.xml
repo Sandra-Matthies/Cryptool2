@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: QuadraticSieve.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Factorization with Quadratic Sieve (QS)</title>
+  <summary lang="en">Usage of the <i>Quadratic Sieve</i></summary>
+  <description lang="en">The quadratic sieve algorithm (QS) is a modern integer factorization algorithm and, in practice, the fastest method known for numbers with up to ca. 100 decimal digits. For bigger numbers, the general number field sieve (GNFS) is faster, but also considerably more complex than the quadratic sieve. It is a general-purpose factorization algorithm, meaning that its running time depends solely on the size of the integer to be factored, and not on special structure or properties. It was invented by Carl Pomerance in 1981 as an improvement to Schroeppel's linear sieve.<newline /><newline />
+Source: <external ref="http://en.wikipedia.org/wiki/Quadratic_sieve" /></description>
+  <keywords>Prime, sieve, Factorization, msieve</keywords>
+  <replacements lang="en">
+    <replacement key="$Number Input$" value="Input: Number to be factorized" />
+    <replacement key="$QuadraticSieve$" value="Quadratic Sieve" />
+    <replacement key="$Output$" value="Output: All factors, one per line" />
+    <replacement key="$memo$" value="Above in the input component, you can enter any number. This number will be factorized by the quadratic sieve component when executing this workspace (Play button). The result will be shown in the output component on the right.\line\line Numbers can also be entered as a mathematical expression, e.g. 2^20+13.\line If the result of the mathematical expression is a fraction, only the integer part is used, e.g. (2^3-1)/2 = 7 / 2 = 3.\line \line The given number is (2^304-1)/2 which is 303 digits long and has 5 factors. After quickly splitting off the two small factors which are found first, most of the time (about 15 minutes) is used to factorize the 291 bit composite (38353...78743)." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Faktorisierung mit Quadratischem Sieb (QS)</title>
+  <summary lang="de">Benutzung des <i>Quadratischen Siebs</i></summary>
+  <description lang="de">Das Quadratische Sieb ist ein Begriff aus dem Bereich Zahlentheorie der Mathematik und bezeichnet einen der schnellsten bekannten Algorithmen zur Faktorisierung großer natürlicher Zahlen. Es ist ein allgemeines Faktorisierungsverfahren, d.h. die Laufzeit hängt nur von der Größe der zu faktorisierenden Zahl ab und nicht von speziellen Eigenschaften der Zahl (bzw. ihrer Teiler). Für Zahlen mit bis ca. 100 Dezimalstellen ist es das schnellste (allgemeine) Faktorisierungsverfahren. Für größere Zahlen ist das Zahlkörpersieb (GNFS) schneller. Die Laufzeit zum Faktorisieren einer Zahl n ist (unter einigen als wahrscheinlich geltenden Annahmen) in der Größenordnung von exp( sqrt ( ln n * ln ln n ) ).<newline /><newline />
+Quelle: <external ref="http://de.wikipedia.org/wiki/Quadratisches_Sieb" /></description>
+  <keywords lang="de">Primzahl, Faktorisierung, Zerlegung, quadratisch, Sieb, msieve</keywords>
+  <replacements lang="de">
+    <replacement key="$Number Input$" value="Eingabe: Zu faktorisierende Zahl" />
+    <replacement key="$QuadraticSieve$" value="Quadratisches Sieb" />
+    <replacement key="$Output$" value="Ausgabe: Alle Faktoren, einer pro Zeile" />
+    <replacement key="$memo$" value="Oben in der Eingabekomponente können Sie eine beliebige Zahl eingeben. Diese Zahl wird bei der Ausführung dieses Arbeitsbereichs (Play-Taste) durch die Komponente &quot;Quadratisches Sieb&quot; faktorisiert. Das Ergebnis wird in der Ausgabekomponente rechts angezeigt. \line \line Zahlen können auch als mathematischer Ausdruck eingegeben werden, z.B. 2^20+13. \line Wenn das Ergebnis des mathematischen Ausdrucks ein Bruch ist, wird nur der ganzzahlige Teil verwendet, z. (2^3-1)/2 = 7 / 2 = 3. \line \line Die hier in der Vorlage als Beispiel angegebene Zahl (2^304-1)/2 hat eine Länge von 303 Bits und besteht aus 5 Faktoren. Nach dem schnellen Abspalten der beiden zuerst gefundenen, kleinen Faktoren wird die meiste Zeit (ca. 15 Minuten) dafür benötigt, die 291-bit-lange zusammengesetzte Zahl (38353 ... 78743) zu faktorisierten." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="QuadraticSieve.png" />
+  <relevantPlugins>
+    <plugin name="QuadraticSieve" />
+  </relevantPlugins>
+</sample>

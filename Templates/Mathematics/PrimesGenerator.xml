@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: PrimesGenerator.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Primes Generator</title>
+  <summary lang="en">Generating Prime Numbers</summary>
+  <description lang="en">This template shows the usage of the <i>Primes Generator</i> in order to generate prime numbers of any size.</description>
+  <keywords>Prime, Generator</keywords>
+  <replacements lang="en">
+    <replacement key="$UpperLimit$" value="Upper Limit" />
+    <replacement key="$NumberOfBits$" value="Number of Bits" />
+    <replacement key="$PrimeNumber$" value="Prime Number" />
+    <replacement key="$PrimesGenerator$" value="PrimesGenerator" />
+    <replacement key="$PrimeTest$" value="PrimeTest" />
+    <replacement key="$Is Prime?$" value="Is Prime?" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Random Generator$" value="Random Generator" />
+    <replacement key="$memo1$" value="Generate a random prime number less than the given upper limit." />
+    <replacement key="$memo2$" value="Generate a random prime number with the given number of bits." />
+    <replacement key="$memo3$" value="Generate a random prime number by first generating a random number and then searching for the next bigger prime number." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Primzahlgenerator</title>
+  <summary lang="de">Erzeugen von Primzahlen (beliebiger Größe)</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung des <i>Primzahlgenerators</i> zur Erzeugung von Primzahlen beliebiger Größe.</description>
+  <keywords lang="de">Primzahl</keywords>
+  <replacements lang="de">
+    <replacement key="$UpperLimit$" value="Obere Grenze" />
+    <replacement key="$NumberOfBits$" value="Anzahl der Bits" />
+    <replacement key="$Number Input$" value="Zahleneingabe" />
+    <replacement key="$PrimeNumber$" value="Primzahl" />
+    <replacement key="$PrimesGenerator$" value="Primzahlgenerator" />
+    <replacement key="$PrimeTest$" value="Primzahltest" />
+    <replacement key="$Is Prime?$" value="Ist prim?" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Random Generator$" value="Zufallsgenerator" />
+    <replacement key="$memo1$" value="Erzeuge eine zufällige Primzahl, die kleiner als die angegebene obere Grenze ist." />
+    <replacement key="$memo2$" value="Erzeuge eine zufällige Primzahl mit der angegebenen Anzahl von Bits." />
+    <replacement key="$memo3$" value="Erzeuge eine zufällige Primzahl, indem zuerst eine Zufallszahl erzeugt wird und dann die nächstgrößere Primzahl gesucht wird." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Factorization.png" />
+  <relevantPlugins>
+    <plugin name="PrimesGenerator" />
+  </relevantPlugins>
+</sample>

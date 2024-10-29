@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<directory order="4">
+  <name lang="en">Mathematics</name>
+  <name lang="de">Mathematisch</name>
+  <summary lang="en">The folder "Mathematics" contains templates with mathematical functions.</summary>
+  <summary lang="de">Das Verzeichnis "Mathematisch" enthält Vorlagen mit einzelnen mathematischen Funktionen.</summary>
+  <icon file="math.png" />
+</directory>

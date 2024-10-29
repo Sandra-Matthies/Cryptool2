@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: T9Code.xml-->
+  <!--Last edited: 2022.12.23-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">T9-Code</title>
+  <summary lang="de">Einfache Ver- und Entschlüsselung mit dem <i>T9-Code</i></summary>
+  <description lang="de">Diese Vorlage zeigt einen einfachen Ver- und Entschlüsselungsprozess mit dem T9-Code. Das T9-Code-Verfahren basiert auf der Eingabemethode, die bei älteren Mobiltelefonen zum Einsatz kam und es ermöglichte, durch einmaliges Drücken einer Taste Wörter einzugeben, anstatt durch mehrfaches Drücken die Buchstaben zu wechseln.</description>
+  <keywords lang="de">Handy, Mobile Code, </keywords>
+  <replacements lang="de">
+    <replacement key="$Dictionary$" value="Wörterbuch" />
+    <replacement key="$TextInput$" value="Texteingabe" />
+    <replacement key="$TextOutput$" value="Kodierter Text" />
+    <replacement key="$TextOutput2$" value="Dekodierter Text" />
+    <replacement key="$example$" value="Dies ist ein Text" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Funktionsweise des T9-Code-Verfahrens. Geben Sie in das Feld Texteingabe (links oben) einen Text ein, den Sie kodieren möchten. In das Feld Dekodierter Text wird der dekodierte Text ausgegeben. Dieser Text kann von der Eingabe abweichen, da für das Dekodieren Sprachstatistiken verwendet werden. In der Wörterbuch-Komponente kann  ausgewählt werden, welche Wörter zum Dekodieren verwendet werden sollen. Idealerweise stimmt die Sprache des Eingabetextes mit der im Wörterbuch gewählten Sprache überein. Die Sprachstatistiken können in den Einstellungen der T9-Code-Komponente angepasst werden." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">T9 Code</title>
+  <summary lang="en">Easy encryption and decryption using the <i>T9 code</i></summary>
+  <description lang="en">This template shows a simple encryption and decryption process using the T9 code. The T9 code process is based on the input method used on older cell phones, which allowed words to be entered by pressing a key once instead of having to change letters by pressing it multiple times.</description>
+  <keywords>mobile phone, mobile code, </keywords>
+  <replacements lang="en">
+    <replacement key="$Dictionary$" value="Dictionary" />
+    <replacement key="$TextInput$" value="Text input" />
+    <replacement key="$TextOutput$" value="Coded text" />
+    <replacement key="$TextOutput2$" value="Decoded text" />
+    <replacement key="$example$" value="This is a sample text" />
+    <replacement key="$memo$" value="This template demonstrates how the T9 code process works. In the Text Input field (top left), type a text that you want to encode. In the Decoded Text field, the decoded text is output. This text may differ from the input, because language statistics are used for decoding. In the dictionary component you can select which words should be used for decoding. Ideally, the language of the input text matches the language selected in the dictionary. The language statistics can be adjusted in the settings of the T9 code component." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="T9Code.png" />
+  <relevantPlugins>
+    <plugin name="T9Code" />
+  </relevantPlugins>
+</sample>

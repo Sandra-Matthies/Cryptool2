@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<directory order="9">
+  <name lang="en">Tools</name>
+  <name lang="de">Werkzeuge</name>
+  <summary lang="en">The folder "Tools" contains templates that demonstrate the use of tools and auxiliary components.</summary>
+  <summary lang="de">Das Verzeichnis "Werkzeuge" enthält Vorlagen, die die Verwendung von Werkzeugen und Hilfskomponenten demonstrieren.</summary>
+  <icon file="dir.png" />
+</directory>

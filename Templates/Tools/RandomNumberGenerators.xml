@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: RandomNumberGenerators.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Random Number Generators</title>
+  <summary lang="en">Shows different random number generators.</summary>
+  <description lang="en">Shows different random number generators. There are different algorithms available, such as the X^2 mod n or the linear congruence generator.</description>
+  <keywords>random number generator, random numbers, random, prng</keywords>
+  <replacements lang="en">
+    <replacement key="$random number generator$" value="RandomNumberGenerator" />
+    <replacement key="$output$" value="Random bytes" />
+    <replacement key="$memo$" value="This template shows how to create random numbers in CrypTool 2.\line This requires the RandomNumberGenerator component. \line Different random number generators can be selected in the component's settings. \line Details of the individual generators are available in the online help of the RandomNumberGenerator component. \line Also, different output data types (Byte Array, CrypToolStream, Number, and NumberArray) can be selected." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Zufallszahlengeneratoren</title>
+  <summary lang="de">Zeigt verschiedene Zufallszahlengeneratoren.</summary>
+  <description lang="de">Zeigt verschiedene Zufallszahlengeneratoren. Es stehen verschiedene Algorithmen wie beispielsweise der X^2 mod n oder der lineare Kongruenzgenerator zur Verfügung.</description>
+  <keywords lang="de">Zufallszahlengenerator, Zufallszahlen, Zufall, Random, PRNG, ZZ, ZZG</keywords>
+  <replacements lang="de">
+    <replacement key="$random number generator$" value="Zufallszahlengenerator" />
+    <replacement key="$output$" value="Zufallsbytes" />
+    <replacement key="$memo$" value="Dieses Template zeigt, wie man in CrypTool 2 Zufallszahlen erzeugen kann.\line Hierfür wird die Zufallszahlengenerator-Komponente benötigt.\line In den Einstellungen der Komponente können verschiedene Generatoren ausgewählt werden.\line Details zu den einzelnen Generatoren stehen in der Hilfe des Zufallszahlengenerators.\line Auch können verschiedene Ausgabedatentypen (Byte Array, CrypToolStream, Zahl und ZahlenArray) ausgewählt werden. " />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="RandomNumberGenerators.png" />
+  <relevantPlugins>
+    <plugin name="RandomNumberGenerator" />
+  </relevantPlugins>
+</sample>

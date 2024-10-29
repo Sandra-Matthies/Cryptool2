@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: rsa_signed_qrcode.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">RSA Signed QR Code</title>
+  <summary lang="en">RSA authenticated QR code</summary>
+  <description lang="en">This template shows how to create and read a signed QR code with RSA.</description>
+  <keywords>visual, code, qr, qrcode, rsa, sign</keywords>
+  <replacements lang="en">
+    <replacement key="$Message$" value="Message" />
+    <replacement key="$Concatenate$" value="Concatenate" />
+    <replacement key="$RSA Key Generator$" value="RSA Key Generator" />
+    <replacement key="$RSA Decrypt$" value="RSA Decrypt" />
+    <replacement key="$Base64 Encoder$" value="Base64 Encoder" />
+    <replacement key="$Base64 Decoder$" value="Base64 Decoder" />
+    <replacement key="$Visual Encoder$" value="Visual Encoder" />
+    <replacement key="$Visual Decoder$" value="Visual Decoder" />
+    <replacement key="$Length$" value="Length" />
+    <replacement key="$Valid?$" value="Valid?" />
+    <replacement key="$Comparator$" value="Comparator" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Message Input$" value="Message input" />
+    <replacement key="$Message Output$" value="Message output" />
+    <replacement key="$Signed Hash$" value="Signed hash" />
+    <replacement key="$minus hashlength$" value="minus hash length" />
+    <replacement key="$Read Signed QR-Code$" value="Read signed QR code" />
+    <replacement key="$Create Signed QR-Code$" value="Create signed QR code" />
+    <replacement key="$memo$" value="This template shows a QR code, that is authenticated using RSA.\line\line The authentication is done by the following steps:\line At first, a hash value of the message to be encoded in the QR code is created. Then, this hash value is encrypted with the RSA private key and converted to a base64 string to avoid non-printable characters. Finally, the message and the &quot;signed&quot; hash value are concatenated and the concatenation is encoded to a QR code.\line The receiver of the QR code decrypts the &quot;signed&quot; hash value with the public key. Then he generates his own hash of the message and finally compares both hashes. If they are equal the QR code is considered as authenticated." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">RSA-signierter QR-Code</title>
+  <summary lang="de">Authentifiziert einen QR-Code mit RSA</summary>
+  <description lang="de">Diese Vorlage zeigt, wie man einen mit RSA signierten QR-Code erstellt und anschließend wieder liest und verifiziert.</description>
+  <keywords lang="de">Visueller, RSA, Signatur</keywords>
+  <replacements lang="de">
+    <replacement key="$Message$" value="Nachricht" />
+    <replacement key="$Message Input$" value="Nachrichteneingabe" />
+    <replacement key="$Message Output$" value="Nachrichtenausgabe" />
+    <replacement key="$Concatenate$" value="Konkateniere" />
+    <replacement key="$RSA Key Generator$" value="RSA-Schlüsselgenerator" />
+    <replacement key="$RSA Decrypt$" value="RSA-Entschlüsselung" />
+    <replacement key="$Signed Hash$" value="Signierter Hash" />
+    <replacement key="$minus hashlength$" value="minus Hashlänge" />
+    <replacement key="$Length$" value="Länge" />
+    <replacement key="$Valid?$" value="Gültig?" />
+    <replacement key="$Comparator$" value="Vergleicher" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Read Signed QR-Code$" value="Lese signierten QR-Code" />
+    <replacement key="$Create Signed QR-Code$" value="Erzeuge signierten QR-Code" />
+    <replacement key="$memo$" value="Diese Vorlage zeigt einen QR-Code, dessen Authentizität mit RSA gewährleistet wird.\line\line Die Authentifizierung wird durch die folgenden Schritte erreicht:\line Zuerst wird ein Hashwert der Nachricht, die im QR-Code enthalten sein wird, generiert. Dieser Hashwert wird dann mit dem privaten RSA-Schlüssel verschlüsselt und ins Base64-Format konvertiert, um nicht-druckbare Zeichen zu vermeiden. Schließlich wird der &quot;signierte&quot; Hashwert an die Nachricht angehängt und davon der QR-Code gebildet.\line Der Empfänger des QR-Codes entschlüsselt den &quot;signierten&quot; Hashwert mit dem öffentlichen RSA-Schlüssel. Dann generiert er seinen eigenen Hashwert von der Nachricht und vergleicht schließlich die beiden Hashwerte. Sind sie identisch, so gilt der QR-Code als authentisch." />
+    <replacement key="$Base64 Encoder$" value="Base64-Codierer" />
+    <replacement key="$Base64 Decoder$" value="Base64-Decodierer" />
+    <replacement key="$Visual Encoder$" value="Visueller Codierer" />
+    <replacement key="$Visual Decoder$" value="Visueller Decodierer" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="rsa_signed_qrcode.png" />
+  <relevantPlugins>
+    <plugin name="BooleanOutput" />
+    <plugin name="MD5" />
+    <plugin name="RSA" />
+    <plugin name="RSAKeyGenerator" />
+    <plugin name="StreamComparator" />
+    <plugin name="VisualDecoder" />
+    <plugin name="VisualEncoder" />
+  </relevantPlugins>
+</sample>

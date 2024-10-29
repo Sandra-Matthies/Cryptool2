@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: QRCodeEncryption.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">QR Code Encryption</title>
+  <summary lang="en">Encrypt a <i>QR code</i> read from the camera</summary>
+  <description lang="en">This template encrypts and decrypts a <i>QR code</i> read life from the camera using an 256-bit AES key and an 128-bit IV.</description>
+  <keywords>QR Code Encryption</keywords>
+  <replacements lang="en">
+    <replacement key="$Camera$" value="Camera" />
+    <replacement key="$Visual Decoder$" value="Visual Decoder" />
+    <replacement key="$Visual Encoder$" value="Visual Encoder" />
+    <replacement key="$Converter$" value="Converter" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$Encryption$" value="Encryption" />
+    <replacement key="$Decryption$" value="Decryption" />
+    <replacement key="$Encrypted QR Code$" value="Encrypted QR code" />
+    <replacement key="$Decrypted QR Code$" value="Decrypted QR code" />
+    <replacement key="$AES Key$" value="AES key" />
+    <replacement key="$Random Key$" value="Random key" />
+    <replacement key="$Random Number$" value="Random number" />
+    <replacement key="$Random Prime$" value="Random prime" />
+    <replacement key="$Random number for AES-Key$" value="Random number for AES key" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">QR-Code verschlüsseln</title>
+  <summary lang="de">Verschlüsselt einen <i>QR-Code</i>, der von der Kamera eingelesen wird</summary>
+  <description lang="de">Diese Vorlage zeigt, wie man einen <i>QR-Code</i> ver- und entschlüsselt, der life von der Kamera eingelesen wird. Zur Verschlüsselung wird ein 256-bit AES-Schlüssel und ein 128-bit IV benutzt.</description>
+  <keywords lang="de">QR Code Verschlüsselung</keywords>
+  <replacements lang="de">
+    <replacement key="$Camera$" value="Kamera" />
+    <replacement key="$Encrypted QR Code$" value="Verschlüsselter QR-Code" />
+    <replacement key="$Decrypted QR Code$" value="Entschlüsselter QR-Code" />
+    <replacement key="$Converter$" value="Konvertierer" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$AES Key$" value="AES-Schlüssel" />
+    <replacement key="$Random Key$" value="Zufallsschlüssel" />
+    <replacement key="$Random Number$" value="Zufallszahl" />
+    <replacement key="$Random Prime$" value="Zufallsprimzahl" />
+    <replacement key="$Random number for AES-Key$" value="Zufallszahl für AES-Schlüssel" />
+    <replacement key="$Encryption$" value="Verschlüsselung" />
+    <replacement key="$Decryption$" value="Entschlüsselung" />
+    <replacement key="$Visual Decoder$" value="Visueller Decodierer" />
+    <replacement key="$Visual Encoder$" value="Visueller Codierer" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="QRCodeEncryption.png" />
+  <relevantPlugins>
+    <plugin name="AES" />
+    <plugin name="PKCS5" />
+    <plugin name="PrimesGenerator" />
+    <plugin name="RandomNumberGenerator" />
+    <plugin name="VariableLoad" />
+    <plugin name="VariableStore" />
+    <plugin name="VisualDecoder" />
+    <plugin name="VisualEncoder" />
+    <plugin name="Webcam" />
+  </relevantPlugins>
+</sample>

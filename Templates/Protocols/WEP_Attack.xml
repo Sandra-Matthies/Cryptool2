@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: WEP_Attack.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">WEP Attack</title>
+  <summary lang="en">Attacking the WiFi protocol <i>WEP</i></summary>
+  <description lang="en">This template shows how to attack the WiFi protocol <i>WEP</i>.</description>
+  <keywords>wired, equivalent, privacy, WEP, wifi, wlan</keywords>
+  <replacements lang="en">
+    <replacement key="$Iframe Generator$" value="Iframe Generator" />
+    <replacement key="$WEP protocol$" value="WEP protocol" />
+    <replacement key="$Attack WEP$" value="Attack WEP" />
+    <replacement key="$StringEncoder$" value="String Encoder" />
+    <replacement key="$false$" value="false" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$Gate$" value="Gate" />
+    <replacement key="$memo1$" value="Generate 10K Arp packets and &quot;send&quot; it using the WEP protocol with the given Key." />
+    <replacement key="$memo2$" value="If the attack does not have enough keys, increment the counter to get another 10K packets." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">WEP-Angriff</title>
+  <summary lang="de">Durchführen eines Angriffs gegen das WiFi-Protokoll <i>WEP</i></summary>
+  <description lang="de">Diese Vorlage zeigt die Durchführung eines Angriffs gegen das WiFi-Protokoll <i>WEP</i>.</description>
+  <keywords lang="de">wired, equivalent, privacy, WEP, wifi, wlan</keywords>
+  <replacements lang="de">
+    <replacement key="$Iframe Generator$" value="IP-Frame-Generator" />
+    <replacement key="$WEP protocol$" value="WEP-Protokoll" />
+    <replacement key="$Attack WEP$" value="Angriff auf das WEP-Protokoll" />
+    <replacement key="$StringEncoder$" value="String-Kodierer" />
+    <replacement key="$false$" value="falsch" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$Gate$" value="Gatter" />
+    <replacement key="$memo1$" value="Generiere 10K Arp-Pakete und &quot;sende&quot; sie mit dem WEP-Protokoll und dem angegebenen Schlüssel verschlüsselt." />
+    <replacement key="$memo2$" value="Wenn der Angriff noch nicht genügend Schlüssel hat, erhöhe den Zähler und empfange nochmals 10K Pakete." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="WEP_Attack.png" />
+  <relevantPlugins>
+    <plugin name="BooleanInput" />
+    <plugin name="Gate" />
+    <plugin name="IncDec" />
+    <plugin name="Internet_frame_generator" />
+    <plugin name="WEP" />
+    <plugin name="WEPAttacks" />
+  </relevantPlugins>
+</sample>

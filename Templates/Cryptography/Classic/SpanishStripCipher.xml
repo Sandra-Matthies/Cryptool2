@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SpanishStripCipher.xml-->
+  <!--Last edited: 2022.04.2-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Spanish Strip Cipher</title>
+  <summary lang="en">Usage of the <i>Spanish Strip Cipher</i></summary>
+  <description lang="en">This template shows the usage of the Spanish Strip Cipher</description>
+  <keywords>SSC, strip, cipher, civil war, Spain</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Spanish Strip Cipher$" value="Spanish Strip Cipher" />
+    <replacement key="$memo1$" value="{\b What is the &quot;Spanish Strip Cipher&quot;? }\line
+\line
+The Spanish Strip Cipher (SSC) is a homophonic substitution cipher and was the most used cryptographic algorithm during the Spanish Civil War (1936-1939) as it was used by both warring parties.\line
+\line
+The term strip cipher is used for ciphers that use movable alphabets on strips of paper, plastic, or wood.\line
+\line
+{\b Key generation}\line
+\line
+The homophone groups are fixed and pre-generated. The entered keyword is used to generate the random alphabet. The random alphabet is then shifted below the ordered alphabet, until the two &quot;position letters&quot; are below each other. Finally, one creates the mapping between random alphabet letters and homophone groups, as can be seen in the &quot;Homophones table&quot; in the settings of the component.\line
+\line
+{\b Video about the SSC}\line
+https://www.youtube.com/watch?v=-C-hgnrUMKo"/>
+    <replacement key="$memo2$" value="{\b Usage of the template}\line
+\line
+To encrypt a text, you must first set the parameters of the algorithm:\line
+\line
+1. Choose &quot;Encryption&quot; as action.\line
+2. Select an alphabet.\line
+3. Select a homophones table.\line
+4. Enter a keyword. It is used to generate the random alphabet and the homophones table.\line
+5. Enter two letters to slide the random alphabet (this template has the default values &quot;B&quot; and &quot;C&quot;).\line
+\line
+Apart from the parameter configuration, the component requires two connectors: The input connector receives the text we want to encrypt (plaintext), the output connector provides the encrypted text (ciphertext)." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Spanische Streifen-Chiffre</title>
+  <summary lang="de">Benutzung der <i>Spanischen Streifenchiffre</i></summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der spanischen Streifenchiffre</description>
+  <keywords lang="de">SSC, Streifen, Chiffre, Bürgerkrieg, Spanien</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Spanish Strip Cipher$" value="Spanische Streifen-Chiffre" />
+    <replacement key="$memo1$" value="{\b Was ist die &quot;Spanische Streifenchiffre&quot;?}\line
+\line
+Die Spanische Streifenchiffre (SSC) ist eine homophone Substitutions-Chiffre und war während des Spanischen Bürgerkriegs (1936-1939) der am häufigsten verwendete kryptografische Algorithmus, da er von beiden Kriegsparteien verwendet wurde.\line
+\line
+Die Bezeichnung Streifenchiffre wird für Chiffren verwendet, bei denen bewegliche Alphabete auf Streifen aus Papier, Kunststoff oder Holz genutzt werden.\line
+\line
+{\b Schlüsselerzeugung}\line 
+\line
+Die Homophonen-Gruppen sind fest vorgegeben und vorgeneriert. Das eingegebene Schlüsselwort wird verwendet, um das Zufallsalphabet zu generieren. Das Zufallsalphabet wird dann unter das geordnete Alphabet geschoben, bis die beiden &quot;Positionsbuchstaben&quot; untereinander stehen. Schließlich wird die Zuordnung zwischen den Buchstaben des Zufallsalphabets und den Homophonen-Gruppen erstellt, wie in der Tabelle &quot;Homophone&quot; in den Einstellungen der Komponente zu sehen ist.\line
+\line
+{\b Video über die SSC}\line
+https://www.youtube.com/watch?v=-C-hgnrUMKo" />
+    <replacement key="$memo2$" value="{\b Bedienung der Vorlage}\line
+\line
+Um einen Text zu verschlüsseln, müssen Sie zunächst die Parameter des Algorithmus festlegen:\line
+\line
+1. Wählen Sie &quot;Verschlüsselung&quot; als Aktion.\line
+2. Wählen Sie ein Alphabet.\line
+3. Wählen Sie eine Homophonen-Tabelle.\line
+4. Geben Sie ein Schlüsselwort ein. Es wird verwendet, um das Zufallsalphabet und die Homophonen-Tabelle zu generieren.\line
+5. Geben Sie zwei Buchstaben ein, um das Zufallsalphabet zu verschieben (diese Vorlage hat die Standardwerte &quot;B&quot; und &quot;C&quot;).\line
+\line
+Abgesehen von der Parameterkonfiguration benötigt die Komponente zwei Anschlüsse: Der Eingabekonnektor empfängt den zu verschlüsselnden Text (Klartext), der Ausgabekonnektor liefert den verschlüsselten Text (Geheimtext)." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SpanishStripCipher.png" />
+  <relevantPlugins>
+    <plugin name="SpanishStripCipher" />
+  </relevantPlugins>
+</sample>

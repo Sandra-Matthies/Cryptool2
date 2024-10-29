@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: SIGABA.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">SIGABA Cipher Machine</title>
+  <summary lang="en">Usage of the <i>SIGABA</i> cipher machine</summary>
+  <description lang="en">The SIGABA machine is a US rotor encryption machine, which was used for message encryption from World War II until the 1950s.</description>
+  <keywords>Machine, Rotor, 机器，转子, Машина, Ротор, Maschine, Rotor</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$memo$" value="This template shows how to use the SIGABA component. There are two possibilites to configure the machine. First, one can adapt the settings and change the key (rotor selection and start positions). Secondly, one can give a key to the component using the key input.  If the key input is connected, it always overrides the key settings of the component. The key format is: 'CIPHER ROTORS, CONTROL ROTORS, INDEX ROTORS, CIPHER ROTOR POSITIONS, CONTROL ROTOR POSITIONS, INDEX ROTOR POSITIONS'  ('N' defines that the (cipher/control) rotor should be used in normal position and 'R' defines it should be used in reverse orientation)\line\line The SIGABA has a set of 10 rotors with 26 letters (A-Z), which are used as five cipher rotors and five control rotors. Each of these rotors can be put into the machine  in normal or reversed orientation.  Additionally, there are five index rotors with 10 numbers (1 to 10). The rotor selections and start positions form the cryptographic key. The letter 'Z' can be used as space symbol if the corresponding setting is enabled." />
+  </replacements>  
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">SIGABA-Chiffriermaschine</title>
+  <summary lang="de">Verwendung der <i>SIGABA</i>-Chiffriermaschine</summary>
+  <description lang="de">Die SIGABA-Maschine ist eine US-Rotorverschlüsselungsmaschine, die vom Zweiten Weltkrieg bis in die 1950er Jahre zur Nachrichtenverschlüsselung verwendet wurde.</description>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert den Umgang mit der SIGABA-Komponente.\line\line Es gibt zwei Möglichkeiten die Maschine zu konfigurieren. Erstens kann man die Einstellungen anpassen und den Schlüssel ändern (Rotorauswahl und Startpositionen). Zweitens kann man der Komponente über die Tasteneingabe einen Schlüssel geben. Das Schlüsselformat ist: 'CHIFFRIERROTORE, KONTROLLROTORE, INDEXROTORE, CHIFFRIERROTORPOSITIONEN, KONTROLLROTORPOSITIONEN, INDEXROTORPOSITIONEN' ('N' definiert, dass der (Chiffre/Kontroll-)Rotor in normaler Position verwendet werden sollte und 'R' definiert, dass er in umgekehrter Ausrichtung verwendet werden sollte) Wenn der Schlüsseleingang verbunden ist, überschreibt er immer die Schlüssel-Einstellungen der Komponente.\line Die SIGABA hat einen Satz von 10 Rotoren mit 26 Buchstaben (A-Z), die als fünf Chiffrierrotore und fünf Kontrollrotore verwendet werden. Jeder dieser Rotore kann in normaler oder umgekehrter Ausrichtung in die Maschine eingesetzt werden. Zusätzlich gibt es fünf Indexrotore mit 10 Nummern (1 bis 10). Die Rotorauswahlen und Startpositionen bilden den kryptografischen Schlüssel. Der Buchstabe 'Z' kann als Leerzeichen verwendet werden, wenn die entsprechende Einstellung aktiviert ist." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="SIGABA.png" />
+  <relevantPlugins>
+    <plugin name="SIGABA" />
+  </relevantPlugins>
+</sample>

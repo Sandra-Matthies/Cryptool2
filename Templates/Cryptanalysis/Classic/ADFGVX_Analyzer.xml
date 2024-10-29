@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: ADFGVX_Analyzer.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">ADFGVX Heuristic Analysis</title>
+  <summary lang="en">Heuristic analysis of the <i>ADFGVX</i> cipher with simulated annealing</summary>
+  <description lang="en">With this template, ADFGVX messages can be decrypted in a ciphertext-only attack thanks to the heuristic method simulated annealing.  The the ADFGVX cipher was developed by the signal officer Fritz Nebel in order to encrypt radio messages from the army in World War 2. His first variant contained the five letters ADFGX, later the V was added as the sixth letter.</description>
+  <keywords>ADFGVX, Lasry, Simulated Annealing</keywords>
+  <replacements lang="en">
+    <replacement key="$adfgvxAnalyzer$" value="ADFGVX Analyzer" />
+    <replacement key="$adfgvxAnalyzerLogger$" value="Complete log" />
+    <replacement key="$monoAnalyzer$" value="Monoalphabetic Substitution Analyzer" />
+    <replacement key="$monoAnalyzerResult$" value="Revealed plaintext" />
+    <replacement key="$adfgvxAnalyzerTranspositionkey$" value="Transposition key" />
+    <replacement key="$monoAnalyzerKey$" value="Substitution key" />
+    <replacement key="$monoAnalyzerAlphabet$" value="Substitution alphabet" />
+    <replacement key="$messages$" value="Encrypted message" />
+    <replacement key="$memo$" value="In this template, the ADFGVX analysis component uses simulated annealing to first reverse the transposition. The intermediate ciphertext is passed to the monoalphabetic substitution analyzer, which completes the decipherment of the message.\line\line The encrypted message is given in the Text Input component. You can also enter several messages together. In the settings of the ADFGVX analysis component, you can select for example which separator is used between the messages or which letters are contained in the encrypted messages. \line\line Further, the assumed key length of the transposition and the natural language of the message are also specified. In addition, the number of restarts and the number of parallel threads can be set. From when the transposition result is automatically passed on to the monoalphabetic substitution analyzer is regulated via the deviation. \line\line Detailed information about ADFGVX or simulated annealing can be found here: \line https://en.wikipedia.org/wiki/ADFGX \line https://en.wikipedia.org/wiki/Simulated_Annealing" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">ADFGVX heuristische Analyse</title>
+  <summary lang="de">Führt mit Simulated Annealing eine heuristische Analyse der <i>ADFGVX</i>-Chiffre durch</summary>
+  <description lang="de">Mit dieser Vorlage können ADFGVX-Nachrichten mit dem heuristischen Verfahren Simulated Annealing entschlüsselt werden (Ciphertext-only-Angriff). Die ADFGVX-Chiffre wurde von dem Nachrichtenoffizier Fritz Nebel entwickelt, um im Ersten Weltkrieg Funksprüche des Heeres zu verschlüsseln. Seine erste Variante beinhaltete die fünf Buchstaben ADFGX, später kam das V als sechster Buchstabe hinzu.</description>
+  <keywords lang="de">ADFGVX, Lasry, Simulated Annealing</keywords>
+  <replacements lang="de">
+    <replacement key="$adfgvxAnalyzerTranspositionkey$" value="Transpositionsschlüssel" />
+    <replacement key="$adfgvxAnalyzerLogger$" value="Vollständiger Log" />
+    <replacement key="$monoAnalyzerKey$" value="Substitutionsschlüssel" />
+    <replacement key="$monoAnalyzerAlphabet$" value="Substitutionsalphabet" />
+    <replacement key="$monoAnalyzerResult$" value="Wiederhergestellter Klartext" />
+    <replacement key="$adfgvxAnalyzer$" value="ADFGVX-Analyse" />
+    <replacement key="$monoAnalyzer$" value="Monoalphabetische Substitutions-Analyse" />
+    <replacement key="$messages$" value="Verschlüsselte Nachricht" />
+    <replacement key="$memo$" value="In dieser Vorlage nutzt die ADFGVX-Analyse-Komponente Simulated Annealing um zunächst die Transposition rückgängig zu machen. Das Zwischenergebnis wird dann an die Monoalphabetische Substitutionsanalyse weitergereicht, welche die Nachricht vollständig entschlüsselt. \line\line Die verschlüsselte Nachricht steht in der Texteingabe. Man kann darin auch mehrere Nachrichten zusammen eingeben. In den Einstellungen der ADFGVX-Analyse-Komponente kann man einstellen, welches Trennzeichen zwischen den Nachrichten benutzt wird oder welche Buchstaben die verschlüsselten Nachrichten enthalten.\line\line Weiter wird die angenommene Schlüssellänge der Transposition sowie die Klartext-Sprache der Nachricht angegeben. Zusätzlich können die Anzahl der Neustarts und die Anzahl der parallelen Threads eingestellt werden. Über die Abweichung kann reguliert werden, ab wann automatisch das Transpositionsergebnis an die Monoalphabetische Substitutions-Analyse weitergereicht wird. \line\line Detailierte Informationen zu ADFGVX und Simulated Annealing können unter anderem hier nachgelesen werden: \line https://de.wikipedia.org/wiki/ADFGX \line https://de.wikipedia.org/wiki/Simulated_Annealing" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="ADFGVX_Analyzer.png" />
+  <relevantPlugins>
+    <plugin name="ADFGVXAnalyzer" />
+    <plugin name="AnalysisMonoalphabeticSubstitution" />
+  </relevantPlugins>
+</sample>

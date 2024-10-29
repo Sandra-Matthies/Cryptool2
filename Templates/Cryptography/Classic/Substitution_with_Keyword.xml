@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Substitution_with_Password.xml-->
+  <!--Last edited: 2022.08.05-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Substitution Cipher Using a Keyword</title>
+  <summary lang="en">Usage of the <i>Substitution</i> cipher</summary>
+  <description lang="en">In cryptography, a substitution cipher is a method of encryption by which units of plaintext are replaced with ciphertext according to a regular system; the "units" may be single letters (the most common), pairs of letters, triplets of letters, mixtures of the above, and so forth. The receiver deciphers the text by performing an inverse substitution. Substitution ciphers can be compared with transposition ciphers. In a transposition cipher, the units of the plaintext are rearranged in a different and usually quite complex order, but the units themselves are left unchanged. By contrast, in a substitution cipher, the units of the plaintext are retained in the same sequence in the ciphertext, but the units themselves are altered.<newline /><newline />
+This template demonstrates how to create a substitution alphabet from a keyword and use it for the monoalphabetic substitution.<newline /><newline />
+Source: <external ref="http://en.wikipedia.org/wiki/Substitution_cipher" /></description>
+  <keywords>Substitution, monoalphabetic, MASC, password</keywords>
+  <replacements lang="en">
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Decrypted Ciphertext$" value="Decrypted Ciphertext" />
+    <replacement key="$Decrypt$" value="Decrypt" />
+    <replacement key="$Encrypt$" value="Encrypt" />
+    <replacement key="$Keyword$" value="Keyword" />
+    <replacement key="$Source Alphabet$" value="Source Alphabet" />
+    <replacement key="$Plaintext Alphabet$" value="Plaintext alphabet" />
+    <replacement key="$Ciphertext Alphabet$" value="Ciphertext alphabet" />
+    <replacement key="$text$" value="In cryptography, a substitution cipher is a method of encryption by which units of plaintext are replaced with ciphertext, according to a regular system; the &quot;units&quot; may be single letters (the most common), pairs of letters, triplets of letters, mixtures of the above, and so forth. The receiver deciphers the text by performing an inverse substitution.&#xD;&#xA;&#xD;&#xA;Source: http://en.wikipedia.org/wiki/Substitution_cipher" />
+    <replacement key="$memo$" value="This template demonstrates the usage of the &quot;Alphabet Permutator&quot;. Based on the selected American Cryptogram Association (ACA) keying scheme in the Permutator's setting, it generates a plaintext and a ciphertext alphabet. The alphabets are generated using a source alphabet, keywords, and shift values (shift values define, how each alphabet is shifted in itself).\line
+\line
+The two generated alphabets are used in the Substitution components for en- and decryption.\line
+\line
+ACA Schemes:\line
+K1: The plaintext alphabet is keyed, the ciphertext alphabet is not.\line
+K2: The plaintext alphabet is not keyed, the ciphertext alphabet is.\line
+K3: Both alphabets are keyed using the same keyword.\line
+K4: Both alphabets are keyed using different keywords." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Substitutions-Chiffre mit Schlüsselwort</title>
+  <summary lang="de">Benutzung der <i>Substitutions</i>-Chiffre</summary>
+  <description lang="de">Als monoalphabetische Substitution [von griechisch: μόνο (mono) = „einzig“ und αλφάβητο (alphabeto) = „Alphabet“ sowie von lateinisch: substituere = „ersetzen“] bezeichnet man in der Kryptografie Verschlüsselungsverfahren, bei denen nur ein einziges (festes) Alphabet zur Verschlüsselung, also zur Umwandlung des Klartextes in den Geheimtext, verwendet wird.<newline /><newline />
+In dieser Vorlage wird gezeigt, wie man mittels eines Schlüsselworts ein Substitutions-Alphabet generieren und dieses für die monoalphabetische Substitution verwenden kann.<newline /><newline />
+Quelle: <external ref="http://de.wikipedia.org/wiki/Monoalphabetische_Substitution" /></description>
+  <keywords lang="de">Substitution, monoalphabetisch, MASC, Passwort</keywords>
+  <replacements lang="de">
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Decrypted Ciphertext$" value="Entschlüsselter Geheimtext" />
+    <replacement key="$Decrypt$" value="Entschlüsseln" />
+    <replacement key="$Encrypt$" value="Verschlüsseln" />
+    <replacement key="$Keyword$" value="Schlüsselwort" />
+    <replacement key="$Source Alphabet$" value="Quellalphabet" />
+    <replacement key="$Plaintext Alphabet$" value="Klartextalphabet" />
+    <replacement key="$Ciphertext Alphabet$" value="Geheimtextalphabet" />
+    <replacement key="$text$" value="Als monoalphabetische Substitution (von griechisch: μόνο (mono) = „einzig“ und αλφάβητο (alphabeto) = „Alphabet“ sowie von lateinisch: substituere = „ersetzen“) bezeichnet man in der Kryptografie, also in dem Wissenschaftszweig der Kryptologie, der sich mit den Geheimschriften befasst, Verschlüsselungsverfahren, bei der nur ein einziges (festes) Alphabet zur Verschlüsselung, also zur Umwandlung des Klartextes in den Geheimtext, verwendet wird.&#xD;&#xA;&#xD;&#xA;Source: http://de.wikipedia.org/wiki/Monoalphabetische_Substitution" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Verwendung des &quot;Alphabet-Permutierers&quot;. Basierend auf dem ausgewählten Schlüsselschema der American Cryptogram Association (ACA) in den Einstellungen des Permutierers werden ein Klartext- und ein Geheimtextalphabet erzeugt. Die Alphabete werden mittels Quellalphabet, Schlüsselwörtern und Shift-Werten generiert (Shift-Werte definieren, wie jedes Alphabet in sich selbst geshifted wird).\line
+\line
+Diese generierten Alphabete werden in den Substitutionskomponenten für die Ver- und Entschlüsselung verwendet.\line
+\line
+ACA-Schemata:\line
+K1: Das Klartextalphabet nutzt ein Schlüsselwort, das Chiffretextalphabet nicht.\line
+K2: Das Klartextalphabet nutzt kein Schlüsselwort, das Geheimtextalphabet schon.\line
+K3: Beide Alphabete werden mit demselben Schlüsselwort generiert.\line
+K4: Beide Alphabete werden mit unterschiedlichen Schlüsselwörtern generiert." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Substitution.png" />
+  <relevantPlugins>
+    <plugin name="Substitution" />
+    <plugin name="AlphabetPermutator" />
+  </relevantPlugins>
+</sample>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Paillier_Add.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Paillier Cipher with Addition</title>
+  <summary lang="en">Usage of the <i>Pailler</i> cipher with addition</summary>
+  <description lang="en">This template shows the usage of the <i>Pailler</i> cipher with addition.</description>
+  <keywords>homomorphic, Eurocrypt, Damgard, Jurik, asymmetric</keywords>
+  <replacements lang="en">
+    <replacement key="$KeyGenerator$" value="KeyGenerator" />
+    <replacement key="$Encrypt$" value="Encrypt" />
+    <replacement key="$Decrypt$" value="Decrypt" />
+    <replacement key="$Decrypted Sum$" value="Decrypted Sum" />
+    <replacement key="$BooleanOutput$" value="BooleanOutput" />
+    <replacement key="$Comparator$" value="Comparator" />
+    <replacement key="$Add$" value="Add" />
+    <replacement key="$Summand$" value="Summand" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Paillier-Chiffre mit Addition</title>
+  <summary lang="de">Benutzung der <i>Paillier</i>-Chiffre mit Addition</summary>
+  <description lang="de">Diese Vorlage zeigt die Benutzung der <i>Paillier</i>-Chiffre mit Addition.</description>
+  <keywords lang="de">homomorph, asymmetrisch</keywords>
+  <replacements lang="de">
+    <replacement key="$KeyGenerator$" value="Schlüsselgenerator" />
+    <replacement key="$Encrypt$" value="Verschlüsselung" />
+    <replacement key="$Decrypt$" value="Entschlüsselung" />
+    <replacement key="$Decrypted Sum$" value="Entschlüsselte Summe" />
+    <replacement key="$BooleanOutput$" value="Boolesche Ausgabe" />
+    <replacement key="$Comparator$" value="Vergleicher" />
+    <replacement key="$Add$" value="Addition" />
+    <replacement key="$Summand$" value="Summand" />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Pailler_Add.png" />
+  <relevantPlugins>
+    <plugin name="BooleanOutput" />
+    <plugin name="Comparators" />
+    <plugin name="Paillier" />
+    <plugin name="PaillierKeyGenerator" />
+  </relevantPlugins>
+</sample>

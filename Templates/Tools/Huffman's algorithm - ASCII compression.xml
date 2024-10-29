@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: Huffman's algorithm - ASCII compression.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">Huffman's Algorithm (ASCII)</title>
+  <summary lang="en">Usage of <i>Huffman</i> to compress an ASCII encoded text</summary>
+  <description lang="en">This template shows how the <i>Huffman</i> component can be used to compress an ASCII encoded text.</description>
+  <keywords>Huffman, ascii, compression</keywords>
+  <replacements lang="en">
+    <replacement key="$Uncompressed text$" value="Uncompressed text" />
+    <replacement key="$ASCII bytes$" value="ASCII bytes" />
+    <replacement key="$Compress$" value="Compress" />
+    <replacement key="$Decompress$" value="Decompress" />
+    <replacement key="$ASCII string$" value="ASCII string" />
+    <replacement key="$Decompressed text$" value="Decompressed text" />
+    <replacement key="$memo1$" value="In this example, we are compressing ASCII encoded text from 100,000 bytes to 54,546 bytes with a 45% compression rate." />
+    <replacement key="$memo2$" value="As we can see from the code table, more frequent characters have shorter codewords." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">Huffman-Algorithmus (ASCII)</title>
+  <summary lang="de">Benutzung des <i>Huffman-Algorithmus</i> um ASCII-encodierten Text zu komprimieren.</summary>
+  <description lang="de">Diese Vorlage zeigt, wie man die <i>Huffman</i>-Komponente benutzen kann, um ASCII-encodierten Text zu komprimieren.</description>
+  <keywords lang="de">packen, komprimieren, zip, Kompression</keywords>
+  <replacements lang="de">
+    <replacement key="$Uncompressed text$" value="Unkomprimierter Text" />
+    <replacement key="$ASCII bytes$" value="ASCII-Bytes" />
+    <replacement key="$Compress$" value="Komprimiere" />
+    <replacement key="$Decompress$" value="Dekomprimiere" />
+    <replacement key="$ASCII string$" value="ASCII-String" />
+    <replacement key="$Decompressed text$" value="Dekomprimierter Text" />
+    <replacement key="$memo1$" value="In diesem Beispiel wird ein ASCII-kodierter Text von 100.000 Bytes auf eine Größe von 54.546 Bytes mit einer Kompressionsrate von 45% komprimiert." />
+    <replacement key="$memo2$" value="Die Code-Tabelle zeigt, dass häufiger vorkommende Zeichen kürzere Codeworte erhalten." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="Huffman.png" />
+  <relevantPlugins>
+    <plugin name="Huffman" />
+  </relevantPlugins>
+</sample>

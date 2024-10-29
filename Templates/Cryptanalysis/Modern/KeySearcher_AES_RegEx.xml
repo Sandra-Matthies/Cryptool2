@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--File name: KeySearcher_AES_RegEx.xml-->
+  <!--Last edited: 2022.02.08-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'en' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="en">AES Known-Plaintext Analysis (2)</title>
+  <summary lang="en">Cryptanalysis of <i>AES</i> using the <i>KeySearcher</i> component and a known plaintext</summary>
+  <description lang="en">This template shows the cryptanalysis of the <i>AES</i> algorithm using the <i>KeySearcher</i> component and a known piece of plaintext (crib). For this purpose, a given plaintext is encrypted with <i>AES</i> and the resulting ciphertext is sent to the <i>Keysearcher</i>. The <i>KeySearcher</i> now tries all keys of the given keyspace and matches the resulting plaintexts against the crib. The plaintext that best matches the crib is sent to the output and should be identical to the original paintext.</description>
+  <keywords>advanced, Daemen, Rijmen, Rijndael, asymmetric, NIST, regex, regular expression, keysearcher, Attack, Analysis</keywords>
+  <replacements lang="en">
+    <replacement key="$Ciphertext$" value="Ciphertext" />
+    <replacement key="$Plaintext$" value="Plaintext" />
+    <replacement key="$Revealed Plaintext$" value="Revealed Plaintext" />
+    <replacement key="$StringDecoder$" value="String Decoder" />
+    <replacement key="$Key$" value="Key" />
+    <replacement key="$KeySearcher$" value="KeySearcher" />
+    <replacement key="$memo$" value="This sample shows the usage of a regular expression as the cost function for the KeySearcher. Assume, that you receive the ciphertext and you know only, that it ends with &quot;CrypTool&quot;." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--Language 'de' starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <title lang="de">AES-Known-Plaintext-Analyse (2)</title>
+  <summary lang="de">Kryptoanalyse der <i>AES</i>-Verschlüsselung mittels der <i>KeySearcher</i>-Komponente und eines bekannten Klartextes</summary>
+  <description lang="de">Diese Vorlage zeigt die Kryptoanalyse der <i>AES</i>-Verschlüsselung mittels der <i>KeySearcher</i>-Komponente und eines bekannten Abschnittes des Klartextes (Crib). Hierzu wird ein gegebener Klartext mit <i>AES</i> verschlüsselt und der entstehende Geheimtext an den <i>Keysearcher</i> weitergeleitet. Der <i>KeySearcher</i> probiert nun alle Schlüssel des angegebenen Schlüsselraumes und vergleicht die resultierenden Klartexte mit dem Crib. Der Klartext, der dem Crib am besten entspricht, wird ausgegeben und sollte dem ursprünglichen Klartext entsprechen.</description>
+  <keywords lang="de">asymmetrisch, Rijmen, Rijndael, NIST, regex, regulärer Ausdruck, Keysearcher, Angriff</keywords>
+  <replacements lang="de">
+    <replacement key="$Ciphertext$" value="Geheimtext" />
+    <replacement key="$Plaintext$" value="Klartext" />
+    <replacement key="$Revealed Plaintext$" value="Entschlüsselter Klartext" />
+    <replacement key="$StringDecoder$" value="String-Dekodierer" />
+    <replacement key="$Key$" value="Schlüssel" />
+    <replacement key="$KeySearcher$" value="Schlüsselsuche" />
+    <replacement key="$memo$" value="Diese Vorlage demonstriert die Verwendung eines regulären Ausdruckes als Kostenfunktion für die Schlüsselsucher-Komponente. Es wird angenommen, dass man vom empfangenen Geheimtext nur weiss, dass er mit dem Wort &quot;CrypTool&quot; endet." />
+  </replacements>
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--The general section starts here:-->
+  <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <icon file="AES.png" />
+  <relevantPlugins>
+    <plugin name="AES" />
+    <plugin name="CostFunction" />
+    <plugin name="KeySearcher" />
+  </relevantPlugins>
+</sample>
