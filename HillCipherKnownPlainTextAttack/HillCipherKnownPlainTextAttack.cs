@@ -15,48 +15,62 @@
 */
 using CrypTool.PluginBase;
 using CrypTool.PluginBase.Miscellaneous;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Text;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
 {
     // HOWTO: Plugin developer HowTo can be found here: https://github.com/CrypToolProject/CrypTool-2/wiki/Developer-HowTo
 
     // HOWTO: Change author name, email address, organization and URL.
-    [Author("Anonymous", "coredevs@cryptool.org", "CrypTool 2 Team", "https://www.cryptool.org")]
+    [Author("Sandra Matthies", "sandra_matthies@outlook.de", "CrypTool 2 Team", "https://www.cryptool.org")]
     // HOWTO: Change plugin caption (title to appear in CT2) and tooltip.
     // You can (and should) provide a user documentation as XML file and an own icon.
-    [PluginInfo("Example Plugin", "Subtract one number from another", "HillCipherKnownPlainTextAttack/userdoc.xml", new[] { "CrypWin/images/default.png" })]
+    [PluginInfo("Known Plaintext Attack for Hill Cipher", "Implements the Kwnown Plaintext Attack for Hill Cipher", "HillCipherKnownPlainTextAttack/userdoc.xml", new[] { "CrypWin/images/default.png" })]
     // HOWTO: Change category to one that fits to your plugin. Multiple categories are allowed.
-    [ComponentCategory(ComponentCategory.ToolsMisc)]
+    [ComponentCategory(ComponentCategory.CryptanalysisSpecific)]
     public class HillCipherKnownPlainTextAttack : ICrypComponent
     {
         #region Private Variables
 
-        // HOWTO: You need to adapt the settings class as well, see the corresponding file.
         private readonly HillCipherKnownPlainTextAttackSettings _settings = new HillCipherKnownPlainTextAttackSettings();
+        private const string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         #endregion
 
         #region Data Properties
 
-        /// <summary>
-        /// HOWTO: Input interface to read the input data. 
-        /// You can add more input properties of other type if needed.
-        /// </summary>
-        [PropertyInfo(Direction.InputData, "Input name", "Input tooltip description")]
-        public int SomeInput
+
+        [PropertyInfo(Direction.InputData, "Plaintext Input", "Plain Text Input")]
+        public string Plain
         {
             get;
             set;
         }
 
-        /// <summary>
-        /// HOWTO: Output interface to write the output data.
-        /// You can add more output properties ot other type if needed.
-        /// </summary>
-        [PropertyInfo(Direction.OutputData, "Output name", "Output tooltip description")]
-        public int SomeOutput
+
+        [PropertyInfo(Direction.InputData, "Cipher Input", "Cipher Text Input")]
+        public string Cipher
+        {
+            get;
+            set;
+        }
+
+        
+        [PropertyInfo(Direction.OutputData, "Key", "Key Text Output")]
+        public string Key
+        {
+            get;
+            set;
+        }
+
+        [PropertyInfo(Direction.OutputData, "Keydimension", "The Dimension of the key Matrix")]
+        public int KeyDimension
         {
             get;
             set;
@@ -94,20 +108,90 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
         /// </summary>
         public void Execute()
         {
-            // HOWTO: Use this to show the progress of a plugin algorithm execution in the editor.
             ProgressChanged(0, 1);
-
-            // HOWTO: After you have changed an output property, make sure you announce the name of the changed property to the CT2 core.
-            SomeOutput = SomeInput - _settings.SomeParameter;
-            OnPropertyChanged("SomeOutput");
-
-            // HOWTO: You can pass error, warning, info or debug messages to the CT2 main window.
-            if (_settings.SomeParameter < 0)
+            try
             {
-                GuiLogMessage("SomeParameter is negative", NotificationLevel.Debug);
+                var alphabet_numbers = HillCipherKnownPlainTextAttackMapper.mapAlphabetToNumbers(ALPHABET);
+                var plain_numbers = HillCipherKnownPlainTextAttackMapper.mapLettersByAlphabetToNumbers(Plain, alphabet_numbers);
+                var cipher_numbers = HillCipherKnownPlainTextAttackMapper.mapLettersByAlphabetToNumbers(Cipher, alphabet_numbers);
+                int key_dimension = 0;
+
+                int m = ALPHABET.Length + 1;
+
+                HillCipherKnownPlainTextAttackMatrix key;
+                HillCipherKnownPlainTextAttackMatrix[] cipher_matrices;
+                HillCipherKnownPlainTextAttackMatrix[] plain_matrices;
+                do
+                {
+                    key_dimension++;
+                    cipher_matrices = HillCipherKnownPlainTextAttackUtils.createTextMatrices(cipher_numbers, key_dimension, alphabet_numbers);
+                    plain_matrices = HillCipherKnownPlainTextAttackUtils.createTextMatrices(plain_numbers, key_dimension, alphabet_numbers);
+
+                    var plain_text_matrix = HillCipherKnownPlainTextAttackUtils.getSquareMatrix(plain_matrices, key_dimension);
+                    var cipher_text_matrix = HillCipherKnownPlainTextAttackUtils.getSquareMatrix(cipher_matrices, key_dimension);
+
+                    key = KnownPlainTextAttack(plain_text_matrix, cipher_text_matrix, m);
+
+
+                } while (CompareCipherText(key, plain_matrices, alphabet_numbers, m, Cipher) == false);
+
+                var res_key_numbers = HillCipherKnownPlainTextAttackUtils.createarrayFromMatrix(key);
+                var key_text = HillCipherKnownPlainTextAttackMapper.mapNumbersByAlphabetToLetters(res_key_numbers, alphabet_numbers);
+                KeyDimension = key_dimension;
+                Key = key_text;
             }
-            // HOWTO: Make sure the progress bar is at maximum when your Execute() finished successfully.
+            catch(Exception ex)
+            {
+                GuiLogMessage(string.Format("Error: {0}", ex.Message), NotificationLevel.Error);
+            }
+
+
             ProgressChanged(1, 1);
+        }
+
+        private bool CompareCipherText(HillCipherKnownPlainTextAttackMatrix key, HillCipherKnownPlainTextAttackMatrix[] plain_matrices, Dictionary<string, int> alphabet_numbers, int m, object res_cipher)
+        {
+            var _cipherText = Encrypt(key, plain_matrices, alphabet_numbers, m);
+            return _cipherText == Cipher;
+        }
+
+        private string Encrypt(HillCipherKnownPlainTextAttackMatrix key_matrix, HillCipherKnownPlainTextAttackMatrix[] plain_matrices, Dictionary<string, int> alphabet_numbers, int m)
+        {
+            HillCipherKnownPlainTextAttackMatrix[] cipher_matrices = new HillCipherKnownPlainTextAttackMatrix[plain_matrices.Length];
+            for (int i = 0; i < plain_matrices.Length; i++)
+            {
+                cipher_matrices[i] = HillCipherKnownPlainTextAttackUtils.Encrypt(key_matrix, plain_matrices[i], m);
+            }
+
+            var cipher_matrix = HillCipherKnownPlainTextAttackUtils.mergeCipherText(cipher_matrices, m);
+            var cipher_numbers = new int[cipher_matrix.Rows];
+
+            for (int i = 0; i < cipher_matrix.Rows; i++)
+            {
+                cipher_numbers[i] = cipher_matrix.Data[i, 0];
+            }
+
+            var cipher_text = HillCipherKnownPlainTextAttackMapper.mapNumbersByAlphabetToLetters(cipher_numbers, alphabet_numbers);
+            return cipher_text;
+        }
+
+        private HillCipherKnownPlainTextAttackMatrix KnownPlainTextAttack(HillCipherKnownPlainTextAttackMatrix plain_text_matrix, HillCipherKnownPlainTextAttackMatrix cipher_text_matrix, int m)
+        {
+            if(!HillCipherKnownPlainTextAttackUtils.isValidTextMatrix(plain_text_matrix, cipher_text_matrix))
+            {
+                throw new Exception("Invalid text matrix");
+            }
+
+            // Create system of equations for K = C * P^-1 mod m
+
+            // Create the inverse of the plain text matrix
+            HillCipherKnownPlainTextAttackMatrix inversePlainText = HillCipherKnownPlainTextAttackMatrix.inverseMatrix(plain_text_matrix, m);
+
+
+            var key = HillCipherKnownPlainTextAttackMatrix.multiplyMatrix(cipher_text_matrix, inversePlainText);
+
+            key = HillCipherKnownPlainTextAttackMatrix.modMatrix(key, m);
+            return key;
         }
 
         /// <summary>

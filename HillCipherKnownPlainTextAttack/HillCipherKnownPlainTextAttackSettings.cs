@@ -20,7 +20,6 @@ using System.ComponentModel;
 
 namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
 {
-    // HOWTO: rename class (click name, press F2)
     public class HillCipherKnownPlainTextAttackSettings : ISettings
     {
         #region Private Variables
