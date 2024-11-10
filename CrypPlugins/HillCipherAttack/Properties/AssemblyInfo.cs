@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HillCipherKnownPlainTextAttack")]
+[assembly: AssemblyTitle("HillCipherAttack")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HillCipherKnownPlainTextAttack")]
+[assembly: AssemblyProduct("HillCipherAttack")]
 [assembly: AssemblyCopyright("Copyright © CrypTool 2 Team")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("35965674-cbc3-4380-900c-2623368b81d1")]
+[assembly: Guid("9886abe3-9be0-4032-acd6-6e251dce65a8")]
 
 // Version information for an assembly consists of the following four values:
 //

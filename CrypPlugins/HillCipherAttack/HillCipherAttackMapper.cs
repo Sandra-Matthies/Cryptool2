@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
+namespace CrypTool.Plugins.HillCipherAttack
 {
-    public class HillCipherKnownPlainTextAttackMapper
+    public class HillCipherAttackMapper
     {
         public static Dictionary<string, int> mapAlphabetToNumbers(string aplphabet)
         {

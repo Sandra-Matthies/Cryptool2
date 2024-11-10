@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{05570A15-AB5D-403C-A1FF-CF2DBB55A4E6}</ProjectGuid>
+    <ProjectGuid>{B25DF04E-81A2-495D-8FF9-B886999CC5C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HillCipherKnownPlainTextAttack</RootNamespace>
-    <AssemblyName>HillCipherKnownPlainTextAttack</AssemblyName>
+    <RootNamespace>CrypTool.Plugins.HillCipherAttack</RootNamespace>
+    <AssemblyName>HillCipherAttack</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -76,14 +76,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HillCipherKnownPlainTextAttack.cs" />
-    <Compile Include="HillCipherKnownPlainTextAttackMapper.cs" />
-    <Compile Include="HillCipherKnownPlainTextAttackSettings.cs" />
-    <Compile Include="HillCipherKnownPlainTextAttackUtils.cs" />
+    <Compile Include="HillCipherAttack.cs" />
+    <Compile Include="HillCipherAttackMapper.cs" />
+    <Compile Include="HillCipherAttackMatrix.cs" />
+    <Compile Include="HillCipherAttackPresentation.xaml.cs">
+      <DependentUpon>HillCipherAttackPresentation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HillCipherAttackSettings.cs" />
+    <Compile Include="HillCipherAttackUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.en.Designer.cs">
+      <DependentUpon>Resources.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrypPluginBase\CrypPluginBase.csproj">
+    <ProjectReference Include="..\..\CrypPluginBase\CrypPluginBase.csproj">
       <Project>{25DB2B47-A457-4EC2-960B-395CE07AE093}</Project>
       <Name>CrypPluginBase</Name>
       <Private>False</Private>
@@ -110,7 +124,20 @@
     <Resource Include="userdoc.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HillCipherKnownPlainTextAttackMatrix.cs" />
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="HillCipherAttackPresentation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

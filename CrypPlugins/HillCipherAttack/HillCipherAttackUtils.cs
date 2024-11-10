@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
 
-namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
+namespace CrypTool.Plugins.HillCipherAttack
 {
-    public class HillCipherKnownPlainTextAttackUtils
+    public class HillCipherAttackUtils
     {
-        public static bool IsValidKey(HillCipherKnownPlainTextAttackMatrix key, int m)
+        public static bool IsValidKey(HillCipherAttackMatrix key, int m)
         {
             if (key.Rows != key.Cols)
             {
                 return false;
             }
             // Determinant of the key matrix must be != 0
-            var det = HillCipherKnownPlainTextAttackMatrix.getDeterminant(key);
+            var det = HillCipherAttackMatrix.getDeterminant(key);
             if (det == 0)
             {
                 return false;
@@ -31,7 +29,7 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             return true;
         }
 
-        public static bool isValidTextMatrix(HillCipherKnownPlainTextAttackMatrix plainText, HillCipherKnownPlainTextAttackMatrix cipherText)
+        public static bool isValidTextMatrix(HillCipherAttackMatrix plainText, HillCipherAttackMatrix cipherText)
         {
             if (plainText.Rows != cipherText.Rows)
             {
@@ -56,14 +54,14 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             }
         }
 
-        public static HillCipherKnownPlainTextAttackMatrix mergeCipherText(HillCipherKnownPlainTextAttackMatrix[] cipherText, int n)
+        public static HillCipherAttackMatrix mergeCipherText(HillCipherAttackMatrix[] cipherText, int n)
         {
-            var result = new HillCipherKnownPlainTextAttackMatrix(0, 1);
+            var result = new HillCipherAttackMatrix(0, 1);
             // create a new vector with the all the rows of the cipherText and the data of the cipherText
             foreach (var cipher in cipherText)
             {
                 // create a new matrix with the size of the result matrix + 1
-                var newResult = new HillCipherKnownPlainTextAttackMatrix(result.Rows + cipher.Rows, 1);
+                var newResult = new HillCipherAttackMatrix(result.Rows + cipher.Rows, 1);
                 // copy the data of the result matrix to the new result matrix
                 for (int i = 0; i < result.Rows; i++)
                 {
@@ -81,10 +79,10 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
         }
 
         // Create a n*n matrix from a string
-        public static HillCipherKnownPlainTextAttackMatrix createKeyMatrix(int[] text)
+        public static HillCipherAttackMatrix createKeyMatrix(int[] text)
         {
             int n = (int)Math.Sqrt(text.Length);
-            HillCipherKnownPlainTextAttackMatrix key = new HillCipherKnownPlainTextAttackMatrix(n, n);
+            HillCipherAttackMatrix key = new HillCipherAttackMatrix(n, n);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -95,7 +93,7 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             return key;
         }
 
-        public static HillCipherKnownPlainTextAttackMatrix[] createTextMatrices(int[] text, int n, Dictionary<string, int> alphabet)
+        public static HillCipherAttackMatrix[] createTextMatrices(int[] text, int n, Dictionary<string, int> alphabet)
         {
             int m = text.Length;
             int cols = m / n;
@@ -113,10 +111,10 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
                 text = tmp;
             }
 
-            HillCipherKnownPlainTextAttackMatrix[] matrices = new HillCipherKnownPlainTextAttackMatrix[cols];
+            HillCipherAttackMatrix[] matrices = new HillCipherAttackMatrix[cols];
             for (int i = 0; i < cols; i++)
             {
-                matrices[i] = new HillCipherKnownPlainTextAttackMatrix(n, 1);
+                matrices[i] = new HillCipherAttackMatrix(n, 1);
                 for (int j = 0; j < n; j++)
                 {
                     matrices[i].Data[j, 0] = text[i * n + j];
@@ -127,7 +125,7 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
                 int index = matrices.Length * n;
                 while (index < text.Length)
                 {
-                    var mat = new HillCipherKnownPlainTextAttackMatrix(n, 1);
+                    var mat = new HillCipherAttackMatrix(n, 1);
                     for (int j = index; j < text.Length; j++)
                     {
                         mat.Data[j - index, 0] = text[j];
@@ -138,9 +136,9 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             return matrices;
         }
 
-        public static HillCipherKnownPlainTextAttackMatrix getSquareMatrix(HillCipherKnownPlainTextAttackMatrix[] matrices, int n)
+        public static HillCipherAttackMatrix getSquareMatrix(HillCipherAttackMatrix[] matrices, int n)
         {
-            HillCipherKnownPlainTextAttackMatrix result = new HillCipherKnownPlainTextAttackMatrix(n, n);
+            HillCipherAttackMatrix result = new HillCipherAttackMatrix(n, n);
 
             for (int i = 0; i < n; i++)
             {
@@ -153,7 +151,7 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             return result;
         }
 
-        public static int[] createarrayFromMatrix(HillCipherKnownPlainTextAttackMatrix matrix)
+        public static int[] createarrayFromMatrix(HillCipherAttackMatrix matrix)
         {
             int[] result = new int[matrix.Rows * matrix.Cols];
             for (int i = 0; i < matrix.Rows; i++)
@@ -166,14 +164,14 @@ namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
             return result;
         }
 
-        internal static HillCipherKnownPlainTextAttackMatrix Encrypt(HillCipherKnownPlainTextAttackMatrix k, HillCipherKnownPlainTextAttackMatrix p, int m)
+        internal static HillCipherAttackMatrix Encrypt(HillCipherAttackMatrix k, HillCipherAttackMatrix p, int m)
         {
             if (!IsValidKey(k, m))
             {
                 throw new Exception("Invalid key");
             }
-            HillCipherKnownPlainTextAttackMatrix result = HillCipherKnownPlainTextAttackMatrix.multiplyMatrix(k, p);
-            HillCipherKnownPlainTextAttackMatrix resultMod = HillCipherKnownPlainTextAttackMatrix.modMatrix(result, m);
+            HillCipherAttackMatrix result = HillCipherAttackMatrix.multiplyMatrix(k, p);
+            HillCipherAttackMatrix resultMod = HillCipherAttackMatrix.modMatrix(result, m);
             return resultMod;
         }
     }

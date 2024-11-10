@@ -18,9 +18,10 @@ using CrypTool.PluginBase.Miscellaneous;
 using System;
 using System.ComponentModel;
 
-namespace CrypTool.Plugins.HillCipherKnownPlainTextAttack
+namespace CrypTool.Plugins.HillCipherAttack
 {
-    public class HillCipherKnownPlainTextAttackSettings : ISettings
+    // HOWTO: rename class (click name, press F2)
+    public class HillCipherAttackSettings : ISettings
     {
         #region Private Variables
 
