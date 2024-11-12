@@ -138,6 +138,9 @@
   <data name="HillCipherAttackTooltip" xml:space="preserve">
     <value>Implements the Known Plaintext Attack for Hill Cipher</value>
   </data>
+  <data name="InputContainsIllegalCharacter" xml:space="preserve">
+    <value>This character is not available in the alphabet.</value>
+  </data>
   <data name="InvalidException" xml:space="preserve">
     <value>Invalid text matrix</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="KTooltip" xml:space="preserve">
     <value>Key Text Output</value>
+  </data>
+  <data name="NotInvertable" xml:space="preserve">
+    <value>It exists no invertable Matrix.</value>
   </data>
   <data name="PCaption" xml:space="preserve">
     <value>Plaintext Input</value>

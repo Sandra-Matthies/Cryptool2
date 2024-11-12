@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CrypTool.PluginBase.Miscellaneous;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,13 +31,9 @@ namespace CrypTool.Plugins.HillCipherAttack
             return true;
         }
 
-        public static bool isValidTextMatrix(HillCipherAttackMatrix plainText, HillCipherAttackMatrix cipherText)
+        public static bool isValidTextMatrix(ModMatrix plainText, ModMatrix cipherText)
         {
-            if (plainText.Rows != cipherText.Rows)
-            {
-                return false;
-            }
-            if (plainText.Cols != cipherText.Cols)
+            if(plainText.Dimension != cipherText.Dimension)
             {
                 return false;
             }
@@ -52,6 +50,19 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 return GCD(b, a % b);
             }
+        }
+
+        public static BigInteger[] ConverToArray(ModMatrix matrix)
+        {
+            BigInteger[] result = new BigInteger[matrix.Dimension * matrix.Dimension];
+            for (int i = 0; i < matrix.Dimension; i++)
+            {
+                for (int j = 0; j < matrix.Dimension; j++)
+                {
+                    result[i * matrix.Dimension + j] = matrix[i, j];
+                }
+            }
+            return result;
         }
 
         public static HillCipherAttackMatrix mergeCipherText(HillCipherAttackMatrix[] cipherText, int n)

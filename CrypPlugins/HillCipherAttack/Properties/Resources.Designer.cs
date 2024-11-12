@@ -124,6 +124,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This character is not available in the alphabet. ähnelt.
+        /// </summary>
+        internal static string InputContainsIllegalCharacter {
+            get {
+                return ResourceManager.GetString("InputContainsIllegalCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Invalid text matrix ähnelt.
         /// </summary>
         internal static string InvalidException {
@@ -183,6 +192,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string KTooltip {
             get {
                 return ResourceManager.GetString("KTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die It exists no invertable Matrix. ähnelt.
+        /// </summary>
+        internal static string NotInvertable {
+            get {
+                return ResourceManager.GetString("NotInvertable", resourceCulture);
             }
         }
         
