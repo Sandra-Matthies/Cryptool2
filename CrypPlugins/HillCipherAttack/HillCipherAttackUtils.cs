@@ -1,8 +1,10 @@
-﻿using System;
+﻿using CrypTool.PluginBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace CrypTool.Plugins.HillCipherAttack
 {
@@ -10,12 +12,16 @@ namespace CrypTool.Plugins.HillCipherAttack
     {
         public static bool IsValidKey(HillCipherAttackMatrix key, int m)
         {
+            if (key == null)
+            {
+                return false;
+            }
             if (key.Rows != key.Cols)
             {
                 return false;
             }
             // Determinant of the key matrix must be != 0
-            var det = HillCipherAttackMatrix.getDeterminant(key);
+            var det = key.GetDeterminant();
             if (det == 0)
             {
                 return false;
@@ -29,7 +35,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             return true;
         }
 
-        public static bool isValidTextMatrix(HillCipherAttackMatrix plainText, HillCipherAttackMatrix cipherText)
+        public static bool IsValidTextMatrix(HillCipherAttackMatrix plainText, HillCipherAttackMatrix cipherText)
         {
             if (plainText.Rows != cipherText.Rows)
             {
@@ -54,89 +60,72 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        public static HillCipherAttackMatrix mergeCipherText(HillCipherAttackMatrix[] cipherText, int n)
+        public static string ConvertToText(HillCipherAttackMatrix mat, Dictionary<string, int> alphabet)
         {
-            var result = new HillCipherAttackMatrix(0, 1);
-            // create a new vector with the all the rows of the cipherText and the data of the cipherText
-            foreach (var cipher in cipherText)
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < mat.Rows; i++)
             {
-                // create a new matrix with the size of the result matrix + 1
-                var newResult = new HillCipherAttackMatrix(result.Rows + cipher.Rows, 1);
-                // copy the data of the result matrix to the new result matrix
-                for (int i = 0; i < result.Rows; i++)
+                for (int j = 0; j < mat.Cols; j++)
                 {
-                    newResult.Data[i, 0] = result.Data[i, 0];
+                    int value = mat.Data[i, j];
+                    result.Append(GetKeyFromValue(alphabet, value));
                 }
-                // copy the data of the cipher matrix to the new result matrix
-                for (int i = 0; i < cipher.Rows; i++)
-                {
-                    newResult.Data[result.Rows + i, 0] = cipher.Data[i, 0];
-                }
-                // set the result matrix to the new result matrix
-                result = newResult;
             }
-            return result;
+
+            return result.ToString();
         }
 
-        // Create a n*n matrix from a string
-        public static HillCipherAttackMatrix createKeyMatrix(int[] text)
+        public static string GetKeyFromValue(Dictionary<string, int> dictionary, int value)
         {
-            int n = (int)Math.Sqrt(text.Length);
-            HillCipherAttackMatrix key = new HillCipherAttackMatrix(n, n);
-            for (int i = 0; i < n; i++)
+            foreach (var kvp in dictionary)
             {
-                for (int j = 0; j < n; j++)
+                if (kvp.Value == value)
                 {
-                    key.Data[i, j] = text[i * n + j];
+                    return kvp.Key;
                 }
             }
-            return key;
+            throw new ArgumentException($"Index {value} not found in the alphabet.");
         }
 
-        public static HillCipherAttackMatrix[] createTextMatrices(int[] text, int n, Dictionary<string, int> alphabet)
+        public static HillCipherAttackMatrix ConvertToMatrix(string text, int n, Dictionary<string, int> alphabet)
         {
-            int m = text.Length;
-            int cols = m / n;
-            while (cols * n < m)
+            int[] textNumbers = new int[text.Length];
+            for (int i = 0; i < text.Length; i++)
             {
-                cols++;
-            }
-            while (cols * n > m)
-            {
-                int[] tmp = new int[text.Length + 1];
-                text.CopyTo(tmp, 0);
-                alphabet.TryGetValue(" ", out int emptyValue);
-                tmp[tmp.Length - 1] = emptyValue;
-                m = tmp.Length;
-                text = tmp;
-            }
-
-            HillCipherAttackMatrix[] matrices = new HillCipherAttackMatrix[cols];
-            for (int i = 0; i < cols; i++)
-            {
-                matrices[i] = new HillCipherAttackMatrix(n, 1);
-                for (int j = 0; j < n; j++)
+                if (alphabet.ContainsKey(text[i].ToString()))
                 {
-                    matrices[i].Data[j, 0] = text[i * n + j];
+                    textNumbers[i] = alphabet[text[i].ToString()];
+                }
+                else
+                {
+                    throw new ArgumentException($"Character {text[i]} is not in the alphabet.");
                 }
             }
-            if (text.Length > matrices.Length * n)
+
+            int cols = (int)Math.Ceiling((double)textNumbers.Length / n);
+            HillCipherAttackMatrix matrix = new HillCipherAttackMatrix(n, cols);
+            int index = 0;
+            for (int j = 0; j < cols ; j++)
             {
-                int index = matrices.Length * n;
-                while (index < text.Length)
-                {
-                    var mat = new HillCipherAttackMatrix(n, 1);
-                    for (int j = index; j < text.Length; j++)
+                for (int i = 0; i < n; i++)
+                { 
+                    if (index < textNumbers.Length)
                     {
-                        mat.Data[j - index, 0] = text[j];
+                        matrix.Data[i, j] = textNumbers[index];
                         index++;
+                    }
+                    else
+                    {
+                        matrix.Data[i, j] = 0; // Auffüllen mit Nullen, wenn der Text kürzer als die Matrix ist
                     }
                 }
             }
-            return matrices;
+
+            return matrix;
         }
 
-        public static HillCipherAttackMatrix getSquareMatrix(HillCipherAttackMatrix[] matrices, int n)
+        public static HillCipherAttackMatrix GetSquareMatrix(HillCipherAttackMatrix mat, int n)
         {
             HillCipherAttackMatrix result = new HillCipherAttackMatrix(n, n);
 
@@ -144,14 +133,21 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 for (int j = 0; j < n; j++)
                 {
-                    result.Data[j, i] = matrices[i].Data[j, 0];
+                    if (i < mat.Rows && j < mat.Cols)
+                    {
+                        result.Data[i, j] = mat.Data[i,j];
+                    }
+                    else
+                    {
+                        result.Data[i, j] = 0; // Auffüllen mit Nullen, wenn außerhalb der Dimension der Eingabematrix
+                    }
                 }
             }
 
             return result;
         }
 
-        public static int[] createarrayFromMatrix(HillCipherAttackMatrix matrix)
+        public static int[] CreatearrayFromMatrix(HillCipherAttackMatrix matrix)
         {
             int[] result = new int[matrix.Rows * matrix.Cols];
             for (int i = 0; i < matrix.Rows; i++)
@@ -168,10 +164,10 @@ namespace CrypTool.Plugins.HillCipherAttack
         {
             if (!IsValidKey(k, m))
             {
-                throw new Exception("Invalid key");
+                return null;
             }
-            HillCipherAttackMatrix result = HillCipherAttackMatrix.multiplyMatrix(k, p);
-            HillCipherAttackMatrix resultMod = HillCipherAttackMatrix.modMatrix(result, m);
+            HillCipherAttackMatrix result = k.MultiplyMatrix(p);
+            HillCipherAttackMatrix resultMod = result.ModMatrix(m);
             return resultMod;
         }
     }

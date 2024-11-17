@@ -124,6 +124,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is a not allowed character in the Input ähnelt.
+        /// </summary>
+        internal static string InputContainsIllegalCharacter {
+            get {
+                return ResourceManager.GetString("InputContainsIllegalCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Invalid text matrix ähnelt.
         /// </summary>
         internal static string InvalidException {
@@ -183,6 +192,42 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string KTooltip {
             get {
                 return ResourceManager.GetString("KTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is no Identity Matrix ähnelt.
+        /// </summary>
+        internal static string NoIdentityMatrix {
+            get {
+                return ResourceManager.GetString("NoIdentityMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The key cannot be calculated. ähnelt.
+        /// </summary>
+        internal static string NoKeyFound {
+            get {
+                return ResourceManager.GetString("NoKeyFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There are not enough values for the dimension {0} to execute the calculation. ähnelt.
+        /// </summary>
+        internal static string NotEnoughData {
+            get {
+                return ResourceManager.GetString("NotEnoughData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Matrix is not invertable ähnelt.
+        /// </summary>
+        internal static string NotInvertable {
+            get {
+                return ResourceManager.GetString("NotInvertable", resourceCulture);
             }
         }
         

@@ -20,38 +20,47 @@ using System.ComponentModel;
 
 namespace CrypTool.Plugins.HillCipherAttack
 {
-    // HOWTO: rename class (click name, press F2)
     public class HillCipherAttackSettings : ISettings
     {
         #region Private Variables
 
-        private int someParameter = 0;
+        private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private int modulus => alphabet.Length;
 
         #endregion
 
         #region TaskPane Settings
 
         /// <summary>
-        /// HOWTO: This is an example for a setting entity shown in the settings pane on the right of the CT2 main window.
-        /// This example setting uses a number field input, but there are many more input types available, see ControlType enumeration.
         /// </summary>
-        [TaskPane("SomeParameter", "This is a parameter tooltip", null, 1, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 0, Int32.MaxValue)]
-        public int SomeParameter
+        [TaskPane("Alphabet", "This is a parameter tooltip", null, 1, false, ControlType.TextBox)]
+        public string Alphabet
         {
             get
             {
-                return someParameter;
+                return alphabet;
             }
             set
             {
-                if (someParameter != value)
+                if (alphabet != value)
                 {
-                    someParameter = value;
+                    alphabet = value;
                     // HOWTO: MUST be called every time a property value changes with correct parameter name
-                    OnPropertyChanged("SomeParameter");
+                    OnPropertyChanged("Alphabet");
+                    OnPropertyChanged("Modulus");
                 }
             }
         }
+
+        [TaskPane("Modulus", "This is a parameter tooltip", null, 2, false, ControlType.TextBoxReadOnly)]
+        public int Modulus
+        {
+            get
+            {
+                return modulus;
+            }
+        }
+
 
         #endregion
 

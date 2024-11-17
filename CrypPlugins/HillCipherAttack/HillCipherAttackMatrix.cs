@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace CrypTool.Plugins.HillCipherAttack
 {
@@ -53,27 +54,28 @@ namespace CrypTool.Plugins.HillCipherAttack
             return true;
         }
 
-        public static HillCipherAttackMatrix multiplyMatrix(HillCipherAttackMatrix a, HillCipherAttackMatrix b)
+        public HillCipherAttackMatrix MultiplyMatrix(HillCipherAttackMatrix b)
         {
-            if (a.Cols != b.Rows)
+            if (Cols != b.Rows)
             {
                 throw new Exception("The number of columns of the first matrix must be equal to the number of rows of the second matrix");
             }
-            HillCipherAttackMatrix result = new HillCipherAttackMatrix(a.Rows, b.Cols);
-            for (int i = 0; i < a.Rows; i++)
+            HillCipherAttackMatrix result = new HillCipherAttackMatrix(Rows, b.Cols);
+            for (int i = 0; i < Rows; i++)
             {
                 for (int j = 0; j < b.Cols; j++)
                 {
-                    for (int k = 0; k < a.Cols; k++)
+                    result.Data[i,j] = 0;
+                    for (int k = 0; k < Cols; k++)
                     {
-                        result.Data[i, j] += a.Data[i, k] * b.Data[k, j];
+                        result.Data[i, j] += Data[i, k] * b.Data[k, j];
                     }
                 }
             }
             return result;
         }
 
-        public static HillCipherAttackMatrix multiplyMatrixWithNumber(HillCipherAttackMatrix a, int b)
+        public static HillCipherAttackMatrix MultiplyMatrixWithNumber(HillCipherAttackMatrix a, int b)
         {
             HillCipherAttackMatrix result = new HillCipherAttackMatrix(a.Rows, a.Cols);
             for (int i = 0; i < a.Rows; i++)
@@ -86,21 +88,21 @@ namespace CrypTool.Plugins.HillCipherAttack
             return result;
         }
 
-        public static HillCipherAttackMatrix modMatrix(HillCipherAttackMatrix a, int m)
+        public HillCipherAttackMatrix ModMatrix( int m)
         {
-            HillCipherAttackMatrix result = new HillCipherAttackMatrix(a.Rows, a.Cols);
-            for (int i = 0; i < a.Rows; i++)
+            HillCipherAttackMatrix result = new HillCipherAttackMatrix(Rows, Cols);
+            for (int i = 0; i < Rows; i++)
             {
-                for (int j = 0; j < a.Cols; j++)
+                for (int j = 0; j < Cols; j++)
                 {
-                    var value = a.Data[i, j] % m;
+                    var value = Data[i, j] % m;
                     result.Data[i, j] = value < 0 ? value + m : value;
                 }
             }
             return result;
         }
 
-        public static HillCipherAttackMatrix inverseMatrix(HillCipherAttackMatrix a, int m)
+        public static HillCipherAttackMatrix InverseMatrix(HillCipherAttackMatrix a, int m)
         {
             if (a.Rows != a.Cols)
             {
@@ -108,122 +110,109 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
 
             int n = a.Rows;
-            HillCipherAttackMatrix result = new HillCipherAttackMatrix(n, n);
+            HillCipherAttackMatrix inv = new HillCipherAttackMatrix(n, n);
+            int[,] adj = new int[n, n];
+            int det = a.GetDeterminant();
+            int invDet = ModInverse(det, m);
 
-            // create augmented Matrix
-            int[,] augmented = new int[n, n * 2];
+            a.Adjoint(adj);
+
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    augmented[i, j] = a.Data[i, j];
-                    augmented[i, j + n] = (i == j) ? 1 : 0;
-                }
-            }
-            var aug = new HillCipherAttackMatrix(augmented);
-
-            // Gaussian Elimination in mod m
-            var g_matrix = GaussianEliminationMod(aug, m);
-
-            // Extract the inverse matrix from the augmented matrix
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    result.Data[i, j] = g_matrix.Data[i, j + n];
+                    inv.Data[i, j] = (adj[i, j] * invDet) % m;
+                    if (inv.Data[i, j] < 0)
+                        inv.Data[i, j] += m;
                 }
             }
 
-            return result;
+            return inv;
         }
 
-        public static HillCipherAttackMatrix GaussianEliminationMod(HillCipherAttackMatrix input, int m)
+        public void Adjoint(int[,] adj)
         {
-            HillCipherAttackMatrix output = new HillCipherAttackMatrix(input.Rows, input.Cols);
-            int n = input.Rows;
-            int[,] a = input.Data;
-            HillCipherAttackMatrix[] rows = new HillCipherAttackMatrix[n];
-
-            // Create a matrix for each row
-            for (int i = 0; i < n; i++)
+            int n = Rows;
+            if (n == 1)
             {
-                rows[i] = new HillCipherAttackMatrix(1, input.Cols);
-                for (int j = 0; j < input.Cols; j++)
-                {
-                    rows[i].Data[0, j] = a[i, j];
-                }
+                adj[0, 0] = 1;
+                return;
             }
 
-            // Perform Gaussian Elimination
-            int x = 0;
-            foreach (var row in rows)
+            int sign;
+            HillCipherAttackMatrix temp = new HillCipherAttackMatrix(n, n);
+
+            for (int i = 0; i < n; i++)
             {
-                var pivot = row.Data[0, x];
-                var pivot_inverse = modInverse(pivot, m);
-                rows[x] = modMatrix(multiplyMatrixWithNumber(rows[x], pivot_inverse), m);
                 for (int j = 0; j < n; j++)
                 {
-                    if (j != x)
+                    GetCofactor(temp.Data, i, j, n);
+                    sign = ((i + j) % 2 == 0) ? 1 : -1;
+                    adj[j, i] = (sign * temp.Determinant(n - 1));
+                }
+            }
+        }
+
+        public void GetCofactor(int[,] temp, int p, int q, int n)
+        {
+            int i = 0, j = 0;
+            for (int row = 0; row < n; row++)
+            {
+                for (int col = 0; col < n; col++)
+                {
+                    if (row != p && col != q)
                     {
-                        var factor = rows[j].Data[0, x];
-                        rows[j] = modMatrix(subMatrix(rows[j], modMatrix(multiplyMatrixWithNumber(rows[x], factor), m)), m);
+                        temp[i, j++] = Data[row, col];
+                        if (j == n - 1)
+                        {
+                            j = 0;
+                            i++;
+                        }
                     }
                 }
-                x++;
             }
+        }
+        public int Determinant(int n)
+        {
+            int det = 0;
+            if (n == 1)
+                return Data[0, 0];
 
-            // create output matrix
-            for (int i = 0; i < rows.Length; i++)
+            HillCipherAttackMatrix temp = new HillCipherAttackMatrix(n, n);
+            int sign = 1;
+
+            for (int f = 0; f < n; f++)
             {
-                for (int j = 0; j < rows[i].Cols; j++)
-                {
-                    output.Data[i, j] = rows[i].Data[0, j];
-                }
-
+                GetCofactor(temp.Data, 0, f, n);
+                det += sign * Data[0, f] * temp.Determinant(n - 1);
+                sign = -sign;
             }
-            return output;
+
+            return det;
         }
 
-
-        static HillCipherAttackMatrix subMatrix(HillCipherAttackMatrix a, HillCipherAttackMatrix b)
+        public bool CheckForIdentitiyMatrix( HillCipherAttackMatrix b, int m)
         {
-            if (a.Rows != b.Rows || a.Cols != b.Cols)
-            {
-                throw new Exception("Matrices must have the same dimensions");
-            }
-            HillCipherAttackMatrix result = new HillCipherAttackMatrix(a.Rows, a.Cols);
-            for (int i = 0; i < a.Rows; i++)
-            {
-                for (int j = 0; j < a.Cols; j++)
-                {
-                    result.Data[i, j] = a.Data[i, j] - b.Data[i, j];
-                }
-            }
-            return result;
-        }
-
-        public static bool checkForIdentitiyMatrix(HillCipherAttackMatrix a, HillCipherAttackMatrix b, int m)
-        {
-            if (a.Rows > b.Cols)
+            if (Rows > b.Cols)
             {
                 return false;
             }
-            HillCipherAttackMatrix i = new HillCipherAttackMatrix(a.Rows, a.Cols);
-            for (int j = 0; j < a.Rows; j++)
+            HillCipherAttackMatrix i = new HillCipherAttackMatrix(Rows, Cols);
+            for (int j = 0; j < Rows; j++)
             {
-                for (int y = 0; y < a.Cols; y++)
+                for (int y = 0; y < Cols; y++)
                 {
                     if (j == y)
                         i.Data[j, y] = 1;
                 }
             }
-            var res = multiplyMatrix(a, b);
-            res = modMatrix(res, m);
+            var res = MultiplyMatrix( b);
+            res = res.ModMatrix( m);
             return res.Equals(i);
         }
 
 
-        private static int modInverse(int a, int m)
+        private static int ModInverse(int a, int m)
         {
             // Get the Faktor x of a * x = 1 mod m
             int m0 = m;
@@ -254,42 +243,60 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         }
 
-        public static int getDeterminant(HillCipherAttackMatrix a)
+        public int GetDeterminant()
         {
-            if (a.Rows != a.Cols)
+            if (Rows != Cols)
             {
                 throw new Exception("Matrix must be square");
             }
-            if (a.Rows == 1)
+            if (Rows == 1)
             {
-                return a.Data[0, 0];
+                return Data[0, 0];
             }
-            if (a.Rows == 2)
+            if (Rows == 2)
             {
-                return a.Data[0, 0] * a.Data[1, 1] - a.Data[0, 1] * a.Data[1, 0];
+                return Data[0, 0] * Data[1, 1] - Data[0, 1] * Data[1, 0];
             }
             int determinant = 0;
-            for (int i = 0; i < a.Rows; i++)
+            for (int i = 0; i < Rows; i++)
             {
-                HillCipherAttackMatrix minor = new HillCipherAttackMatrix(a.Rows - 1, a.Cols - 1);
-                for (int j = 1; j < a.Rows; j++)
+                HillCipherAttackMatrix minor = new HillCipherAttackMatrix(Rows - 1, Cols - 1);
+                for (int j = 1; j < Rows; j++)
                 {
-                    for (int k = 0; k < a.Cols; k++)
+                    for (int k = 0; k < Cols; k++)
                     {
                         if (k < i)
                         {
-                            minor.Data[j - 1, k] = a.Data[j, k];
+                            minor.Data[j - 1, k] = Data[j, k];
                         }
                         else if (k > i)
                         {
-                            minor.Data[j - 1, k - 1] = a.Data[j, k];
+                            minor.Data[j - 1, k - 1] = Data[j, k];
                         }
                     }
                 }
                 int sign = (i % 2 == 0) ? 1 : -1;
-                determinant += sign * a.Data[0, i] * getDeterminant(minor);
+                determinant += sign * Data[0, i] * minor.GetDeterminant();
             }
             return determinant;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder res = new StringBuilder();
+            res.Append("[ ");
+            for (int i = 0; i < Rows; i++)
+            {
+                res.Append("( ");
+                for (int j = 0; j < Cols; j++)
+                {
+                    res.Append(Data[i, j]+ " ");
+                }
+                res.Append(")");
+            }
+            res.Append(" ]");
+            res.AppendLine();
+            return res.ToString();
         }
     }
 }
