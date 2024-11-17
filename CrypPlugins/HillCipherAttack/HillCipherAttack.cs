@@ -156,6 +156,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                 {
                     plain += "A";
                 }
+                var isWrongKey = true;
                 do
                 {
                     key_dimension++;
@@ -179,17 +180,20 @@ namespace CrypTool.Plugins.HillCipherAttack
                     }
 
                     key = KnownPlainTextAttack(plain_sq_mat, cipher_sq_mat);
+                    //key = TrellisAttack(plain_sq_mat, cipher_sq_mat, _settings.Modulus);
                     if (key != null)
                     {
                         GuiLogMessage(string.Format("Key: {0}", key.ToString()), NotificationLevel.Info);
-                    } else
+                    }
+                    else
                     {
                         GuiLogMessage(string.Format(Properties.Resources.NotInvertable), NotificationLevel.Info);
                         continue;
                     }
 
+                    isWrongKey = !CompareCipherText(key, plain_mat, alphabet_numbers);
 
-                } while (CompareCipherText(key, plain_mat, alphabet_numbers) == false && key_dimension < 5);
+                } while (isWrongKey && key_dimension < 5);
 
                 var res_key_numbers = HillCipherAttackUtils.CreatearrayFromMatrix(key);
                 var key_text = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(res_key_numbers, alphabet_numbers);
@@ -216,6 +220,29 @@ namespace CrypTool.Plugins.HillCipherAttack
             ProgressChanged(1, 1);
         }
 
+        // TODO: check if it works
+        static HillCipherAttackMatrix TrellisAttack(HillCipherAttackMatrix plaintext, HillCipherAttackMatrix ciphertext, int mod)
+        {
+            int n = plaintext.Rows;
+            HillCipherAttackMatrix keyMatrix = new HillCipherAttackMatrix(n, n);
+
+            //  
+            var plain_eigen = plaintext.CalcEigen(mod);
+            var cipher_eigen = ciphertext.CalcEigen(mod);
+
+            var tmp = cipher_eigen.eigenvectors * plain_eigen.eigenvectors.Inverse();
+
+            // Convert to HillCipherAttackMatrix
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    keyMatrix.Data[i, j] = (int) tmp[i, j];
+                }
+            }
+            return keyMatrix;
+        }
+
         private bool CompareCipherText(HillCipherAttackMatrix key, HillCipherAttackMatrix plain_mat, Dictionary<string, int> alphabet_numbers)
         {
             var _cipherText = Encrypt(key, plain_mat, alphabet_numbers);
@@ -224,7 +251,7 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         private bool CheckForEnoughData(string plain, string cipher, int key_dimension)
         {
-           if (Math.Sqrt(plain.Length) < key_dimension || Math.Sqrt(cipher.Length) < key_dimension)
+            if (Math.Sqrt(plain.Length) < key_dimension || Math.Sqrt(cipher.Length) < key_dimension)
             {
                 return false;
             }

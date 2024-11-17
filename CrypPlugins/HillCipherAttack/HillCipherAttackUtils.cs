@@ -22,9 +22,15 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
             // Determinant of the key matrix must be != 0
             var det = key.GetDeterminant();
+            det = det % m;
             if (det == 0)
             {
                 return false;
+            }
+
+            if(det < 1)
+            {
+                det += m;
             }
 
             // The Determinant and m must be coprime
@@ -68,7 +74,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 for (int j = 0; j < mat.Cols; j++)
                 {
-                    int value = mat.Data[i, j];
+                    int value = mat.Data[j, i];
                     result.Append(GetKeyFromValue(alphabet, value));
                 }
             }

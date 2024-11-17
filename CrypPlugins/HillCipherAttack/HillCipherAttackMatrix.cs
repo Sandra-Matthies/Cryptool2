@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
+using MathNet.Numerics.LinearAlgebra;
+using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace CrypTool.Plugins.HillCipherAttack
 {
@@ -65,7 +64,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 for (int j = 0; j < b.Cols; j++)
                 {
-                    result.Data[i,j] = 0;
+                    result.Data[i, j] = 0;
                     for (int k = 0; k < Cols; k++)
                     {
                         result.Data[i, j] += Data[i, k] * b.Data[k, j];
@@ -88,7 +87,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             return result;
         }
 
-        public HillCipherAttackMatrix ModMatrix( int m)
+        public HillCipherAttackMatrix ModMatrix(int m)
         {
             HillCipherAttackMatrix result = new HillCipherAttackMatrix(Rows, Cols);
             for (int i = 0; i < Rows; i++)
@@ -121,8 +120,8 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 for (int j = 0; j < n; j++)
                 {
-                    inv.Data[i, j] = (adj[i, j] * invDet) % m;
-                    if (inv.Data[i, j] < 0)
+                    inv.Data[i, j] = (adj[i, j] * invDet) % m; // Every value in the adjoint matrix is multiplied by the inverse of the determinant
+                    if (inv.Data[i, j] < 0) // Make sure the value is positive
                         inv.Data[i, j] += m;
                 }
             }
@@ -130,6 +129,8 @@ namespace CrypTool.Plugins.HillCipherAttack
             return inv;
         }
 
+
+        // Calculate the Cofactors of the matrix and store them in adj and return the adjoint matrix transposed
         public void Adjoint(int[,] adj)
         {
             int n = Rows;
@@ -153,7 +154,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        public void GetCofactor(int[,] temp, int p, int q, int n)
+        public void GetCofactor(int[,] temp, int p, int q, int n) // Get the cofactor of the matrix
         {
             int i = 0, j = 0;
             for (int row = 0; row < n; row++)
@@ -191,7 +192,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             return det;
         }
 
-        public bool CheckForIdentitiyMatrix( HillCipherAttackMatrix b, int m)
+        public bool CheckForIdentitiyMatrix(HillCipherAttackMatrix b, int m)
         {
             if (Rows > b.Cols)
             {
@@ -206,13 +207,24 @@ namespace CrypTool.Plugins.HillCipherAttack
                         i.Data[j, y] = 1;
                 }
             }
-            var res = MultiplyMatrix( b);
-            res = res.ModMatrix( m);
+            var res = MultiplyMatrix(b);
+            res = res.ModMatrix(m);
             return res.Equals(i);
         }
 
+        public static int ModInverse(int a, int m)
+        {
+            a = a % m;
+            for (int x = 1; x < m; x++)
+            {
+                if ((a * x) % m == 1)
+                    return x;
+            }
+            return 1;
+        }
 
-        private static int ModInverse(int a, int m)
+
+        /*public static int ModInverse(int a, int m)
         {
             // Get the Faktor x of a * x = 1 mod m
             int m0 = m;
@@ -241,7 +253,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             return x;
 
 
-        }
+        }*/
 
         public int GetDeterminant()
         {
@@ -290,13 +302,48 @@ namespace CrypTool.Plugins.HillCipherAttack
                 res.Append("( ");
                 for (int j = 0; j < Cols; j++)
                 {
-                    res.Append(Data[i, j]+ " ");
+                    res.Append(Data[i, j] + " ");
                 }
                 res.Append(")");
             }
             res.Append(" ]");
             res.AppendLine();
             return res.ToString();
+        }
+
+        internal (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalcEigen(int mod)
+        {
+            // Convert int[,] to double[,] for compatibility with MathNet.Numerics
+            double[,] doubleData = new double[Rows, Cols];
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    doubleData[i, j] = Data[i, j];
+                }
+            }
+
+            var matrix = Matrix<double>.Build.DenseOfArray(doubleData);
+
+            return CalculateEigenValues(matrix, mod);
+        }
+
+
+        // Dieses Vorgehen ist nicht exakt da diese Berechnung normalerweise in R erfolgt
+        private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalculateEigenValues(Matrix<double> matrix, int modulus)
+        {
+            // Berechnung der Eigenwerte und Eigenvektoren
+            var evd = matrix.Evd();
+
+            // Reduktion der Eigenwerte im Modulo m
+            var eigenvalues = evd.EigenValues.Map(x => x.Real % modulus);
+            eigenvalues = eigenvalues.Map(x => x < 0 ? x + modulus : x);
+
+            // Reduktion der Eigenvektoren im Modulo m
+            var eigenvectors = evd.EigenVectors.Map(x => x % modulus);
+            eigenvectors = eigenvectors.Map(x => x < 0 ? x + modulus : x);
+
+            return (eigenvalues, eigenvectors);
         }
     }
 }
