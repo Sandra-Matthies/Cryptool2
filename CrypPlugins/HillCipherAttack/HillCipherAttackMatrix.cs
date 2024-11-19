@@ -345,5 +345,23 @@ namespace CrypTool.Plugins.HillCipherAttack
 
             return (eigenvalues, eigenvectors);
         }
+
+        public string ToOutputString()
+        {
+            var output = "";
+            for(int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    if (Data[i, j] < 0)
+                    {
+                        Data[i, j] += 26;
+                    }
+                    output += Data[i, j].ToString() + " "; 
+                }
+                output += "\n";
+            }
+            return output;
+        }
     }
 }

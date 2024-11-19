@@ -187,6 +187,24 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Key Matrix ähnelt.
+        /// </summary>
+        internal static string KMatCaption {
+            get {
+                return ResourceManager.GetString("KMatCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Key Matrix as numbers ähnelt.
+        /// </summary>
+        internal static string KMatTooltip {
+            get {
+                return ResourceManager.GetString("KMatTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Key Text Output ähnelt.
         /// </summary>
         internal static string KTooltip {

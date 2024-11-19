@@ -159,6 +159,12 @@
   <data name="Keydimension" xml:space="preserve">
     <value>Keydimension</value>
   </data>
+  <data name="KMatCaption" xml:space="preserve">
+    <value>Key Matrix</value>
+  </data>
+  <data name="KMatTooltip" xml:space="preserve">
+    <value>Key Matrix as numbers</value>
+  </data>
   <data name="KTooltip" xml:space="preserve">
     <value>Key Text Output</value>
   </data>

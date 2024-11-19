@@ -27,6 +27,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private int modulus => alphabet.Length;
 
+        private int startKeyDimension = 1;
+
         #endregion
 
         #region TaskPane Settings
@@ -58,6 +60,24 @@ namespace CrypTool.Plugins.HillCipherAttack
             get
             {
                 return modulus;
+            }
+        }
+
+        [TaskPane("Alphabet", "This is a parameter tooltip", null, 1, false, ControlType.NumericUpDown)]
+        public int StartKeyDimension
+        {
+            get
+            {
+                return startKeyDimension;
+            }
+            set
+            {
+                if (startKeyDimension != value)
+                {
+                    startKeyDimension = value;
+                    // HOWTO: MUST be called every time a property value changes with correct parameter name
+                    OnPropertyChanged("StartKeyDimension");
+                }
             }
         }
 
