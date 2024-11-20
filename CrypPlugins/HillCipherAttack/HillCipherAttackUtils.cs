@@ -70,9 +70,9 @@ namespace CrypTool.Plugins.HillCipherAttack
         {
             StringBuilder result = new StringBuilder();
 
-            for (int i = 0; i < mat.Rows; i++)
+            for (int i = 0; i < mat.Cols; i++)
             {
-                for (int j = 0; j < mat.Cols; j++)
+                for (int j = 0; j < mat.Rows; j++)
                 {
                     int value = mat.Data[j, i];
                     result.Append(GetKeyFromValue(alphabet, value));
@@ -94,66 +94,49 @@ namespace CrypTool.Plugins.HillCipherAttack
             throw new ArgumentException($"Index {value} not found in the alphabet.");
         }
 
-        public static HillCipherAttackMatrix[] ConvertToVectors(string text, int n, Dictionary<string, int> alphabet)
+        public static HillCipherAttackMatrix[] ConvertToVectors(int[] textNumbers, int n)
         {
-            int[] textNumbers = new int[text.Length];
-            for (int i = 0; i < text.Length; i++)
-            {
-                if (alphabet.ContainsKey(text[i].ToString()))
-                {
-                    textNumbers[i] = alphabet[text[i].ToString()];
-                }
-                else
-                {
-                    throw new ArgumentException($"Character {text[i]} is not in the alphabet.");
-                }
-            }
 
-            int cols = (int)Math.Ceiling((double)textNumbers.Length / (n*n));
+            int cols = (int)Math.Ceiling((double)textNumbers.Length / n);
             HillCipherAttackMatrix[] matrices = new HillCipherAttackMatrix[cols];
-            for (int i = 0; i < cols; i++)
-            {
-                matrices[i] = new HillCipherAttackMatrix(n, 1);
-            }
-            int index = 0;
-            for (int j = 0; j < cols ; j++)
-            {
-                for (int i = 0; i < n; i++)
+                for (int i = 0; i < cols; i++)
                 {
-                    if (index < textNumbers.Length)
+                    matrices[i] = new HillCipherAttackMatrix(n, 1);
+                }
+                int index = 0;
+                for (int j = 0; j < cols; j++)
+                {
+                    for (int i = 0; i < n; i++)
                     {
-                        matrices[j].Data[i, 0] = textNumbers[index];
-                        index++;
-                    }
-                    else
-                    {
-                        matrices[j].Data[i, 0] = 0; // Auffüllen mit Nullen, wenn der Text kürzer als die Matrix ist
+                        if (index < textNumbers.Length)
+                        {
+                            matrices[j].Data[i, 0] = textNumbers[index];
+                            index++;
+                        }
+                        else
+                        {
+                            matrices[j].Data[i, 0] = 0; // Auffüllen mit Nullen, wenn der Text kürzer als die Matrix ist
+                        }
                     }
                 }
-            }
 
             return matrices;
         }
 
         public static HillCipherAttackMatrix GetSquareMatrix(HillCipherAttackMatrix[] mats, int n, int iterationCount)
         {
-            HillCipherAttackMatrix result = new HillCipherAttackMatrix(n, n);
-            int matIndex = iterationCount;
+            HillCipherAttackMatrix[] nVectors = new HillCipherAttackMatrix[n];
             for (int i = 0; i < n; i++)
+            {
+                nVectors[i] = mats[iterationCount + i];
+            }
+            HillCipherAttackMatrix result = new HillCipherAttackMatrix(n, n);
+            for (int i = 0; i < n; i++) 
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (j < mats[matIndex].Rows && i <= mats[matIndex].Cols)
-                    {
-                        result.Data[i, j] = mats[matIndex].Data[i, 0];
-                    }
-                    else
-                    {
-                        result.Data[i,j] = 0; // Add Zeros, if an element of mats has not enough values for the dimension 
-                    }
-                    matIndex++;
+                    result.Data[i, j] = nVectors[j].Data[i, 0];
                 }
-                matIndex = iterationCount;
             }
 
             return result;
@@ -178,17 +161,12 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 return null;
             }
-            List<HillCipherAttackMatrix> result = new List<HillCipherAttackMatrix>();
-            foreach (var mat in p)
-            {
-                result.Add(k.MultiplyMatrix(mat).ModMatrix(m));
-            }
-
-            HillCipherAttackMatrix resultMod = ConvertListOfVectorsToMatrix(result);
-            return resultMod;
+            var mat = ConvertListOfVectorsToMatrix(p.ToList());
+            var result = k.MultiplyMatrix(mat).ModMatrix(m);
+            return result.ModMatrix(m);
         }
 
-        // Liste von Spaltenbektoren in eine Matrix umwandeln
+        // Convert a List of ColumVectors to a Matrix
         internal static HillCipherAttackMatrix ConvertListOfVectorsToMatrix(List<HillCipherAttackMatrix> list)
         {
             int n = list[0].Rows;

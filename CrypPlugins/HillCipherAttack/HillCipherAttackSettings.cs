@@ -63,7 +63,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("Alphabet", "This is a parameter tooltip", null, 1, false, ControlType.NumericUpDown)]
+        [TaskPane("StartKeyDimension", "This is a parameter tooltip", null, 3, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
         public int StartKeyDimension
         {
             get

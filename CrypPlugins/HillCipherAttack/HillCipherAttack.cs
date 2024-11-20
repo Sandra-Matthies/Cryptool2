@@ -131,6 +131,23 @@ namespace CrypTool.Plugins.HillCipherAttack
             return true;
         }
 
+        private int[] getTextNumbers(string text, Dictionary<string, int> alphabet)
+        {
+            int[] textNumbers = new int[text.Length];
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (alphabet.ContainsKey(text[i].ToString()))
+                {
+                    textNumbers[i] = alphabet[text[i].ToString()];
+                }
+                else
+                {
+                    throw new ArgumentException($"Character {text[i]} is not in the alphabet.");
+                }
+            }
+            return textNumbers;
+        }
+
         /// <summary>
         /// Called every time this plugin is run in the workflow execution.
         /// </summary>
@@ -163,27 +180,29 @@ namespace CrypTool.Plugins.HillCipherAttack
                 {
                     plain += "A";
                 }
+                var cipher_numbers = getTextNumbers(Cipher, alphabet_numbers);
+                var plain_numbers = getTextNumbers(plain, alphabet_numbers);
                 var isWrongKey = true;
                 do
                 {
                     key_dimension++;
-                    cipher_mats = HillCipherAttackUtils.ConvertToVectors(Cipher, key_dimension, alphabet_numbers);
-                    plain_mats = HillCipherAttackUtils.ConvertToVectors(plain, key_dimension, alphabet_numbers);
+                    cipher_mats = HillCipherAttackUtils.ConvertToVectors(cipher_numbers, key_dimension);
+                    plain_mats = HillCipherAttackUtils.ConvertToVectors(plain_numbers, key_dimension);
 
                     if (!CheckForEnoughData(plain, Cipher, key_dimension))
                     {
                         GuiLogMessage(string.Format(Properties.Resources.NotEnoughData, key_dimension), NotificationLevel.Warning);
                         return;
                     }
-                    int iterationsForSquare = cipher_mats.Length/key_dimension;
-                    for (int i =0; i< iterationsForSquare; i++) { 
+                    int iterationsForSquare = cipher_mats.Length/key_dimension > 5? 5 : cipher_mats.Length / key_dimension;
+                    int i = -1;
+                    while (i < iterationsForSquare && isWrongKey) {
+                        i++;
                         var plain_sq_mat = HillCipherAttackUtils.GetSquareMatrix(plain_mats, key_dimension, i);
                         var cipher_sq_mat = HillCipherAttackUtils.GetSquareMatrix(cipher_mats, key_dimension,i);
-                        GuiLogMessage(string.Format("Dimension: {0}", key_dimension), NotificationLevel.Info);
-                        GuiLogMessage(plain_sq_mat.ToString(), NotificationLevel.Info);
                         if (HillCipherAttackUtils.GCD(plain_sq_mat.GetDeterminant(), _settings.Modulus) != 1)
                         {
-                            GuiLogMessage(string.Format(Properties.Resources.NotInvertable), NotificationLevel.Warning);
+                            GuiLogMessage(string.Format(Properties.Resources.NotInvertable, plain_sq_mat.ToString()), NotificationLevel.Warning);
                             continue;
                         }
 
@@ -191,36 +210,43 @@ namespace CrypTool.Plugins.HillCipherAttack
                         //key = TrellisAttack(plain_sq_mat, cipher_sq_mat, _settings.Modulus);
                         if (key != null)
                         {
-                            GuiLogMessage(string.Format("Key: {0}", key.ToString()), NotificationLevel.Info);
+                            GuiLogMessage(string.Format(Properties.Resources.KeyValue, key.ToString()), NotificationLevel.Info);
                         }
                         else
                         {
-                            GuiLogMessage(string.Format(Properties.Resources.NotInvertable), NotificationLevel.Info);
                             continue;
                         }
 
                         isWrongKey = !CompareCipherText(key, plain_mats, alphabet_numbers);
-                        // if wrongkey is false return to upper loop
-                        if (!isWrongKey)
-                        {
-                            continue;
-                        }
+                        
                         if(iterationsForSquare >= Cipher.Length / 3 && isWrongKey)
                         {
+                            GuiLogMessage(string.Format(Properties.Resources.NoValidKeyForDim, key_dimension), NotificationLevel.Warning);
                             continue;
                         }
 
                     }
 
-                } while (isWrongKey && key_dimension < 5);
+                } while (isWrongKey && key_dimension < 7);
 
-                var res_key_numbers = HillCipherAttackUtils.CreatearrayFromMatrix(key);
-                var key_text = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(res_key_numbers, alphabet_numbers);
-                KeyDimension = key_dimension;
-                Key = key_text;
-                KeyMatrix = key.ToOutputString();
+                var key_text = "";
+                if (!isWrongKey)
+                { 
+                    var res_key_numbers = HillCipherAttackUtils.CreatearrayFromMatrix(key);
+                    key_text = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(res_key_numbers, alphabet_numbers);
+                    KeyDimension = key_dimension;
+                    Key = key_text;
+                    KeyMatrix = key.ToOutputString();
+                }
+                else
+                {
+                    KeyDimension = 0;
+                    Key = null;
+                    KeyMatrix = null;
+                }
                 OnPropertyChanged(nameof(Key));
                 OnPropertyChanged(nameof(KeyMatrix));
+                OnPropertyChanged(nameof(KeyDimension));
 
                 Presentation.Dispatcher.Invoke(DispatcherPriority.Normal, (SendOrPostCallback)delegate
                 {
@@ -266,7 +292,12 @@ namespace CrypTool.Plugins.HillCipherAttack
         private bool CompareCipherText(HillCipherAttackMatrix key, HillCipherAttackMatrix[] plain_mats, Dictionary<string, int> alphabet_numbers)
         {
             var _cipherText = Encrypt(key, plain_mats, alphabet_numbers);
-            return _cipherText == Cipher;
+            if(!Cipher.Equals(_cipherText))
+            {
+                GuiLogMessage(Properties.Resources.IncorrectKey, NotificationLevel.Info);
+                return false;
+            }
+            return true;
         }
 
         private bool CheckForEnoughData(string plain, string cipher, int key_dimension)

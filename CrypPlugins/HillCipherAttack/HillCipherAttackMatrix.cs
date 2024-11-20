@@ -57,7 +57,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         {
             if (Cols != b.Rows)
             {
-                throw new Exception("The number of columns of the first matrix must be equal to the number of rows of the second matrix");
+                throw new Exception(Properties.Resources.MultiplicationException);
             }
             HillCipherAttackMatrix result = new HillCipherAttackMatrix(Rows, b.Cols);
             for (int i = 0; i < Rows; i++)
@@ -105,7 +105,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         {
             if (a.Rows != a.Cols)
             {
-                throw new Exception("Matrix must be square");
+                throw new Exception(Properties.Resources.NoSquareMatrix);
             }
 
             int n = a.Rows;
@@ -220,46 +220,14 @@ namespace CrypTool.Plugins.HillCipherAttack
                 if ((a * x) % m == 1)
                     return x;
             }
-            return 1;
+           return 1;
         }
-
-
-        /*public static int ModInverse(int a, int m)
-        {
-            // Get the Faktor x of a * x = 1 mod m
-            int m0 = m;
-            int y = 0, x = 1;
-
-            if (m == 1)
-                return 0;
-
-            while (a > 1)
-            {
-                int q = a / m;
-                int t = m;
-
-                m = a % m;
-                a = t;
-
-                t = y;
-                y = x - q * y;
-                x = t;
-            }
-
-            // Make sure x is positive
-            if (x < 0)
-                x += m0;
-
-            return x;
-
-
-        }*/
 
         public int GetDeterminant()
         {
             if (Rows != Cols)
             {
-                throw new Exception("Matrix must be square");
+                throw new Exception(Properties.Resources.NoSquareMatrix);
             }
             if (Rows == 1)
             {
