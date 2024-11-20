@@ -138,6 +138,9 @@
   <data name="HillCipherAttackTooltip" xml:space="preserve">
     <value>Implements the Known Plaintext Attack for Hill Cipher</value>
   </data>
+  <data name="IncorrectKey" xml:space="preserve">
+    <value>The calculated key is incorrect.</value>
+  </data>
   <data name="InputContainsIllegalCharacter" xml:space="preserve">
     <value>There is a not allowed character in the Input</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="Keydimension" xml:space="preserve">
     <value>Keydimension</value>
   </data>
+  <data name="KeyValue" xml:space="preserve">
+    <value>Key: {0}</value>
+  </data>
   <data name="KMatCaption" xml:space="preserve">
     <value>Key Matrix</value>
   </data>
@@ -168,17 +174,26 @@
   <data name="KTooltip" xml:space="preserve">
     <value>Key Text Output</value>
   </data>
+  <data name="MultiplicationException" xml:space="preserve">
+    <value>Exception: The number of columns of the first matrix must be equal to the number of rows of the second matrix.</value>
+  </data>
   <data name="NoIdentityMatrix" xml:space="preserve">
     <value>There is no Identity Matrix</value>
   </data>
   <data name="NoKeyFound" xml:space="preserve">
     <value>The key cannot be calculated.</value>
   </data>
+  <data name="NoSquareMatrix" xml:space="preserve">
+    <value>Exception: The Matrix is not square.</value>
+  </data>
   <data name="NotEnoughData" xml:space="preserve">
     <value>There are not enough values for the dimension {0} to execute the calculation.</value>
   </data>
   <data name="NotInvertable" xml:space="preserve">
-    <value>The Matrix is not invertable</value>
+    <value>The matrix {0} is not invertable.</value>
+  </data>
+  <data name="NoValidKeyForDim" xml:space="preserve">
+    <value>There is no valid key in dimension {}</value>
   </data>
   <data name="PCaption" xml:space="preserve">
     <value>Plaintext Input</value>

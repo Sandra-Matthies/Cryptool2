@@ -124,6 +124,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The calculated key is incorrect. ähnelt.
+        /// </summary>
+        internal static string IncorrectKey {
+            get {
+                return ResourceManager.GetString("IncorrectKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die There is a not allowed character in the Input ähnelt.
         /// </summary>
         internal static string InputContainsIllegalCharacter {
@@ -187,6 +196,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Key: {0} ähnelt.
+        /// </summary>
+        internal static string KeyValue {
+            get {
+                return ResourceManager.GetString("KeyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Key Matrix ähnelt.
         /// </summary>
         internal static string KMatCaption {
@@ -214,6 +232,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exception: The number of columns of the first matrix must be equal to the number of rows of the second matrix. ähnelt.
+        /// </summary>
+        internal static string MultiplicationException {
+            get {
+                return ResourceManager.GetString("MultiplicationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die There is no Identity Matrix ähnelt.
         /// </summary>
         internal static string NoIdentityMatrix {
@@ -232,6 +259,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exception: The Matrix is not square. ähnelt.
+        /// </summary>
+        internal static string NoSquareMatrix {
+            get {
+                return ResourceManager.GetString("NoSquareMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die There are not enough values for the dimension {0} to execute the calculation. ähnelt.
         /// </summary>
         internal static string NotEnoughData {
@@ -241,11 +277,20 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Matrix is not invertable ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The matrix {0} is not invertable. ähnelt.
         /// </summary>
         internal static string NotInvertable {
             get {
                 return ResourceManager.GetString("NotInvertable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is no valid key in dimension {} ähnelt.
+        /// </summary>
+        internal static string NoValidKeyForDim {
+            get {
+                return ResourceManager.GetString("NoValidKeyForDim", resourceCulture);
             }
         }
         
