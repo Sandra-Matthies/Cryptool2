@@ -180,5 +180,11 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
             return result;
         }
+
+        internal static string GeneratePlainTextForUknownPlainTextAttack(int dimension)
+        {
+            // TODO: Implement this method for the dimension of the key matrix
+            return "";
+        }
     }
 }

@@ -29,13 +29,31 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         private int startKeyDimension = 1;
 
+        private bool unkownPlaintextAttack = false;    // false = known plaintext attack, true = unknown plaintext attack
+
         #endregion
 
         #region TaskPane Settings
 
         /// <summary>
         /// </summary>
-        [TaskPane("Alphabet", "This is a parameter tooltip", null, 1, false, ControlType.TextBox)]
+        /// 
+
+        [TaskPane("Attack Type", "Select between Kown and Unkown Plaintext Attack ", null, 1, false, ControlType.ComboBox, new string[] { "Kown Plaintext Attack", "Unkown Plaintext Attack" })]
+        public bool UnkownPlaintextAttack
+        {
+            get => unkownPlaintextAttack;
+            set
+            {
+                if (value != unkownPlaintextAttack)
+                {
+                    unkownPlaintextAttack = value;
+                    OnPropertyChanged("UnkownPlaintextAttack");
+                }
+            }
+        }
+
+        [TaskPane("Alphabet", "Alphabet which is used for encryption and decryption", null, 1, false, ControlType.TextBox)]
         public string Alphabet
         {
             get
@@ -54,7 +72,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("Modulus", "This is a parameter tooltip", null, 2, false, ControlType.TextBoxReadOnly)]
+        [TaskPane("Modulus", "Modulus is the length of the alphabet", null, 2, false, ControlType.TextBoxReadOnly)]
         public int Modulus
         {
             get
@@ -63,7 +81,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("StartKeyDimension", "This is a parameter tooltip", null, 3, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
+        [TaskPane("StartKeyDimension", "The Calculation of the key starts at this dimension", null, 3, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
         public int StartKeyDimension
         {
             get

@@ -113,9 +113,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             int[,] adj = new int[n, n];
             int det = a.GetDeterminant();
             int invDet = ModInverse(det, m);
-
             a.Adjoint(adj);
-
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -125,7 +123,6 @@ namespace CrypTool.Plugins.HillCipherAttack
                         inv.Data[i, j] += m;
                 }
             }
-
             return inv;
         }
 
@@ -139,10 +136,8 @@ namespace CrypTool.Plugins.HillCipherAttack
                 adj[0, 0] = 1;
                 return;
             }
-
             int sign;
             HillCipherAttackMatrix temp = new HillCipherAttackMatrix(n, n);
-
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -223,6 +218,17 @@ namespace CrypTool.Plugins.HillCipherAttack
            return 1;
         }
 
+        public static double ModInverseDouble(double a, int m)
+        {
+            a = (int)a % m;
+            for (int x = 1; x < m; x++)
+            {
+                if ((a * x) % m == 1)
+                    return x;
+            }
+            return 1;
+        }
+
         public int GetDeterminant()
         {
             if (Rows != Cols)
@@ -279,9 +285,8 @@ namespace CrypTool.Plugins.HillCipherAttack
             return res.ToString();
         }
 
-        internal (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalcEigen(int mod)
+        internal double[,] ConvertToDoubleArray()
         {
-            // Convert int[,] to double[,] for compatibility with MathNet.Numerics
             double[,] doubleData = new double[Rows, Cols];
             for (int i = 0; i < Rows; i++)
             {
@@ -291,27 +296,56 @@ namespace CrypTool.Plugins.HillCipherAttack
                 }
             }
 
-            var matrix = Matrix<double>.Build.DenseOfArray(doubleData);
-
-            return CalculateEigenValues(matrix, mod);
+            return doubleData;
         }
 
 
-        // Dieses Vorgehen ist nicht exakt da diese Berechnung normalerweise in R erfolgt
+        // This method is not always exact because this calculation is usually done in the real/complex numbers
+        // and not in the integers. So there may be rounding errors.
         private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalculateEigenValues(Matrix<double> matrix, int modulus)
         {
-            // Berechnung der Eigenwerte und Eigenvektoren
+            // Calculation of the eigenvalues and eigenvectors
             var evd = matrix.Evd();
 
-            // Reduktion der Eigenwerte im Modulo m
+            // Reduction of the eigenvalues in modulo m
             var eigenvalues = evd.EigenValues.Map(x => x.Real % modulus);
             eigenvalues = eigenvalues.Map(x => x < 0 ? x + modulus : x);
 
-            // Reduktion der Eigenvektoren im Modulo m
+            // Reduction of the eigenvectors in modulo m
             var eigenvectors = evd.EigenVectors.Map(x => x % modulus);
             eigenvectors = eigenvectors.Map(x => x < 0 ? x + modulus : x);
 
             return (eigenvalues, eigenvectors);
+        }
+
+        public HillCipherAttackMatrix InverseByEigenVectors(int mod)
+        {   
+            var matrix = Matrix<double>.Build.DenseOfArray(ConvertToDoubleArray());
+            var (eigenvalues, eigenvectors) = CalculateEigenValues(matrix, mod);
+
+            // Calculation of the inverse of the eigenvalues
+            var invEigenvalues = eigenvalues.Map(x => ModInverseDouble(x, mod));
+
+            // DiagonalMatrix of the inverse eigenvalues
+            var invEigenvaluesMatrix = Matrix<double>.Build.DenseDiagonal(eigenvalues.Count, eigenvalues.Count, (i) => invEigenvalues[i]);
+
+            // Calculation of the inverse matrix
+            var invMatrix = eigenvectors * invEigenvaluesMatrix * eigenvectors.Inverse();
+
+            // Reduktion der Inversen Matrix im Modulo m
+            invMatrix = invMatrix.Map(x => x % mod);
+            invMatrix = invMatrix.Map(x => x < 0 ? x + mod : x);
+
+            var result = new HillCipherAttackMatrix(Rows, Cols);
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    result.Data[i, j] = (int)invMatrix[i, j];
+                }
+            }
+
+            return result;
         }
 
         public string ToOutputString()
