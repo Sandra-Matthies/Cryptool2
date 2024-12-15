@@ -341,7 +341,11 @@ namespace CrypTool.Plugins.HillCipherAttack
             {
                 for (int j = 0; j < Cols; j++)
                 {
-                    result.Data[i, j] = (int)invMatrix[i, j];
+                    result.Data[i, j] = (int)Math.Round(invMatrix[i, j]) % mod;
+                    if (result.Data[i, j] < 0)
+                    {
+                        result.Data[i, j] += mod;
+                    }
                 }
             }
 

@@ -313,7 +313,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die There is no valid key in dimension {} ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is no valid key in dimension {0} ähnelt.
         /// </summary>
         internal static string NoValidKeyForDim {
             get {

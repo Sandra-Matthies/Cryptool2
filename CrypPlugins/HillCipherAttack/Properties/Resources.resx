@@ -202,7 +202,7 @@
     <value>The matrix {0} is not invertable.</value>
   </data>
   <data name="NoValidKeyForDim" xml:space="preserve">
-    <value>There is no valid key in dimension {}</value>
+    <value>There is no valid key in dimension {0}</value>
   </data>
   <data name="PCaption" xml:space="preserve">
     <value>Plaintext Input</value>

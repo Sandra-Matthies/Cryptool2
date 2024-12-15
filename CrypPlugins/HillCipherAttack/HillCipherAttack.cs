@@ -161,8 +161,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         public void Execute()
         {
-            //Stopwatch stopwatch = new Stopwatch();
-            //stopwatch.Start();
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             ProgressChanged(0, 1);
             try
             {
@@ -243,9 +243,14 @@ namespace CrypTool.Plugins.HillCipherAttack
 
                         isWrongKey = !CompareCipherText(key, plain_mats, alphabet_numbers);
 
-                        if (iterationsForSquare >= Cipher.Length / 3 && isWrongKey)
+                        if (iterationsForSquare >= (int)(Cipher.Length / 3) && isWrongKey)
                         {
-                            GuiLogMessage(string.Format(Properties.Resources.NoValidKeyForDim, key_dimension), NotificationLevel.Warning);
+                            // TODO CHeck for Error
+                            GuiLogMessage(string.Format(Properties.Resources.NoValidKeyForDim, key_dimension.ToString()), NotificationLevel.Warning);
+                            if(iterationsForSquare == (int)(Cipher.Length / 3))
+                            {
+                                i++;
+                            }
                             continue;
                         }
 
@@ -281,8 +286,8 @@ namespace CrypTool.Plugins.HillCipherAttack
                     Key = null;
                     KeyMatrix = null;
                 }
-                //stopwatch.Stop();
-                //GuiLogMessage($"Execution time: {stopwatch.ElapsedMilliseconds} ms", NotificationLevel.Info);
+                stopwatch.Stop();
+                GuiLogMessage($"Execution time: {stopwatch.ElapsedMilliseconds} ms", NotificationLevel.Info);
 
                 OnPropertyChanged(nameof(Key));
                 OnPropertyChanged(nameof(KeyMatrix));
@@ -316,6 +321,10 @@ namespace CrypTool.Plugins.HillCipherAttack
         private bool CompareCipherText(HillCipherAttackMatrix key, HillCipherAttackMatrix[] plain_mats, Dictionary<string, int> alphabet_numbers)
         {
             var _cipherText = Encrypt(key, plain_mats, alphabet_numbers);
+            if (_cipherText == null)
+            {
+                return false;
+            }
             if (!Cipher.Equals(_cipherText))
             {
                 GuiLogMessage(Properties.Resources.IncorrectKey, NotificationLevel.Info);
