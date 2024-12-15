@@ -4,30 +4,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CrypTool.Plugins.HillCipherAttack"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition/>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Label Content="{Loc Alphabet}" Grid.Row="0" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label Name="AlphabetValue" Grid.Row="0" Grid.Column="1" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="{Loc Cipher}" Grid.Row="1" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label Name="CipherValue" Grid.Row="1" Grid.Column="1" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="{Loc Plaintext}" Grid.Row="2" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label Name="PlaintextValue" Grid.Row="2" Grid.Column="1" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="{Loc Keydimension}" Grid.Row="3" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label Name="KeyDimensionValue" Grid.Row="3" Grid.Column="1" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="{Loc Key}" Grid.Row="4" Grid.Column="0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <Label Name="KeyValue" Grid.Row="4" Grid.Column="1" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+             xmlns:crypanalysisviewcontrol="clr-namespace:CrypTool.CrypAnalysisViewControl;assembly=CrypAnalysisViewControl"
 
-    </Grid>
+             mc:Ignorable="d" >
+
+    <crypanalysisviewcontrol:CrypAnalysisViewControl ResultHeaderCaption="{Loc LocalLabel}" ResultListCaption="{Loc TopTenL}">
+        <crypanalysisviewcontrol:CrypAnalysisViewControl.ResultHeaderLabels>
+            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Cipher}" x:Name="Cipher" />
+            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Alphabet}" x:Name="Alphabet" />
+            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Modulo}" x:Name="Modulo" />
+        </crypanalysisviewcontrol:CrypAnalysisViewControl.ResultHeaderLabels>
+        <crypanalysisviewcontrol:CrypAnalysisResultListView Name="CrypAnalysisResultListView" ItemsSource="{Binding}" ResultItemAction="HandleResultItemAction">
+            <crypanalysisviewcontrol:CrypAnalysisResultListView.View>
+                <GridView>
+                    <GridViewColumn Header="#" DisplayMemberBinding="{Binding Path=Ranking}" Width="25">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{Loc PlainHeader}" DisplayMemberBinding="{Binding Path=Plain}" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{Loc KeyDimensionHeader}" DisplayMemberBinding="{Binding Path=KeyDimension}" Width="30">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{Loc KeyHeader}" DisplayMemberBinding="{Binding Path=Key}" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{Loc ScoreHeader}" DisplayMemberBinding="{Binding Path=Score}" Width="45">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </crypanalysisviewcontrol:CrypAnalysisResultListView.View>
+        </crypanalysisviewcontrol:CrypAnalysisResultListView>
+    </crypanalysisviewcontrol:CrypAnalysisViewControl>
 </UserControl>

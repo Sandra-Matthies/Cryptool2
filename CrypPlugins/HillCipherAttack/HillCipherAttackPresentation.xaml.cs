@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CrypTool.CrypAnalysisViewControl;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +23,21 @@ namespace CrypTool.Plugins.HillCipherAttack
     [PluginBase.Attributes.Localization("CrypTool.Plugins.HillCipherAttack.Properties.Resources")]
     public partial class HillCipherAttackPresentation : UserControl
     {
+
+        public ObservableCollection<ResultEntry> BestList { get; } = new ObservableCollection<ResultEntry>();
+        public event Action<ResultEntry> SelectedResultEntry;
         public HillCipherAttackPresentation()
         {
             InitializeComponent();
+            DataContext = BestList;
+        }
+
+        private void HandleResultItemAction(ICrypAnalysisResultListEntry item)
+        {
+            if (item is ResultEntry resultItem)
+            {
+                SelectedResultEntry(resultItem);
+            }
         }
     }
 }

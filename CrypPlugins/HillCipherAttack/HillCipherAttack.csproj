@@ -89,6 +89,7 @@
     <Compile Include="HillCipherAttackPresentation.xaml.cs">
       <DependentUpon>HillCipherAttackPresentation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HillCipherAttackRessources.cs" />
     <Compile Include="HillCipherAttackSettings.cs" />
     <Compile Include="HillCipherAttackUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,6 +109,14 @@
       <Project>{25DB2B47-A457-4EC2-960B-395CE07AE093}</Project>
       <Name>CrypPluginBase</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LibSource\CrypAnalysisViewControl\CrypAnalysisViewControl.csproj">
+      <Project>{4AB9BE96-3E34-40CB-9270-A64480C851EE}</Project>
+      <Name>CrypAnalysisViewControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LibSource\LanguageStatisticsLib\LanguageStatisticsLib.csproj">
+      <Project>{5B2E0F9E-F7B8-44FC-84D3-CBC00BC21F47}</Project>
+      <Name>LanguageStatisticsLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

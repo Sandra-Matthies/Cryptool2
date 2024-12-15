@@ -1,8 +1,13 @@
-﻿using CrypTool.PluginBase;
+﻿using CrypTool.CrypAnalysisViewControl;
+using CrypTool.PluginBase;
+using CrypTool.PluginBase.IO;
+using CrypTool.PluginBase.Miscellaneous;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LanguageStatisticsLib;
+
 using System.Threading.Tasks;
 using System.Windows.Media;
 
@@ -181,10 +186,79 @@ namespace CrypTool.Plugins.HillCipherAttack
             return result;
         }
 
-        internal static string GeneratePlainTextForUknownPlainTextAttack(int dimension)
+        internal static string GeneratePlainTextForUknownPlainTextAttack(string[] words, int dimension)
         {
-            // TODO: Implement this method for the dimension of the key matrix
-            return "";
+            StringBuilder plainText = new StringBuilder();
+
+            // Add words from Dictionary until there is enough Data for the dimension but min 20 Characters
+            int currentLength = 0;
+            Random random = new Random();
+            int plaintextLength = dimension * dimension * 2;
+            plaintextLength = plaintextLength > 20 ? plaintextLength : 20;
+            while (currentLength < plaintextLength)
+            {
+                // Select a random word from the dictionary
+                string word = words[random.Next(words.Length)];
+
+                // Check if the word fits into the dimension
+                if (currentLength + word.Length <= plaintextLength)
+                {
+                    plainText.Append(word);
+                    currentLength += word.Length;
+                }
+                else
+                {
+                    // If the length of a word exeeds the total length use only a part of the word
+                    plainText.Append(word.Substring(0, plaintextLength - currentLength));
+                    currentLength = plaintextLength;
+                }
+            }
+            return plainText.ToString();
+        }
+
+        // Caculate the score for a given plaintext
+        internal static double CalculateScore(string plaintext, Dictionary<string, int> alphabet, int language)
+        {
+            double score = 0;
+            // English
+            var letterFrequency = HillCipherAttackRessources.LetterFrequenciesEN;
+            var bigramFrequency = HillCipherAttackRessources.BigramFrequenciesEN;
+            var trigramFrequency = HillCipherAttackRessources.TrigramFrequenciesEN;
+            if (language == 1)
+            {
+                // German
+                bigramFrequency = HillCipherAttackRessources.BigramFrequenciesDE;
+                trigramFrequency = HillCipherAttackRessources.TrigramFrequenciesDE;
+                letterFrequency = HillCipherAttackRessources.LetterFrequenciesDE;
+            }
+
+            // Calculates the score for the plaintext with the alphabet from the settings and the frequencies of the language in the Ressources
+            foreach (char c in plaintext)
+            {
+                if (alphabet.ContainsKey(c.ToString()))
+                {
+                    score += letterFrequency[c];
+                }
+            }
+            for (int i = 0; i < plaintext.Length - 1; i++)
+            {
+                string bigram = plaintext.Substring(i, 2);
+                if (bigramFrequency.ContainsKey(bigram))
+                {
+                    score += bigramFrequency[bigram];
+                }
+            }
+
+            for (int i = 0; i < plaintext.Length - 2; i++)
+            {
+                string trigram = plaintext.Substring(i, 3);
+                if (trigramFrequency.ContainsKey(trigram))
+                {
+                    score += trigramFrequency[trigram];
+                }
+            }
+            return (score * 100)/ plaintext.Length;
+            
         }
     }
 }

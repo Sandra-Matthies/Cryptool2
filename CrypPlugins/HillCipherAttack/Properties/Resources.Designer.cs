@@ -97,6 +97,24 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dictionary  ähnelt.
+        /// </summary>
+        internal static string DictCaption {
+            get {
+                return ResourceManager.GetString("DictCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dictionary for Plaintext generation ähnelt.
+        /// </summary>
+        internal static string DictTooltip {
+            get {
+                return ResourceManager.GetString("DictTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Error: {0} ähnelt.
         /// </summary>
         internal static string ErrorMessage {
@@ -106,7 +124,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Known Plaintext Attack for Hill Cipher ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kown/Unkown Plaintext Attack for Hill Cipher ähnelt.
         /// </summary>
         internal static string HillCipherAttackCaption {
             get {
@@ -115,7 +133,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Implements the Known Plaintext Attack for Hill Cipher ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Implements the Known/Unkown Plaintext Attack for Hill Cipher ähnelt.
         /// </summary>
         internal static string HillCipherAttackTooltip {
             get {
@@ -237,6 +255,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string MultiplicationException {
             get {
                 return ResourceManager.GetString("MultiplicationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No Dictionary available ähnelt.
+        /// </summary>
+        internal static string NoDictionary {
+            get {
+                return ResourceManager.GetString("NoDictionary", resourceCulture);
             }
         }
         

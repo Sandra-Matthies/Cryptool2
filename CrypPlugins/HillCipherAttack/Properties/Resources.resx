@@ -129,14 +129,20 @@
   <data name="CTooltip" xml:space="preserve">
     <value>Cipher Text Input</value>
   </data>
+  <data name="DictCaption" xml:space="preserve">
+    <value>Dictionary </value>
+  </data>
+  <data name="DictTooltip" xml:space="preserve">
+    <value>Dictionary for Plaintext generation</value>
+  </data>
   <data name="ErrorMessage" xml:space="preserve">
     <value>Error: {0}</value>
   </data>
   <data name="HillCipherAttackCaption" xml:space="preserve">
-    <value>Known Plaintext Attack for Hill Cipher</value>
+    <value>Kown/Unkown Plaintext Attack for Hill Cipher</value>
   </data>
   <data name="HillCipherAttackTooltip" xml:space="preserve">
-    <value>Implements the Known Plaintext Attack for Hill Cipher</value>
+    <value>Implements the Known/Unkown Plaintext Attack for Hill Cipher</value>
   </data>
   <data name="IncorrectKey" xml:space="preserve">
     <value>The calculated key is incorrect.</value>
@@ -176,6 +182,9 @@
   </data>
   <data name="MultiplicationException" xml:space="preserve">
     <value>Exception: The number of columns of the first matrix must be equal to the number of rows of the second matrix.</value>
+  </data>
+  <data name="NoDictionary" xml:space="preserve">
+    <value>No Dictionary available</value>
   </data>
   <data name="NoIdentityMatrix" xml:space="preserve">
     <value>There is no Identity Matrix</value>

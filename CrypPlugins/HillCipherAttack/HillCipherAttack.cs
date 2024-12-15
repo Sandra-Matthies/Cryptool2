@@ -13,11 +13,14 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+using CrypTool.CrypAnalysisViewControl;
 using CrypTool.PluginBase;
 using CrypTool.PluginBase.Miscellaneous;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -40,6 +43,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         // HOWTO: You need to adapt the settings class as well, see the corresponding file.
         private readonly HillCipherAttackSettings _settings = new HillCipherAttackSettings();
         private readonly HillCipherAttackPresentation _presentation = new HillCipherAttackPresentation();
+        private readonly ObservableCollection<ResultEntry> _resultEntries = new ObservableCollection<ResultEntry>();
+
 
         #endregion
 
@@ -59,6 +64,9 @@ namespace CrypTool.Plugins.HillCipherAttack
             get;
             set;
         }
+
+        [PropertyInfo(Direction.InputData, "DictCaption", "DictTooltip")]
+        public string[] Dict { get; set; }
 
 
         [PropertyInfo(Direction.OutputData, "KCaption", "KTooltip")]
@@ -109,13 +117,13 @@ namespace CrypTool.Plugins.HillCipherAttack
         {
         }
 
-        private bool CheckInputs()
+        private bool CheckInputs(string plain)
         {
-            for (int j = 0; j < Plain.Length; j++)
+            for (int j = 0; j < plain.Length; j++)
             {
-                if (_settings.Alphabet.IndexOf(Plain[j]) < 0)
+                if (_settings.Alphabet.IndexOf(plain[j]) < 0)
                 {
-                    GuiLogMessage(string.Format(Properties.Resources.InputContainsIllegalCharacter, Plain[j], j), NotificationLevel.Warning);
+                    GuiLogMessage(string.Format(Properties.Resources.InputContainsIllegalCharacter, plain[j], j), NotificationLevel.Warning);
                     return false;
                 }
             }
@@ -153,18 +161,9 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         public void Execute()
         {
+            //Stopwatch stopwatch = new Stopwatch();
+            //stopwatch.Start();
             ProgressChanged(0, 1);
-            try
-            {
-                if (!CheckInputs())
-                {
-                    return;
-                }
-            }
-            catch (ArithmeticException ex)
-            {
-                GuiLogMessage(ex.Message, NotificationLevel.Warning);
-            }
             try
             {
                 var alphabet_numbers = HillCipherAttackMapper.mapAlphabetToNumbers(_settings.Alphabet);
@@ -182,10 +181,20 @@ namespace CrypTool.Plugins.HillCipherAttack
                 }
                 else
                 {
-                    plain = HillCipherAttackUtils.GeneratePlainTextForUknownPlainTextAttack(key_dimension);
+                    if(Dict.Length < 1)
+                    {
+                        GuiLogMessage(Properties.Resources.NoDictionary, NotificationLevel.Error);
+                        return;
+                    }
+                    plain = HillCipherAttackUtils.GeneratePlainTextForUknownPlainTextAttack(Dict,key_dimension);
+
+                }
+                if (!CheckInputs(plain))
+                {
+                    return;
                 }
                 // For the case that the Plain is shorter then the Cipher
-                for (int i = 0; i < Cipher.Length - Plain.Length; i++)
+                for (int i = 0; i < Cipher.Length - plain.Length; i++)
                 {
                     plain += "A";
                 }
@@ -215,7 +224,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                             GuiLogMessage(string.Format(Properties.Resources.NotInvertable, plain_sq_mat.ToString()), NotificationLevel.Warning);
                             continue;
                         }
-                        if (key_dimension < 4)
+                        if (key_dimension < 6)
                         {
                             key = KnownPlainTextAttackForLowDimensions(plain_sq_mat, cipher_sq_mat);
                         }
@@ -240,9 +249,22 @@ namespace CrypTool.Plugins.HillCipherAttack
                             continue;
                         }
 
+                        if(!isWrongKey && _settings.UnkownPlaintextAttack)
+                        {
+                            var resultEntry = new ResultEntry
+                            {
+                                Key = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(HillCipherAttackUtils.CreatearrayFromMatrix(key), alphabet_numbers),
+                                Plain = plain,
+                                Cipher = Cipher,
+                                KeyDimension = key_dimension,
+                                Score = HillCipherAttackUtils.CalculateScore(Encrypt(key, plain_mats, alphabet_numbers), alphabet_numbers, _settings.Language)
+                            };
+                            _resultEntries.Add(resultEntry);
+                        }
+
                     }
 
-                } while (isWrongKey);
+                } while ((isWrongKey && !_settings.UnkownPlaintextAttack) || (_settings.UnkownPlaintextAttack && key_dimension <= 10));
 
                 var key_text = "";
                 if (!isWrongKey)
@@ -259,18 +281,14 @@ namespace CrypTool.Plugins.HillCipherAttack
                     Key = null;
                     KeyMatrix = null;
                 }
+                //stopwatch.Stop();
+                //GuiLogMessage($"Execution time: {stopwatch.ElapsedMilliseconds} ms", NotificationLevel.Info);
+
                 OnPropertyChanged(nameof(Key));
                 OnPropertyChanged(nameof(KeyMatrix));
                 OnPropertyChanged(nameof(KeyDimension));
 
-                Presentation.Dispatcher.Invoke(DispatcherPriority.Normal, (SendOrPostCallback)delegate
-                {
-                    _presentation.AlphabetValue.Content = _settings.Alphabet;
-                    _presentation.PlaintextValue.Content = Plain;
-                    _presentation.CipherValue.Content = Cipher;
-                    _presentation.KeyValue.Content = key_text;
-                    _presentation.KeyDimensionValue.Content = key_dimension;
-                }, null);
+               
             }
             catch (Exception ex)
             {
@@ -281,7 +299,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             ProgressChanged(1, 1);
         }
 
-        // For Dimension > 7
+        // For Dimension > 4
         static HillCipherAttackMatrix KnownPlainTextAttackForHighDimensions(HillCipherAttackMatrix plaintext, HillCipherAttackMatrix ciphertext, int mod)
         {
             int n = plaintext.Rows;
@@ -415,5 +433,40 @@ namespace CrypTool.Plugins.HillCipherAttack
         }
 
         #endregion
+    }
+
+    public class ResultEntry : ICrypAnalysisResultListEntry, INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private int ranking;
+        public int Ranking
+        {
+            get => ranking;
+            set
+            {
+                ranking = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ranking)));
+            }
+        }
+
+        public string Key { get; set; }
+        public string Cipher { get; set; }
+        public string Plain { get; set; }
+        public int KeyDimension { get; set; }
+        public double Score { get; set; }
+
+        public string ClipboardKey => Key;
+        public string ClipboardPlain => Plain;
+        public string ClipboardValue => Cipher;
+        public string ClipboardText => Plain;
+        public double ClipboardScore => Score;
+        public string ClipboardEntry =>
+            "Rank: " + Ranking + Environment.NewLine +
+            "Plaintext: " + Plain + Environment.NewLine +
+            "Key dimension:" + KeyDimension + Environment.NewLine +
+            "Key: " + Key + Environment.NewLine +
+            "Score: " + Score + Environment.NewLine;
+
     }
 }

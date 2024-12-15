@@ -20,6 +20,7 @@ using System.ComponentModel;
 
 namespace CrypTool.Plugins.HillCipherAttack
 {
+   
     public class HillCipherAttackSettings : ISettings
     {
         #region Private Variables
@@ -30,6 +31,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         private int startKeyDimension = 1;
 
         private bool unkownPlaintextAttack = false;    // false = known plaintext attack, true = unknown plaintext attack
+
+        private int language = 0; // 0 = English, 1 = German
 
         #endregion
 
@@ -95,6 +98,20 @@ namespace CrypTool.Plugins.HillCipherAttack
                     startKeyDimension = value;
                     // HOWTO: MUST be called every time a property value changes with correct parameter name
                     OnPropertyChanged("StartKeyDimension");
+                }
+            }
+        }
+
+        [TaskPane("Language", "Select the language of the text", null, 4, false, ControlType.ComboBox, new string[] { "English", "German" })]
+        public int Language
+        {
+            get => language;
+            set
+            {
+                if (value != language)
+                {
+                    language = value;
+                    OnPropertyChanged("Language");
                 }
             }
         }
