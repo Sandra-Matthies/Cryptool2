@@ -120,7 +120,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                         }
                         else
                         {
-                            matrices[j].Data[i, 0] = 0; // Auffüllen mit Nullen, wenn der Text kürzer als die Matrix ist
+                            matrices[j].Data[i, 0] = 0; // Add 0`s if the text is shorter then the matrix
                         }
                     }
                 }
@@ -186,32 +186,21 @@ namespace CrypTool.Plugins.HillCipherAttack
             return result;
         }
 
-        internal static string GeneratePlainTextForUknownPlainTextAttack(string[] words, int dimension)
+        internal static string GeneratePlainTextForCiphertextOnlyAttack(string[] words, int dimension)
         {
             StringBuilder plainText = new StringBuilder();
 
-            // Add words from Dictionary until there is enough Data for the dimension but min 20 Characters
+            // Add all words from the dictionary to the plaintext
             int currentLength = 0;
-            Random random = new Random();
             int plaintextLength = dimension * dimension * 2;
             plaintextLength = plaintextLength > 20 ? plaintextLength : 20;
-            while (currentLength < plaintextLength)
-            {
-                // Select a random word from the dictionary
-                string word = words[random.Next(words.Length)];
+            // Select all words from the dictionary which have a length of min 6 letters
+            // Filter the,if, what, where, when, how, why, who etc. words
+            string[] filteredWords = words.Where(word => word.Length >= 6).ToArray();
 
-                // Check if the word fits into the dimension
-                if (currentLength + word.Length <= plaintextLength)
-                {
-                    plainText.Append(word);
-                    currentLength += word.Length;
-                }
-                else
-                {
-                    // If the length of a word exeeds the total length use only a part of the word
-                    plainText.Append(word.Substring(0, plaintextLength - currentLength));
-                    currentLength = plaintextLength;
-                }
+            foreach (var word in filteredWords)
+            {
+               plainText.Append(word);
             }
             return plainText.ToString();
         }

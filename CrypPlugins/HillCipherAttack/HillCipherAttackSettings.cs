@@ -30,9 +30,13 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         private int startKeyDimension = 1;
 
-        private bool unkownPlaintextAttack = false;    // false = known plaintext attack, true = unknown plaintext attack
+        private bool isUnkownPlaintextAttack = false;    // false = known plaintext attack, true = unknown plaintext attack
+
+        private bool isAdjointCalculation = true; // true = use adjoint matrix, false = use eigenvectors
 
         private int language = 0; // 0 = English, 1 = German
+
+        private int treshhold = 5;
 
         #endregion
 
@@ -42,21 +46,35 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         /// 
 
-        [TaskPane("Attack Type", "Select between Kown and Unkown Plaintext Attack ", null, 1, false, ControlType.ComboBox, new string[] { "Kown Plaintext Attack", "Unkown Plaintext Attack" })]
-        public bool UnkownPlaintextAttack
+        [TaskPane("AttackTypeCaption", "AttackTypeTooltip", null, 1, false, ControlType.ComboBox, new string[] { "Kown Plaintext Attack", "Ciphertext Only Attack" })]
+        public bool IsUnkownPlaintextAttack
         {
-            get => unkownPlaintextAttack;
+            get => isUnkownPlaintextAttack;
             set
             {
-                if (value != unkownPlaintextAttack)
+                if (value != isUnkownPlaintextAttack)
                 {
-                    unkownPlaintextAttack = value;
-                    OnPropertyChanged("UnkownPlaintextAttack");
+                    isUnkownPlaintextAttack = value;
+                    OnPropertyChanged("IsUnkownPlaintextAttack");
                 }
             }
         }
 
-        [TaskPane("Alphabet", "Alphabet which is used for encryption and decryption", null, 1, false, ControlType.TextBox)]
+        [TaskPane("InversCalcTypeCaption", "InversCalcTypeCaption", null, 2, false, ControlType.ComboBox, new string[] { "Eigenvectors", "Adjoint" })]
+        public bool IsAdjointCalculation
+        {
+            get => isAdjointCalculation;
+            set
+            {
+                if (value != isAdjointCalculation)
+                {
+                    isAdjointCalculation = value;
+                    OnPropertyChanged("IsAdjointCalculation");
+                }
+            }
+        }
+
+        [TaskPane("AlphabetCaption", "AlphabetTooltip", null, 3, false, ControlType.TextBox)]
         public string Alphabet
         {
             get
@@ -75,7 +93,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("Modulus", "Modulus is the length of the alphabet", null, 2, false, ControlType.TextBoxReadOnly)]
+        [TaskPane("ModulusCaption", "ModulusTooltip", null, 4, false, ControlType.TextBoxReadOnly)]
         public int Modulus
         {
             get
@@ -84,7 +102,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("StartKeyDimension", "The Calculation of the key starts at this dimension", null, 3, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
+        [TaskPane("StartKeyDimensionCaption","StartKeyDimensionTooltip", null, 5, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
         public int StartKeyDimension
         {
             get
@@ -102,7 +120,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("Language", "Select the language of the text", null, 4, false, ControlType.ComboBox, new string[] { "English", "German" })]
+        [TaskPane("LanguageCaption", "LanguageTooltip", null, 6, false, ControlType.ComboBox, new string[] { "English", "German" })]
         public int Language
         {
             get => language;
@@ -112,6 +130,24 @@ namespace CrypTool.Plugins.HillCipherAttack
                 {
                     language = value;
                     OnPropertyChanged("Language");
+                }
+            }
+        }
+
+        [TaskPane("TreshholdCaption", "TreshholdTooltip", null, 7, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
+        public int Treshhold
+        {
+            get
+            {
+                return treshhold;
+            }
+            set
+            {
+                if (treshhold != value)
+                {
+                    treshhold = value;
+                    // HOWTO: MUST be called every time a property value changes with correct parameter name
+                    OnPropertyChanged("Treshhold");
                 }
             }
         }

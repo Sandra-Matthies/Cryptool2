@@ -150,7 +150,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                 }
                 else
                 {
-                    throw new ArgumentException($"Character {text[i]} is not in the alphabet.");
+                    throw new ArgumentException(string.Format(Properties.Resources.InputContainsIllegalCharacter, text[i]));
                 }
             }
             return textNumbers;
@@ -161,8 +161,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         public void Execute()
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //Stopwatch stopwatch = new Stopwatch();
+            //stopwatch.Start();
             ProgressChanged(0, 1);
             try
             {
@@ -175,7 +175,7 @@ namespace CrypTool.Plugins.HillCipherAttack
 
                 var plain = "";
                 // Check which type of Attack is given
-                if (!_settings.UnkownPlaintextAttack)
+                if (!_settings.IsUnkownPlaintextAttack)
                 {
                     plain = Plain;
                 }
@@ -186,7 +186,11 @@ namespace CrypTool.Plugins.HillCipherAttack
                         GuiLogMessage(Properties.Resources.NoDictionary, NotificationLevel.Error);
                         return;
                     }
-                    plain = HillCipherAttackUtils.GeneratePlainTextForUknownPlainTextAttack(Dict,key_dimension);
+                    // for testing only 10 words
+                    string[] words = { "EXAMPLE", "DICTIONARY", "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT" };
+                    Dict = words;
+
+                    plain = HillCipherAttackUtils.GeneratePlainTextForCiphertextOnlyAttack(Dict,key_dimension);
 
                 }
                 if (!CheckInputs(plain))
@@ -224,13 +228,13 @@ namespace CrypTool.Plugins.HillCipherAttack
                             GuiLogMessage(string.Format(Properties.Resources.NotInvertable, plain_sq_mat.ToString()), NotificationLevel.Warning);
                             continue;
                         }
-                        if (key_dimension < 6)
+                        if (_settings.IsAdjointCalculation)
                         {
-                            key = KnownPlainTextAttackForLowDimensions(plain_sq_mat, cipher_sq_mat);
+                            key = KnownPlainTextAttackAdjointMatrix(plain_sq_mat, cipher_sq_mat);
                         }
                         else
                         {
-                            key = KnownPlainTextAttackForHighDimensions(plain_sq_mat, cipher_sq_mat, _settings.Modulus);
+                            key = KnownPlainTextAttackEigenvectors(plain_sq_mat, cipher_sq_mat, _settings.Modulus);
                         }
                         if (key != null)
                         {
@@ -240,8 +244,13 @@ namespace CrypTool.Plugins.HillCipherAttack
                         {
                             continue;
                         }
-
-                        isWrongKey = !CompareCipherText(key, plain_mats, alphabet_numbers);
+                        if (_settings.IsUnkownPlaintextAttack) {
+                            isWrongKey = CompareCipherTextWithTreshhold(key, plain_mats, alphabet_numbers, _settings.Treshhold);
+                        }
+                        else
+                        {
+                            isWrongKey = !CompareCipherText(key, plain_mats, alphabet_numbers);
+                        }
 
                         if (iterationsForSquare >= (int)(Cipher.Length / 3) && isWrongKey)
                         {
@@ -254,9 +263,10 @@ namespace CrypTool.Plugins.HillCipherAttack
                             continue;
                         }
 
-                        if(!isWrongKey && _settings.UnkownPlaintextAttack)
+                        if(!isWrongKey && _settings.IsUnkownPlaintextAttack)
                         {
-                            var resultEntry = new ResultEntry
+                            //TODO Add dynamic result scores
+                            /*var resultEntry = new ResultEntry
                             {
                                 Key = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(HillCipherAttackUtils.CreatearrayFromMatrix(key), alphabet_numbers),
                                 Plain = plain,
@@ -264,12 +274,12 @@ namespace CrypTool.Plugins.HillCipherAttack
                                 KeyDimension = key_dimension,
                                 Score = HillCipherAttackUtils.CalculateScore(Encrypt(key, plain_mats, alphabet_numbers), alphabet_numbers, _settings.Language)
                             };
-                            _resultEntries.Add(resultEntry);
+                            _resultEntries.Add(resultEntry);*/
                         }
 
                     }
 
-                } while ((isWrongKey && !_settings.UnkownPlaintextAttack) || (_settings.UnkownPlaintextAttack && key_dimension <= 10));
+                } while ((isWrongKey && !_settings.IsUnkownPlaintextAttack) || (_settings.IsUnkownPlaintextAttack && key_dimension <= 10));
 
                 var key_text = "";
                 if (!isWrongKey)
@@ -286,8 +296,8 @@ namespace CrypTool.Plugins.HillCipherAttack
                     Key = null;
                     KeyMatrix = null;
                 }
-                stopwatch.Stop();
-                GuiLogMessage($"Execution time: {stopwatch.ElapsedMilliseconds} ms", NotificationLevel.Info);
+                //stopwatch.Stop();
+                //GuiLogMessage($"Execution time: {stopwatch.ElapsedMilliseconds} ms", NotificationLevel.Info);
 
                 OnPropertyChanged(nameof(Key));
                 OnPropertyChanged(nameof(KeyMatrix));
@@ -303,9 +313,16 @@ namespace CrypTool.Plugins.HillCipherAttack
 
             ProgressChanged(1, 1);
         }
-
-        // For Dimension > 4
-        static HillCipherAttackMatrix KnownPlainTextAttackForHighDimensions(HillCipherAttackMatrix plaintext, HillCipherAttackMatrix ciphertext, int mod)
+        /// <summary>
+        /// Known Plaintext Attack using the eigenvectors.
+        /// It is possible that no key is found.
+        /// It is using double values for the calculation.
+        /// </summary>
+        /// <param name="plaintext"></param>
+        /// <param name="ciphertext"></param>
+        /// <param name="mod"></param>
+        /// <returns></returns>
+        static HillCipherAttackMatrix KnownPlainTextAttackEigenvectors(HillCipherAttackMatrix plaintext, HillCipherAttackMatrix ciphertext, int mod)
         {
             int n = plaintext.Rows;
             HillCipherAttackMatrix keyMatrix = new HillCipherAttackMatrix(n, n);
@@ -331,6 +348,37 @@ namespace CrypTool.Plugins.HillCipherAttack
                 return false;
             }
             return true;
+        }
+
+        private bool CompareCipherTextWithTreshhold(HillCipherAttackMatrix key, HillCipherAttackMatrix[] plain_mats, Dictionary<string, int> alphabet_numbers, int treshold)
+        {
+            var _cipherText = Encrypt(key, plain_mats, alphabet_numbers);
+            if (_cipherText == null)
+            {
+                return false;
+            }
+
+            // uses Levenshtein Distance with treshhold
+            int sourceLength = Cipher.Length;
+            int targetLength = _cipherText.Length;
+
+            int[,] distance = new int[sourceLength + 1, targetLength + 1];
+
+            for (int i = 0; i <= sourceLength; distance[i, 0] = i++) { }
+            for (int j = 0; j <= targetLength; distance[0, j] = j++) { }
+
+            for (int i = 1; i <= sourceLength; i++)
+            {
+                for (int j = 1; j <= targetLength; j++)
+                {
+                    int cost = (_cipherText[j - 1] == Cipher[i - 1]) ? 0 : 1;
+                    distance[i, j] = Math.Min(
+                        Math.Min(distance[i - 1, j] + 1, distance[i, j - 1] + 1),
+                        distance[i - 1, j - 1] + cost);
+                }
+            }
+
+            return distance[sourceLength, targetLength] <= treshold;
         }
 
         private bool CheckForEnoughData(string plain, string cipher, int key_dimension)
@@ -362,8 +410,13 @@ namespace CrypTool.Plugins.HillCipherAttack
             return cipher_text;
         }
 
-        // For Dimension < 7
-        private HillCipherAttackMatrix KnownPlainTextAttackForLowDimensions(HillCipherAttackMatrix plain_text_matrix, HillCipherAttackMatrix cipher_text_matrix)
+        /// <summary>
+        /// Known Plaintext Attack using the adjoint matrix
+        /// </summary>
+        /// <param name="plain_text_matrix"></param>
+        /// <param name="cipher_text_matrix"></param>
+        /// <returns></returns>
+        private HillCipherAttackMatrix KnownPlainTextAttackAdjointMatrix(HillCipherAttackMatrix plain_text_matrix, HillCipherAttackMatrix cipher_text_matrix)
         {
             if (!HillCipherAttackUtils.IsValidTextMatrix(plain_text_matrix, cipher_text_matrix))
             {

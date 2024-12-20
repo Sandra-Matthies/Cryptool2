@@ -70,6 +70,42 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alphabet  ähnelt.
+        /// </summary>
+        internal static string AlphabetCaption {
+            get {
+                return ResourceManager.GetString("AlphabetCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Alphabet - Defintion of allowed characters ähnelt.
+        /// </summary>
+        internal static string AlphabetTooltip {
+            get {
+                return ResourceManager.GetString("AlphabetTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attack Type ähnelt.
+        /// </summary>
+        internal static string AttackTypeCaption {
+            get {
+                return ResourceManager.GetString("AttackTypeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select between Kown Plaintext and Ciphertext Only Attack. ähnelt.
+        /// </summary>
+        internal static string AttackTypeTooltip {
+            get {
+                return ResourceManager.GetString("AttackTypeTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Cipher Input ähnelt.
         /// </summary>
         internal static string CCaption {
@@ -124,7 +160,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Kown/Unkown Plaintext Attack for Hill Cipher ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kown Plaintext/Ciphertext Only Attack for Hill Cipher ähnelt.
         /// </summary>
         internal static string HillCipherAttackCaption {
             get {
@@ -133,7 +169,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Implements the Known/Unkown Plaintext Attack for Hill Cipher ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Implements the Kown Plaintext/Ciphertext Only Attack for Hill Cipher ähnelt.
         /// </summary>
         internal static string HillCipherAttackTooltip {
             get {
@@ -165,6 +201,24 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string InvalidException {
             get {
                 return ResourceManager.GetString("InvalidException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Calculation Method ähnelt.
+        /// </summary>
+        internal static string InversCalcTypeCaption {
+            get {
+                return ResourceManager.GetString("InversCalcTypeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select between adjoint matrix and eigenvectors to calculate the inverse matrix. ähnelt.
+        /// </summary>
+        internal static string InverseCalcTypeTooltip {
+            get {
+                return ResourceManager.GetString("InverseCalcTypeTooltip", resourceCulture);
             }
         }
         
@@ -250,6 +304,42 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Language ähnelt.
+        /// </summary>
+        internal static string LanguageCaption {
+            get {
+                return ResourceManager.GetString("LanguageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select between German and English dictionary entries ähnelt.
+        /// </summary>
+        internal static string LanguageTooltip {
+            get {
+                return ResourceManager.GetString("LanguageTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Modulus ähnelt.
+        /// </summary>
+        internal static string ModulusCaption {
+            get {
+                return ResourceManager.GetString("ModulusCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Parameter m - Length of the Alphabet ähnelt.
+        /// </summary>
+        internal static string ModulusTooltip {
+            get {
+                return ResourceManager.GetString("ModulusTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Exception: The number of columns of the first matrix must be equal to the number of rows of the second matrix. ähnelt.
         /// </summary>
         internal static string MultiplicationException {
@@ -259,7 +349,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die No Dictionary available ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die No dictionary available ähnelt.
         /// </summary>
         internal static string NoDictionary {
             get {
@@ -268,7 +358,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die There is no Identity Matrix ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is no identity matrix ähnelt.
         /// </summary>
         internal static string NoIdentityMatrix {
             get {
@@ -286,7 +376,7 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Exception: The Matrix is not square. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Exception: The matrix is not square. ähnelt.
         /// </summary>
         internal static string NoSquareMatrix {
             get {
@@ -345,6 +435,24 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string PTooltip {
             get {
                 return ResourceManager.GetString("PTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Start Key Dimension ähnelt.
+        /// </summary>
+        internal static string StartKeyDimensionCaption {
+            get {
+                return ResourceManager.GetString("StartKeyDimensionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Calculation of the key starts at this dimension +1 ähnelt.
+        /// </summary>
+        internal static string StartKeyDimensionTooltip {
+            get {
+                return ResourceManager.GetString("StartKeyDimensionTooltip", resourceCulture);
             }
         }
     }

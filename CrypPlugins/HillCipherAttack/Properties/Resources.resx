@@ -120,6 +120,18 @@
   <data name="Alphabet" xml:space="preserve">
     <value>Alphabet</value>
   </data>
+  <data name="AlphabetCaption" xml:space="preserve">
+    <value>Alphabet </value>
+  </data>
+  <data name="AlphabetTooltip" xml:space="preserve">
+    <value>Alphabet - Defintion of allowed characters</value>
+  </data>
+  <data name="AttackTypeCaption" xml:space="preserve">
+    <value>Attack Type</value>
+  </data>
+  <data name="AttackTypeTooltip" xml:space="preserve">
+    <value>Select between Kown Plaintext and Ciphertext Only Attack.</value>
+  </data>
   <data name="CCaption" xml:space="preserve">
     <value>Cipher Input</value>
   </data>
@@ -139,10 +151,10 @@
     <value>Error: {0}</value>
   </data>
   <data name="HillCipherAttackCaption" xml:space="preserve">
-    <value>Kown/Unkown Plaintext Attack for Hill Cipher</value>
+    <value>Kown Plaintext/Ciphertext Only Attack for Hill Cipher</value>
   </data>
   <data name="HillCipherAttackTooltip" xml:space="preserve">
-    <value>Implements the Known/Unkown Plaintext Attack for Hill Cipher</value>
+    <value>Implements the Kown Plaintext/Ciphertext Only Attack for Hill Cipher</value>
   </data>
   <data name="IncorrectKey" xml:space="preserve">
     <value>The calculated key is incorrect.</value>
@@ -152,6 +164,12 @@
   </data>
   <data name="InvalidException" xml:space="preserve">
     <value>Invalid text matrix</value>
+  </data>
+  <data name="InversCalcTypeCaption" xml:space="preserve">
+    <value>Calculation Method</value>
+  </data>
+  <data name="InverseCalcTypeTooltip" xml:space="preserve">
+    <value>Select between adjoint matrix and eigenvectors to calculate the inverse matrix.</value>
   </data>
   <data name="KCaption" xml:space="preserve">
     <value>Key</value>
@@ -180,20 +198,32 @@
   <data name="KTooltip" xml:space="preserve">
     <value>Key Text Output</value>
   </data>
+  <data name="LanguageCaption" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageTooltip" xml:space="preserve">
+    <value>Select between German and English dictionary entries</value>
+  </data>
+  <data name="ModulusCaption" xml:space="preserve">
+    <value>Modulus</value>
+  </data>
+  <data name="ModulusTooltip" xml:space="preserve">
+    <value>Parameter m - Length of the Alphabet</value>
+  </data>
   <data name="MultiplicationException" xml:space="preserve">
     <value>Exception: The number of columns of the first matrix must be equal to the number of rows of the second matrix.</value>
   </data>
   <data name="NoDictionary" xml:space="preserve">
-    <value>No Dictionary available</value>
+    <value>No dictionary available</value>
   </data>
   <data name="NoIdentityMatrix" xml:space="preserve">
-    <value>There is no Identity Matrix</value>
+    <value>There is no identity matrix</value>
   </data>
   <data name="NoKeyFound" xml:space="preserve">
     <value>The key cannot be calculated.</value>
   </data>
   <data name="NoSquareMatrix" xml:space="preserve">
-    <value>Exception: The Matrix is not square.</value>
+    <value>Exception: The matrix is not square.</value>
   </data>
   <data name="NotEnoughData" xml:space="preserve">
     <value>There are not enough values for the dimension {0} to execute the calculation.</value>
@@ -212,5 +242,11 @@
   </data>
   <data name="PTooltip" xml:space="preserve">
     <value>Plain Text Input</value>
+  </data>
+  <data name="StartKeyDimensionCaption" xml:space="preserve">
+    <value>Start Key Dimension</value>
+  </data>
+  <data name="StartKeyDimensionTooltip" xml:space="preserve">
+    <value>The Calculation of the key starts at this dimension +1</value>
   </data>
 </root>
