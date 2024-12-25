@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <title lang="en">Hill-Cipher: Known-Plaintext Attack</title>
+  <summary lang="en">Execution of <i>Known-Plaintext Attack</i> for Hill-Cipher</summary>
+  <description lang="en"></description>
+  <keywords>Hill, Hill-Cipher,Known, Plain, Plaintext, Attack</keywords>
+  <replacements lang="en">
+    <replacement key="$plaintext$" value="Plaintext" />
+    <replacement key="$ciphertext$" value="Ciphertext" />
+    <replacement key="$Known-Plaintext Attack$" value="Component for Known-Plaintext Attack" />
+    <replacement key="$key-string$" value="Key as text" />
+    <replacement key="$key-matrix$" value="Key as matrix" />
+    <replacement key="$plain-text$" value="CDMJBGHFD" />
+    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement key="$memo$"
+      value="" />
+  </replacements>
+
+  <title lang="de">Hill-Chiffre: Known-Plaintext Attacke</title>
+  <summary lang="de">Durchführung einer <i>Known-Plaintext Attacke</i> für die Hill-Chiffre</summary>
+  <description lang="de"></description>
+  <keywords lang="de">Hill, Hill-Chiffre, Known, Klartext, Attacke</keywords>
+  <replacements lang="de">
+    <replacement key="$plaintext$" value="Klartext" />
+    <replacement key="$ciphertext$"
+      value="Geheimtext" />
+    <replacement key="$Known-Plaintext Attack$"
+      value="Komponente für Known-Plaintext Attack" />
+    <replacement key="$key-string$"
+      value="Schlüssel als Text" />
+    <replacement key="$key-matrix$" value="Schlüssel als Matrix" />
+    <replacement key="$plain-text$" value="CDMJBGHFD" />
+    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement
+      key="$memo$"
+      value="" />
+  </replacements>
+
+  <icon file="Known-Plaintext-Attack-Template.png" />
+  <relevantPlugins>
+    <plugin name="HillCipherAttack" />
+  </relevantPlugins>
+</sample>

@@ -33,7 +33,7 @@ namespace CrypTool.Plugins.HillCipherAttack
     [Author("Sandra Matthies", "sandra_matthies@outlook.de", "CrypTool 2 Team", "https://www.cryptool.org")]
     // HOWTO: Change plugin caption (title to appear in CT2) and tooltip.
     // You can (and should) provide a user documentation as XML file and an own icon.
-    [PluginInfo("CrypTool.Plugins.HillCipherAttack.Properties.Resources", "HillCipherAttackCaption", "HillCipherAttackTooltip", "HillCipherAttack/userdoc.xml", new[] { "CrypWin/images/default.png" })]
+    [PluginInfo("CrypTool.Plugins.HillCipherAttack.Properties.Resources", "HillCipherAttackCaption", "HillCipherAttackTooltip", "HillCipherAttack/userdoc.xml", new[] { "HillCipherAttack/ressources/hill-cipher.png" })]
     // HOWTO: Change category to one that fits to your plugin. Multiple categories are allowed.
     [ComponentCategory(ComponentCategory.CryptanalysisGeneric)]
     public class HillCipherAttack : ICrypComponent
@@ -181,7 +181,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                 }
                 else
                 {
-                    if(Dict.Length < 1)
+                    if (Dict.Length < 1)
                     {
                         GuiLogMessage(Properties.Resources.NoDictionary, NotificationLevel.Error);
                         return;
@@ -190,7 +190,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                     string[] words = { "EXAMPLE", "DICTIONARY", "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT" };
                     Dict = words;
 
-                    plain = HillCipherAttackUtils.GeneratePlainTextForCiphertextOnlyAttack(Dict,key_dimension);
+                    plain = HillCipherAttackUtils.GeneratePlainTextForCiphertextOnlyAttack(Dict, key_dimension);
 
                 }
                 if (!CheckInputs(plain))
@@ -244,7 +244,8 @@ namespace CrypTool.Plugins.HillCipherAttack
                         {
                             continue;
                         }
-                        if (_settings.IsUnkownPlaintextAttack) {
+                        if (_settings.IsUnkownPlaintextAttack)
+                        {
                             isWrongKey = CompareCipherTextWithTreshhold(key, plain_mats, alphabet_numbers, _settings.Treshhold);
                         }
                         else
@@ -256,14 +257,14 @@ namespace CrypTool.Plugins.HillCipherAttack
                         {
                             // TODO CHeck for Error
                             GuiLogMessage(string.Format(Properties.Resources.NoValidKeyForDim, key_dimension.ToString()), NotificationLevel.Warning);
-                            if(iterationsForSquare == (int)(Cipher.Length / 3))
+                            if (iterationsForSquare == (int)(Cipher.Length / 3))
                             {
                                 i++;
                             }
                             continue;
                         }
 
-                        if(!isWrongKey && _settings.IsUnkownPlaintextAttack)
+                        if (!isWrongKey && _settings.IsUnkownPlaintextAttack)
                         {
                             //TODO Add dynamic result scores
                             /*var resultEntry = new ResultEntry
@@ -303,7 +304,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                 OnPropertyChanged(nameof(KeyMatrix));
                 OnPropertyChanged(nameof(KeyDimension));
 
-               
+
             }
             catch (Exception ex)
             {

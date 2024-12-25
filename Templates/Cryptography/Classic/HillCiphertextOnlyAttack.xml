@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sample>
+  <title lang="en">Hill-Cipher: Ciphertext-Only Attack</title>
+  <summary lang="en">Execution of <i>Ciphertext-Only Attack</i> for Hill-Cipher</summary>
+  <description lang="en"></description>
+  <keywords>Hill, Hill-Cipher, Cipher, Ciphertext, Attack</keywords>
+  <replacements lang="en">
+    <replacement key="$dictionary$" value="Dictionary" />
+    <replacement key="$ciphertext$" value="Ciphertext" />
+    <replacement key="$Ciphertext-Only Attack$" value="Component for Ciphertext-Only Attack" />
+    <replacement key="$key-string$" value="Key as text" />
+    <replacement key="$key-matrix$" value="Key as matrix" />
+    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement key="$memo$"
+      value="" />
+  </replacements>
+
+  <title lang="de">Hill-Chiffre</title>
+  <summary lang="de">Durchführung einer <i>Ciphertext-Only Attacke</i> für die Hill-Chiffre</summary>
+  <description lang="de"></description>
+  <keywords lang="de">Hill, Hill-Chiffre, Geheimtext, Attacke</keywords>
+  <replacements lang="de">
+    <replacement key="$dictionary$" value="Wörterbuch" />
+    <replacement key="$ciphertext$"
+      value="Geheimtext" />
+    <replacement key="$Ciphertext-Only Attack$"
+      value="Komponente für Ciphertext-Only Attacke" />
+    <replacement key="$key-string$"
+      value="Schlüssel als Text" />
+    <replacement key="$key-matrix$" value="Schlüssel als Matrix" />
+    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement
+      key="$memo$"
+      value="" />
+  </replacements>
+
+  <icon file="HillCiphertextOnlyAttack.png" />
+  <relevantPlugins>
+    <plugin name="HillCipherAttack" />
+  </relevantPlugins>
+</sample>

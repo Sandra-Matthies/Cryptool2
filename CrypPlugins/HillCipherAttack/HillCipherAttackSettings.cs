@@ -38,6 +38,7 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         private int treshhold = 5;
 
+
         #endregion
 
         #region TaskPane Settings
@@ -46,7 +47,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         /// 
 
-        [TaskPane("AttackTypeCaption", "AttackTypeTooltip", null, 1, false, ControlType.ComboBox, new string[] { "Kown Plaintext Attack", "Ciphertext Only Attack" })]
+        [TaskPane("AttackTypeCaption", "AttackTypeTooltip", null, 1, false, ControlType.ComboBox, new string[] { "Kown-Plaintext Attack", "Ciphertext-Only Attack" })]
         public bool IsUnkownPlaintextAttack
         {
             get => isUnkownPlaintextAttack;

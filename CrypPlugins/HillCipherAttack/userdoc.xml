@@ -1,27 +1,81 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <documentation>
-  <language culture="en"/>
-  <language culture="de-DE"/>
+  <language culture="en" />
+  <language culture="de-DE" />
 
-  <introduction lang="en">    
+  <introduction lang="en">
   </introduction>
 
-  <introduction lang="de-DE">    
+  <introduction lang="de-DE">
   </introduction>
 
-  <usage lang="en">
+  <usage lang="en"> 
+    In the settings of the component, you can select which attack to perform. 
+    <newline /><newline />
+    The component can attack the Hill cipher with a known plaintext-ciphertext pair. In the
+    settings, the alphabet and the method for calculating the inverse are specified. Additionally,
+    the starting dimension can be set, with the default being 1 and the calculation starting at 2. 
+    <newline /><newline />
+    The plaintext and ciphertext are provided as text input to the component. If the calculation is
+    successful, the output is the key as text and square matrix. 
+    <newline /><newline />
+    If the plaintext-ciphertext pair is unknown, the component can also attack with a ciphertext and a
+    dictionary. In the settings, the language and a threshold for an evaluation are specified.
+    <newline /><newline />
+    A dictionary and the ciphertext are provided to the component. For each calculated key that
+    achieves encryption within the threshold, an evaluation is output. The best key is output as
+    text and a square matrix.
   </usage>
 
-  <usage lang="de-DE">
+  <usage lang="de-DE"> 
+    In den Einstellungen der Komponente kann ausgewählt werden welche Attacke ausgeführt werden soll. 
+    <newline /><newline /> 
+    Die Komponente kann die Hill-Chiffre mit einem bekanntem Klartext-Geheimtext-Paar angreifen.
+    Dazu wird in den Einstellungen das Alphabet und die Berechnungsmethode der Inversen festgelegt. Zudem kann auch die
+    Startdimension festgelgt werden, wobei standardmäßig 1 ausgewählt ist und die Berechnung bei 2 startet. 
+    <newline /> <newline />
+    Der Klartext und der Geheimtext werden als Texteingabe an die Komponente übergeben. Bei erfolgreicher Berechnung wird 
+    der Schlüssel als Text und quadratische Matrix ausgegeben. 
+    <newline /> <newline />
+    Bei unbekanntem Klartext-Geheimtext-Paar kann die Komponente auch mit einem Geheimtext und einem Wörterbuch angreifen. 
+    Dazu wird in den Einstellungen die Sprache und ein Schwellwert für die Auswertung festgelegt. 
+    <newline /><newline /> 
+    Ein Wörterbuch und der Geheimtext werden an die Komponente übergeben. Für jeden berechneten Schlüssel, der eine
+    Verschlüsselung innerhalb des Schwellwerts erzielt, wird eine Auswertung ausgegeben. Der beste
+    Schlüssel wird als Text und quadratische Matrix ausgegeben.
   </usage>
-  
+
   <presentation lang="en">
   </presentation>
-  
+
   <presentation lang="de-DE">
   </presentation>
-  
+
   <references>
+    <linkReference id="referenceId-1">
+      <link url="http://en.wikipedia.org/wiki/Hill_cipher" lang="en" />
+      <caption lang="en">Hill Cipher in Wikipedia</caption>
+      <link url="http://en.wikipedia.org/wiki/Hill_cipher" lang="de" />
+      <caption lang="de">Hill-Chiffre in der Wikipedia (englisch)</caption>
+    </linkReference>
+    <linkReference id="referenceId-2">
+      <link url="https://en.wikipedia.org/wiki/Invertible_matrix" lang="en" />
+      <caption lang="en">Invertible Matrix</caption>
+      <link url="https://de.wikipedia.org/wiki/Inverse_Matrix" lang="de" />
+      <caption lang="de">Inverse Matrix</caption>
+    </linkReference>
+    <linkReference id="referenceId-3">
+      <link url="https://lernflix.at/eigenvektor-und-eigenwert-einer-matrix" lang="en" />
+      <caption lang="en">Eigenvector and Eigenvalue of a Matrix</caption>
+      <link url="https://lernflix.at/eigenvektor-und-eigenwert-einer-matrix" lang="de" />
+      <caption lang="de">Eigenvektor und Eigenwert einer Matrix</caption>
+    </linkReference>
+    <linkReference id="referenceId-4">
+      <link url="https://de.wikipedia.org/wiki/Adjungierte_Matrix" lang="en" />
+      <caption lang="en">Adjoint Matrix</caption>
+      <link url="https://de.wikipedia.org/wiki/Adjungierte_Matrix" lang="de" />
+      <caption lang="de">Adjungierte Matrix</caption>
+    </linkReference>
   </references>
 </documentation>
