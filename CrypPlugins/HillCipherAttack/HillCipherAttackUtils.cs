@@ -196,7 +196,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             plaintextLength = plaintextLength > 20 ? plaintextLength : 20;
             // Select all words from the dictionary which have a length of min 6 letters
             // Filter the,if, what, where, when, how, why, who etc. words
-            string[] filteredWords = words.Where(word => word.Length >= 6).ToArray();
+            string[] filteredWords = words.Where(word => word.Length >= 4).ToArray();
 
             foreach (var word in filteredWords)
             {

@@ -8,44 +8,66 @@
 
              mc:Ignorable="d" >
 
-    <crypanalysisviewcontrol:CrypAnalysisViewControl ResultHeaderCaption="{Loc LocalLabel}" ResultListCaption="{Loc TopTenL}">
-        <crypanalysisviewcontrol:CrypAnalysisViewControl.ResultHeaderLabels>
-            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Cipher}" x:Name="Cipher" />
-            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Alphabet}" x:Name="Alphabet" />
-            <crypanalysisviewcontrol:ViewLabel Caption="{Loc Modulo}" x:Name="Modulo" />
-        </crypanalysisviewcontrol:CrypAnalysisViewControl.ResultHeaderLabels>
-        <crypanalysisviewcontrol:CrypAnalysisResultListView Name="CrypAnalysisResultListView" ItemsSource="{Binding}" ResultItemAction="HandleResultItemAction">
+    <crypanalysisviewcontrol:CrypAnalysisViewControl  ResultListCaption="{Loc TopTenL}">
+        <crypanalysisviewcontrol:CrypAnalysisViewControl.AdditionalSections>
+            <crypanalysisviewcontrol:SectionControl Visibility="Visible">
+                <StackPanel Background="Orchid">
+                    <Grid  Margin="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Alphabet" Grid.Row="0" Grid.Column="0" />
+                        <TextBlock Text="{Binding Path=Alphabet}" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" />
+
+                        <TextBlock Text="Modulo" Grid.Row="1" Grid.Column="0" />
+                        <TextBlock Text="{Binding Path=Modulo}" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" />
+
+                        <TextBlock Text="Cipher" Grid.Row="2" Grid.Column="0" />
+                        <TextBlock Text="{Binding Path=Cipher}" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" />
+                    </Grid>
+                </StackPanel>
+            </crypanalysisviewcontrol:SectionControl>
+        </crypanalysisviewcontrol:CrypAnalysisViewControl.AdditionalSections>
+        
+        <crypanalysisviewcontrol:CrypAnalysisResultListView Name="CrypAnalysisResultListView" ItemsSource="{Binding BestList}" ResultItemAction="HandleResultItemAction">
             <crypanalysisviewcontrol:CrypAnalysisResultListView.View>
                 <GridView>
-                    <GridViewColumn Header="#" DisplayMemberBinding="{Binding Path=Ranking}" Width="25">
+                    <GridViewColumn Header="#" DisplayMemberBinding="{Binding Ranking}" Width="25">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="{Loc PlainHeader}" DisplayMemberBinding="{Binding Path=Plain}" Width="300">
+                    <GridViewColumn Header="{Loc PlainHeader}" DisplayMemberBinding="{Binding Plain}" Width="300">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="{Loc KeyDimensionHeader}" DisplayMemberBinding="{Binding Path=KeyDimension}" Width="30">
+                    <GridViewColumn Header="{Loc KeyDimensionHeader}" DisplayMemberBinding="{Binding KeyDimension}" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="{Loc KeyHeader}" DisplayMemberBinding="{Binding Path=Key}" Width="200">
+                    <GridViewColumn Header="{Loc KeyHeader}" DisplayMemberBinding="{Binding Key}" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="{Loc ScoreHeader}" DisplayMemberBinding="{Binding Path=Score}" Width="45">
+                    <GridViewColumn Header="{Loc ScoreHeader}" DisplayMemberBinding="{Binding Score}" Width="45">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label/>

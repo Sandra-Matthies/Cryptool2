@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -43,9 +44,8 @@ namespace CrypTool.Plugins.HillCipherAttack
         // HOWTO: You need to adapt the settings class as well, see the corresponding file.
         private readonly HillCipherAttackSettings _settings = new HillCipherAttackSettings();
         private readonly HillCipherAttackPresentation _presentation = new HillCipherAttackPresentation();
-        private readonly ObservableCollection<ResultEntry> _resultEntries = new ObservableCollection<ResultEntry>();
 
-
+        private const int MaxBestListEntries = 25;
         #endregion
 
         #region Data Properties
@@ -161,6 +161,16 @@ namespace CrypTool.Plugins.HillCipherAttack
         /// </summary>
         public void Execute()
         {
+            // Clear presentation
+            Presentation.Dispatcher.Invoke(DispatcherPriority.Normal, (SendOrPostCallback)delegate
+            {
+                ((HillCipherAttackPresentation)Presentation).BestList.Clear();
+                ((HillCipherAttackPresentation)Presentation).Cipher = Cipher;
+                ((HillCipherAttackPresentation)Presentation).Alphabet = _settings.Alphabet;
+                ((HillCipherAttackPresentation)Presentation).Modulo = _settings.Modulus.ToString();
+
+            }, null);
+
             //Stopwatch stopwatch = new Stopwatch();
             //stopwatch.Start();
             ProgressChanged(0, 1);
@@ -187,7 +197,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                         return;
                     }
                     // for testing only 10 words
-                    string[] words = { "EXAMPLE", "DICTIONARY", "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT" };
+                    string[] words = { "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT" };
                     Dict = words;
 
                     plain = HillCipherAttackUtils.GeneratePlainTextForCiphertextOnlyAttack(Dict, key_dimension);
@@ -266,16 +276,55 @@ namespace CrypTool.Plugins.HillCipherAttack
 
                         if (!isWrongKey && _settings.IsUnkownPlaintextAttack)
                         {
-                            //TODO Add dynamic result scores
-                            /*var resultEntry = new ResultEntry
+                            var cy = Encrypt(key, plain_mats, alphabet_numbers);
+                            if (cy != null)
                             {
-                                Key = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(HillCipherAttackUtils.CreatearrayFromMatrix(key), alphabet_numbers),
-                                Plain = plain,
-                                Cipher = Cipher,
-                                KeyDimension = key_dimension,
-                                Score = HillCipherAttackUtils.CalculateScore(Encrypt(key, plain_mats, alphabet_numbers), alphabet_numbers, _settings.Language)
-                            };
-                            _resultEntries.Add(resultEntry);*/
+                                var resultEntry = new ResultEntry
+                                {
+                                    Key = HillCipherAttackMapper.mapNumbersByAlphabetToLetters(HillCipherAttackUtils.CreatearrayFromMatrix(key), alphabet_numbers),
+                                    Plain = plain,
+                                    KeyDimension = key.Cols,
+                                    Score = HillCipherAttackUtils.CalculateScore(cy, alphabet_numbers, _settings.Language),
+                                    KeyMatrix = key.ToOutputString()
+                                };
+                                Presentation.Dispatcher.Invoke(DispatcherPriority.Normal, (SendOrPostCallback)delegate
+                                {
+                                    try
+                                    {
+                                        //Insert new entry at correct place to sustain order of list:
+                                        int insertIndex = _presentation.BestList.TakeWhile(e => e.Score > resultEntry.Score).Count();
+                                        _presentation.BestList.Insert(insertIndex, resultEntry);
+
+
+                                        if (_presentation.BestList.Count > MaxBestListEntries)
+                                        {
+                                            _presentation.BestList.RemoveAt(MaxBestListEntries);
+                                        }
+                                        int ranking = 1;
+                                        foreach (ResultEntry e in _presentation.BestList)
+                                        {
+                                            e.Ranking = ranking;
+                                            ranking++;
+                                        }
+                                        _presentation.CrypAnalysisResultListView.ScrollIntoView(_presentation.CrypAnalysisResultListView.Items[0]);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        //do nothing
+                                    }
+                                }, null);
+                                Presentation.Dispatcher.Invoke(DispatcherPriority.Normal, (SendOrPostCallback)delegate
+                                {
+                                    ((HillCipherAttackPresentation)Presentation).BestList = new ObservableCollection<ResultEntry>(_presentation.BestList);
+                                }, null);
+                                Key = _presentation.BestList[0].Key;
+                                KeyDimension = _presentation.BestList[0].KeyDimension;
+                                KeyMatrix = _presentation.BestList[0].KeyMatrix;
+                                OnPropertyChanged(nameof(Key));
+                                OnPropertyChanged(nameof(KeyMatrix));
+                                OnPropertyChanged(nameof(KeyDimension));
+                            }
+
                         }
 
                     }
@@ -303,6 +352,8 @@ namespace CrypTool.Plugins.HillCipherAttack
                 OnPropertyChanged(nameof(Key));
                 OnPropertyChanged(nameof(KeyMatrix));
                 OnPropertyChanged(nameof(KeyDimension));
+
+
 
 
             }
@@ -503,6 +554,9 @@ namespace CrypTool.Plugins.HillCipherAttack
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int ranking;
+        private int modulo;
+        private string alphabet;
+        private string cipher;
         public int Ranking
         {
             get => ranking;
@@ -513,17 +567,48 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
+        public int Modulo
+        {
+            get => modulo;
+            set
+            {
+                modulo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Modulo)));
+            }
+        }
+        public string Cipher
+        {
+            get => cipher;
+            set
+            {
+                cipher = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cipher)));
+            }
+        }
+
+        public string Alphabet
+        {
+            get => alphabet;
+            set
+            {
+                alphabet = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Alphabet)));
+            }
+        }
+
         public string Key { get; set; }
-        public string Cipher { get; set; }
+
+        public string KeyMatrix { get; set; }
+        
         public string Plain { get; set; }
         public int KeyDimension { get; set; }
         public double Score { get; set; }
 
         public string ClipboardKey => Key;
         public string ClipboardPlain => Plain;
-        public string ClipboardValue => Cipher;
         public string ClipboardText => Plain;
         public double ClipboardScore => Score;
+        public string ClipboardValue => Key;
         public string ClipboardEntry =>
             "Rank: " + Ranking + Environment.NewLine +
             "Plaintext: " + Plain + Environment.NewLine +

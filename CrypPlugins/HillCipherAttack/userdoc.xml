@@ -5,9 +5,34 @@
   <language culture="de-DE" />
 
   <introduction lang="en">
+    The Hill cipher is based on linear algebra and uses an invertible key matrix of dimension n x n. The plaintext is encrypted or the 
+    ciphertext is decrypted using matrix multiplication.
+    <newlin/><newline/>
+    Due to linear algebra, the Hill cipher is vulnerable to known-plaintext attacks. From a known plaintext-ciphertext pair, the key can 
+    be calculated. To calculate the key, an invertible plaintext matrix must be available.  
+    <newline/><newline/>
+    If the plaintext matrix is invertible, the inverse of the plaintext matrix modulo the length of the alphabet must be calculated to 
+    determine the key. This can be done using the Gauss-Jordan algorithm, the adjoint matrix, or eigenvalues and eigenvectors. After 
+    obtaining the inverse, the key can be calculated.
+    <newline/><newline/>
+    If no known plaintext-ciphertext pair is available, the Hill cipher can also be attacked with a ciphertext and a dictionary. All 
+    words in the dictionary are used to calculate the key. The key that achieves the best evaluation is output as the result.
   </introduction>
 
   <introduction lang="de-DE">
+    Die Hill-Chiffre basiert auf linearer Algebra und verwendet eine invertierbare Schlüsselmatrix der Dimesnion n x n.
+    Mittels Matrixmultiplikation wird der Klartext verschlüsselt bzw. der Geheimtext entschlüsselt.
+    <newline /><newline />
+    Aufgrund der linearen Algebra ist die Hill-Chiffre anfällig für Known-Plaintext Attacken. Aus einem bekannten Klartext-Geheimtext-Paar
+    kann der Schlüssel berechnet werden. Für die Berechnung des Schlüssels muss eine invertierbare Klartextmatrix vorliegen.
+    <newline /><newline />
+    Wenn die Klartextmatrix invertierbar ist, muss zur Berechnung des Schlüssels die Inverse der Klartextmatrix modulo der Länge des Alphabets 
+    berechnet werden. Dies kann mit dem Gauß-Jordan Algorithmus, der adjungierten Matrix oder Eigenwerten und Eigenvektoren erfolgen.
+    Nach erhalt der Inversen kann der Schlüssel berechnet werden.
+    <newline /><newline />
+    Liegt kein bekanntes Klartext-Geheimtext-Paar vor, kann die Hill-Chiffre auch mit einem Geheimtext und einem Wörterbuch angegriffen werden.
+    Es werden alle Wörter des Wörterbuchs zur Berechnunung des Schlüssels herangezogen. Der Schlüssel, der die beste Auswertung erzielt, wird 
+    als Ergebnis ausgegeben.
   </introduction>
 
   <usage lang="en"> 
