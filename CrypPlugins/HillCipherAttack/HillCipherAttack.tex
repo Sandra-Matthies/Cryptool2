@@ -1,0 +1,89 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx, caption}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{subcaption}
+
+\definecolor{lightblue}{HTML}{7FC4FF}
+\definecolor{lightred}{HTML}{FF9B9B} % FF9B9B, FF7C7C, FF4A4A (light to dark)
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{frenchplum}{rgb}{0.76,0,0.83}
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{frenchplum},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  emph={int,char,double,float,unsigned,void,bool, for, Node, static, none, vector},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Hill Cipher: Known-Plaintext Attack and Ciphertext-Only Attack\\}
+
+\author{\IEEEauthorblockN{Sandra Matthies}
+\IEEEauthorblockA{\textit{FB03} \\
+\textit{Hochschule Niederrhein University of Applied Sciences}\\
+Krefeld, Germany}
+}
+
+\maketitle
+
+\begin{abstract}
+  This project implements the Known-Plaintext Attack and the Ciphertext-Only Attack for the Hill Cipher in Cryptool 2. 
+\end{abstract}
+
+\section{Introduction}
+The Hill cipher, invented by Lester S. Hill, is based on linear algebra and matrix multiplication for encryption and decryption. 
+Due to the simple matrix multiplication, the method is susceptible to known-plaintext attacks and allows ciphertext-only 
+attacks. By forming plaintext and ciphertext pairs, the key can be calculated in certain cases. The implementation in CrypTool 2 
+allows an automated calculation of large key matrices.
+
+\section{Hill Cipher}
+
+For the Hill Cipher, an alphabet is defined, where each letter is assigned an integer number. The length of the alphabet defines the modulo value \( m \). The key is an \( n \times n \) matrix that is invertible modulo \( m \). The plaintext is divided into column vectors based on the alphabet so. The rows of the columvectors have to be equal to the columns of the key matrix.//
+The cipher is the result of the multiplication of the key matrix and the plaintext vectors. For the decryption the inverted key is multiplied by th vectors of the ciphertext.
+
+\section{Known-Plaintext Attack}
+\subsection{Introduction}
+For the Known-Plaintext Attack the plaintext and its corresponding ciphertext is available. By analyzing these pairs, it is possible to calculate the encryption key used in the cipher. In the context of the Hill cipher, this involves using linear algebra techniques to solve for the key matrix. Once the key matrix is determined, it can be used to decrypt other ciphertexts encrypted with the same key.
+\subsection{Implementation}
+\subsection{Evaluation}
+\section{Ciphertext-Only attack}
+\subsection{Introduction}
+In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. Here, a dictionary is used for generation, which results in a dictionary attack.
+\subsection{Implementation}
+
+\begin{thebibliography}{9}
+\bibitem{b1} Wikipedia contributors, "Hill cipher," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Hill_cipher} (last edited October 17, 2024)
+\bibitem{b2} Wikipedia contributors, "Invertible Matrix," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Invertible_matrix} (last edited December 16, 2024).
+\bibitem{b3}  Wikipedia contributors, "Adjugate Matrix," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Adjugate_matrix} (last edited November 15, 2024).
+\end{thebibliography}
+
+
+\end{document}
