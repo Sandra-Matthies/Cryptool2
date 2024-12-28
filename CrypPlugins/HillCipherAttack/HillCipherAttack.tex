@@ -8,11 +8,12 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{subcaption}
+
 
 \definecolor{lightblue}{HTML}{7FC4FF}
 \definecolor{lightred}{HTML}{FF9B9B} % FF9B9B, FF7C7C, FF4A4A (light to dark)
@@ -22,7 +23,7 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \definecolor{frenchplum}{rgb}{0.76,0,0.83}
 \lstset{frame=tb,
-  language=C++,
+  language=[Sharp]C,
   aboveskip=2mm,
   belowskip=2mm,
   showstringspaces=false,
@@ -33,11 +34,19 @@
   keywordstyle=\color{frenchplum},
   commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},
-  emph={int,char,double,float,unsigned,void,bool, for, Node, static, none, vector},
   breaklines=true,
   breakatwhitespace=true,
-  tabsize=2
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  title=\lstname,
+  escapeinside={\%*}{*)},
+  morekeywords={void, int, string}
 }
+
+\captionsetup[lstlisting]{labelfont=bf, textfont=normal, singlelinecheck=false, labelsep=colon, labelformat=simple}
+\renewcommand{\lstlistingname}{Figure}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -73,10 +82,145 @@ The cipher is the result of the multiplication of the key matrix and the plainte
 \subsection{Introduction}
 For the Known-Plaintext Attack the plaintext and its corresponding ciphertext is available. By analyzing these pairs, it is possible to calculate the encryption key used in the cipher. In the context of the Hill cipher, this involves using linear algebra techniques to solve for the key matrix. Once the key matrix is determined, it can be used to decrypt other ciphertexts encrypted with the same key.
 \subsection{Implementation}
+To implement the known-plaintext attack, a system of equations for \[P \cdot K \equiv C \mod m\] must be created to calculate K.
+Instead of the system of equations, the equation can also be rearranged to \[P^{-1} \cdot C \equiv K \mod m\] This way, only the inverse of the plaintext matrix needs to be calculated, and by multiplying it with the ciphertext matrix, the key can be obtained.
+For the implementation, a matrix class as shown in Figure \ref{lst:matrixclass} was created. This class contains matrix-specific functions, such as matrix multiplication, determinant and inverse calculation.
+\\
+\begin{lstlisting}[caption={HillCipherAttackMatrix class}, label={lst:matrixclass}]
+public class HillCipherAttackMatrix
+{
+    public int Rows { get; set; }
+    public int Cols { get; set; }
+    public int[,] Data { get; set; }
+    ...
+}
+\end{lstlisting}
+
+For the first prototype, a console application was created that implements the Gaussian algorithm. After embedding the prototype as a plugin in Cryptool 2, it became apparent that this approach leads to high runtimes and it is complex to maintain. An alternative is offered by using the adjugate matrix or eigenvalues and eigenvectors.\\
+
+
+\subsubsection{Adjugate Matrix}
+
+The adjugate matrix also known as the classical adjoint is the transpose of the cofactor matrix of a \( n \times n \) matrix . To rephrase, the adjugate matrix is formed by exchanging the rows and columns of the cofactor matrix.
+The Cofactor of an Matrix element is calculated by removing the row and the column to get the submatrix. Then calculate determinant of the submatrix and multiply it by \((-1)^{i+j}\) where \(i\) and \(j\) are the row and the column of the element. 
+
+\begin{lstlisting}[caption={CalculateAdjugate method}, label={lst:calcAdj}]
+public void CalculateAdjugate(int[,] adj)
+{
+    int n = Rows;
+    if (n == 1)
+    {
+        adj[0, 0] = 1;
+        return;
+    }
+    int sign;
+    HillCipherAttackMatrix temp = new HillCipherAttackMatrix(n, n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            GetCofactor(temp.Data, i, j, n);
+            sign = ((i + j) \% 2 == 0) ? 1 : -1;
+            adj[j, i] = (sign * temp.Determinant(n - 1));
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={GetCofactor method}, label={lst:calcCofa}]
+public void GetCofactor(int[,] temp, int p, int q, int n)
+{
+    int i = 0, j = 0;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            if (row != p && col != q)
+            {
+                temp[i, j++] = Data[row, col];
+                if (j == n - 1)
+                {
+                    j = 0;
+                    i++;
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Eigenvalues and Eigenvectors}
+The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers. As a result, rounding errors may occur and a key  cannot be calculated.
+\\
+
+\begin{lstlisting}[caption={InverseByEigenVectors method}, label={lst:calcInverseEigenVec}]
+public HillCipherAttackMatrix InverseByEigenVectors(int mod)
+{
+    var matrix = Matrix<double>.Build.DenseOfArray(ConvertToDoubleArray());
+    var (eigenvalues, eigenvectors) = CalculateEigenValues(matrix, mod);
+
+    // Calculation of the inverse of the eigenvalues
+    var invEigenvalues = eigenvalues.Map(x => ModInverseDouble(x, mod));
+
+    // DiagonalMatrix of the inverse eigenvalues
+    var invEigenvaluesMatrix = Matrix<double>.Build.DenseDiagonal(eigenvalues.Count, eigenvalues.Count, (i) => invEigenvalues[i]);
+
+    // Calculation of the inverse matrix
+    var invMatrix = eigenvectors * invEigenvaluesMatrix * eigenvectors.Inverse();
+
+    // Reduction of the inverse matrix modulo m
+    invMatrix = invMatrix.Map(x => x % mod);
+    invMatrix = invMatrix.Map(x => x < 0 ? x + mod : x);
+
+    var result = new HillCipherAttackMatrix(Rows, Cols);
+    for (int i = 0; i < Rows; i++)
+    {
+        for (int j = 0; j < Cols; j++)
+        {
+            result.Data[i, j] = (int)Math.Round(invMatrix[i, j]) % mod;
+            if (result.Data[i, j] < 0)
+            {
+                result.Data[i, j] += mod;
+            }
+        }
+    }
+
+    return result;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={CalculateEigenValues method}, label={lst:calcEigenVal}]
+private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalculateEigenValues(Matrix<double> matrix, int modulus)
+{
+    // Calculation of the eigenvalues and eigenvectors
+    var evd = matrix.Evd();
+
+    // Reduction of the eigenvalues in modulo m
+    var eigenvalues = evd.EigenValues.Map(x => x.Real % modulus);
+    eigenvalues = eigenvalues.Map(x => x < 0 ? x + modulus : x);
+
+    // Reduction of the eigenvectors in modulo m
+    var eigenvectors = evd.EigenVectors.Map(x => x % modulus);
+    eigenvectors = eigenvectors.Map(x => x < 0 ? x + modulus : x);
+
+    return (eigenvalues, eigenvectors);
+}
+\end{lstlisting}
+
+The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters. General settings that are applicable to both attacks and attack-specific settings ca be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
+\\
+Before retrieving the inverse it must be determined what dimension is involved, as an inverse can only be calculated if the matrix is square and the determinant is not zero and coprime to \(m\). Since the dimension is usually unknown, an attempt is made to find a key for each dimension as long as the ciphertext provides enough data for a dimension.
+\\
+For a dimension \(n\), square matrices are created for plaintext and ciphertext from their vectors. It may happen that some vectors of the plaintext do not create an invertible matrix for a dimension. In such cases, another vector from plaintext and ciphertext is always added to include all possibilities of a dimension, in case no suitable key was found previously.
+\\\\
+Once a potential key is found, it is checked whether it is invertible and whether encrypting the plaintext results in the ciphertext, not just a part of it.\\
+
+
+
 \subsection{Evaluation}
 \section{Ciphertext-Only attack}
 \subsection{Introduction}
-In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. Here, a dictionary is used for generation, which results in a dictionary attack.
+In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. In this case a dictionary is used for generation, which results in a dictionary attack.
 \subsection{Implementation}
 
 \begin{thebibliography}{9}

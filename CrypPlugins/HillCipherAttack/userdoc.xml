@@ -99,8 +99,8 @@
     <linkReference id="referenceId-4">
       <link url="https://en.wikipedia.org/wiki/Adjugate_matrix" lang="en" />
       <caption lang="en">Adjugate Matrix</caption>
-      <link url="https://de.wikipedia.org/wiki/Adjungierte_Matrix" lang="de" />
-      <caption lang="de">Adjungierte Matrix</caption>
+      <link url="https://de.wikipedia.org/wiki/Adjunkte" lang="de" />
+      <caption lang="de">Adjunkte Matrix</caption>
     </linkReference>
   </references>
 </documentation>

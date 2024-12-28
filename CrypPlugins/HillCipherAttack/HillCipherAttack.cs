@@ -31,7 +31,7 @@ namespace CrypTool.Plugins.HillCipherAttack
     // HOWTO: Plugin developer HowTo can be found here: https://github.com/CrypToolProject/CrypTool-2/wiki/Developer-HowTo
 
     // HOWTO: Change author name, email address, organization and URL.
-    [Author("Sandra Matthies", "sandra_matthies@outlook.de", "CrypTool 2 Team", "https://www.cryptool.org")]
+    [Author("Sandra Matthies", "sandra_matthies@outlook.de", "Softwaredeveloper", "https://www.cryptool.org")]
     // HOWTO: Change plugin caption (title to appear in CT2) and tooltip.
     // You can (and should) provide a user documentation as XML file and an own icon.
     [PluginInfo("CrypTool.Plugins.HillCipherAttack.Properties.Resources", "HillCipherAttackCaption", "HillCipherAttackTooltip", "HillCipherAttack/userdoc.xml", new[] { "HillCipherAttack/ressources/hill-cipher.png" })]
@@ -599,7 +599,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         public string Key { get; set; }
 
         public string KeyMatrix { get; set; }
-        
+
         public string Plain { get; set; }
         public int KeyDimension { get; set; }
         public double Score { get; set; }

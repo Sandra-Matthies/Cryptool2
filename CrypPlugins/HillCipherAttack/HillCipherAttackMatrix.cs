@@ -113,7 +113,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             int[,] adj = new int[n, n];
             int det = a.GetDeterminant();
             int invDet = ModInverse(det, m);
-            a.Adjoint(adj);
+            a.CalculateAdjugate(adj);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -128,7 +128,7 @@ namespace CrypTool.Plugins.HillCipherAttack
 
 
         // Calculate the Cofactors of the matrix and store them in adj and return the adjoint matrix transposed
-        public void Adjoint(int[,] adj)
+        public void CalculateAdjugate(int[,] adj)
         {
             int n = Rows;
             if (n == 1)
@@ -149,7 +149,8 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        public void GetCofactor(int[,] temp, int p, int q, int n) // Get the cofactor of the matrix
+        // Get the cofactor of the matrix
+        public void GetCofactor(int[,] temp, int p, int q, int n)
         {
             int i = 0, j = 0;
             for (int row = 0; row < n; row++)
@@ -215,7 +216,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                 if ((a * x) % m == 1)
                     return x;
             }
-           return 1;
+            return 1;
         }
 
         public static double ModInverseDouble(double a, int m)
@@ -319,7 +320,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         }
 
         public HillCipherAttackMatrix InverseByEigenVectors(int mod)
-        {   
+        {
             var matrix = Matrix<double>.Build.DenseOfArray(ConvertToDoubleArray());
             var (eigenvalues, eigenvectors) = CalculateEigenValues(matrix, mod);
 
@@ -332,7 +333,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             // Calculation of the inverse matrix
             var invMatrix = eigenvectors * invEigenvaluesMatrix * eigenvectors.Inverse();
 
-            // Reduktion der Inversen Matrix im Modulo m
+            // Reduction of the inverse matrix modulo m
             invMatrix = invMatrix.Map(x => x % mod);
             invMatrix = invMatrix.Map(x => x < 0 ? x + mod : x);
 
@@ -355,7 +356,7 @@ namespace CrypTool.Plugins.HillCipherAttack
         public string ToOutputString()
         {
             var output = "";
-            for(int i = 0; i < Rows; i++)
+            for (int i = 0; i < Rows; i++)
             {
                 for (int j = 0; j < Cols; j++)
                 {
@@ -363,7 +364,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                     {
                         Data[i, j] += 26;
                     }
-                    output += Data[i, j].ToString() + " "; 
+                    output += Data[i, j].ToString() + " ";
                 }
                 output += "\n";
             }
