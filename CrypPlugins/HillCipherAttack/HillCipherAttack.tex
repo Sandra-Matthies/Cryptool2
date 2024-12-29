@@ -13,6 +13,8 @@
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{subcaption}
+\usepackage{array}
+\usepackage[table,xcdraw]{xcolor}
 
 
 \definecolor{lightblue}{HTML}{7FC4FF}
@@ -96,13 +98,21 @@ public class HillCipherAttackMatrix
 }
 \end{lstlisting}
 
-For the first prototype, a console application was created that implements the Gaussian algorithm. After embedding the prototype as a plugin in Cryptool 2, it became apparent that this approach leads to high runtimes and it is complex to maintain. An alternative is offered by using the adjugate matrix or eigenvalues and eigenvectors.\\
+For the first prototype, a console application was created that implements the Gaussian algorithm. After embedding the prototype as a plugin in Cryptool 2, it became apparent that this approach leads to high runtimes and it is complex to maintain. An alternative is offered by using the adjugate matrix or eigenvalues and eigenvectors.
+\\
+The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters in user interface. General settings that are applicable to both attacks and attack-specific settings can be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
+\\
+Generally, it is also determined at which dimension the calculation should start. This serves to narrow down the search space if something is known about the dimension; otherwise, the calculation starts by default with the 2nd dimension.
+Futhermore for both attacks, the calculation method can also be determined. The choice consists of specifying the method of the inverse method, which includes either the method with the adjugate matrix or the method with eigenvalues and eigenvectors.
+\\
 
 
 \subsubsection{Adjugate Matrix}
 
 The adjugate matrix also known as the classical adjoint is the transpose of the cofactor matrix of a \( n \times n \) matrix . To rephrase, the adjugate matrix is formed by exchanging the rows and columns of the cofactor matrix.
 The Cofactor of an Matrix element is calculated by removing the row and the column to get the submatrix. Then calculate determinant of the submatrix and multiply it by \((-1)^{i+j}\) where \(i\) and \(j\) are the row and the column of the element. 
+In Figure \ref{lst:calcAdj} is the calculation method of the adjugate matrix displayed and according to the adjugate calculation in Figure \ref{lst:calcCofa} is the cofactorcalculation in detail represented.
+\\
 
 \begin{lstlisting}[caption={CalculateAdjugate method}, label={lst:calcAdj}]
 public void CalculateAdjugate(int[,] adj)
@@ -152,6 +162,7 @@ public void GetCofactor(int[,] temp, int p, int q, int n)
 \subsubsection{Eigenvalues and Eigenvectors}
 The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers. As a result, rounding errors may occur and a key cannot be calculated.
 \\
+Figure \ref{lst:calcInverseEigenVec} is showing how the library is used to calculate the eigenvectors. According to the eigenvectors calculation Figure \ref{lst:calcEigenVal} shows the calculation of the eigenvalues.
 
 \begin{lstlisting}[caption={InverseByEigenVectors method}, label={lst:calcInverseEigenVec}]
 public HillCipherAttackMatrix InverseByEigenVectors(int mod)
@@ -207,11 +218,7 @@ private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) Calcula
 }
 \end{lstlisting}
 
-The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters in user interface. General settings that are applicable to both attacks and attack-specific settings can be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
-\\
-Generally, it is also determined at which dimension the calculation should start. This serves to narrow down the search space if something is known about the dimension; otherwise, the calculation starts by default with the 2nd dimension.
-Futhermore for both attacks, the calculation method can also be determined. The choice consists of specifying the method of the inverse method, which includes either the method with the adjugate matrix or the method with eigenvalues and eigenvectors.
-\\
+
 Before retrieving the inverse it must be determined what dimension is involved, as an inverse can only be calculated if the matrix is square and the determinant is not zero and coprime to \(m\). Since the dimension is usually unknown, an attempt is made to find a key for each dimension as long as the ciphertext provides enough data for a dimension.
 \\
 For a dimension \(n\), square matrices are created for plaintext and ciphertext from their vectors. It may happen that some vectors of the plaintext do not create an invertible matrix for a dimension. In such cases, another vector from plaintext and ciphertext is always added to include all possibilities of a dimension, in case no suitable key was found previously.
@@ -221,6 +228,29 @@ Once a potential key is found, it is checked whether it is invertible and whethe
 
 
 \subsection{Evaluation}
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of the runtimes regarding the calculation methods}
+\label{tab:runtime_table}
+\begin{tabular}{|c|r|r|}
+\hline
+ \textbf{\( n \times n \)}& \textbf{Adjugate Matrix} & \textbf{Eigenvectors and -values} \\
+\hline
+ \( 1 \times 1 \)& 0 ms & 0 ms\\
+\( 2 \times 2 \)& 0 ms & 4 ms\\
+\( 3 \times 3 \)& 5 ms & 6 ms\\
+\( 4 \times 4 \)& 10 ms & 14 ms\\
+\( 5 \times 5 \)& 15 ms & 16 ms\\
+\( 6 \times 6 \)& 20 ms & 17 ms\\
+\( 7 \times 7 \)& 35 ms & 20 ms\\
+\( 8 \times 8 \)& 141 ms & 49 ms\\
+\( 9 \times 9\)& 940 ms & 205 ms\\
+\( 10 \times 10 \)& 9531 ms & 1488 ms\\
+\hline
+\end{tabular}
+\end{table}
+
 \section{Ciphertext-Only attack}
 \subsection{Introduction}
 In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. In this case a dictionary is used for generation, which results in a dictionary attack.
@@ -302,6 +332,13 @@ internal static double CalculateScore(string plaintext, Dictionary<string, int> 
     return (score * 100)/ plaintext.Length;
 }
 \end{lstlisting}
+
+For each key that has been calculated and meets the requirements of generating a ciphertext within the Levenshtein distance as in Figure \ref{lst:calcDist} and being invertible, an entry is created in the presentation interface. 
+\\
+The presentation interface contains information about the selected alphabet, ciphertext, and the modulo value. A successfully calculated key is entered into the so-called leaderboard, for which a score is calculated as shown in Figure  \ref{lst:calcScore}. 
+The score calculation includes resources that indicate the frequencies of letters, bigrams, and trigrams. A distinction is made between the German and English languages. Each entry implemented as a dictionary is assigned a percentage value based on its frequency.
+\\
+The list is sorted in descending order based on this score. The first entry in this list, i.e., the best result, is taken, and its key is used as the output.
 
 \begin{thebibliography}{9}
 \bibitem{b1} Wikipedia contributors, "Hill cipher," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Hill_cipher} (last edited October 17, 2024)
