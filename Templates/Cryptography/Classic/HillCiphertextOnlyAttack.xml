@@ -10,13 +10,13 @@
     <replacement key="$Ciphertext-Only Attack$" value="Component for Ciphertext-Only Attack" />
     <replacement key="$key-string$" value="Key as text" />
     <replacement key="$key-matrix$" value="Key as matrix" />
-    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement key="$cipher-text$" value="QWFQKNGLTLJZFECTDHDFUBUFTOWBBXFYMRJHMIKNIASIAHZRNPXNIDZTGDSBPWFKELXFMFXZSNGIAYNDWNANHMPMQOYCYWANWWXPYTSKQPOKDNHMFOSJNBPBUSRVIONXOCBTOOQVKKUIDRQKHMHJVTOBPDWZCPUVIOBBJGKEHNSPIRBRGFNRYSVXKLNXCHZIDVSHDETWJLXHHBNDRUDSHYYCPFFGSTVHQUDYTTCHWSGYHLNWPWWTHCXGHFXYUZTJUOTACLOHPZZAWBAUCPSKUYUIIUJDEYTHROURSKRJRSKUZCGNEIRFXPJNTZKJKRZHUAIZSFUTBPTLELKUTOQBIZHTJXISGJICTVDADBKXLTSPOYYOFCASYZQIFCBKDVTPYJIDQHECNGTLHWBANBMSGOUGIYZUHXQH" />
     <replacement key="$memo$"
-      value="" />
+      value="For the ciphertext-only attack, the component expects a dictionary or an array of words, and all words shorter than 5 characters are filtered out. \nIn the settings, it can be specified how much the newly generated ciphertext can deviate from the ciphertext input. If 0 is selected, a complete match is sought. \nThis attack continues until the ciphertext for a dimension is exhausted." />
   </replacements>
 
-  <title lang="de">Hill-Chiffre</title>
-  <summary lang="de">Durchführung einer <i>Ciphertext-Only Attacke</i> für die Hill-Chiffre</summary>
+  <title lang="de">Hill-Chiffre: Ciphertext-Only Angriff</title>
+  <summary lang="de">Durchführung eines <i>Ciphertext-Only Angriffs</i> für die Hill-Chiffre</summary>
   <description lang="de"></description>
   <keywords lang="de">Hill, Hill-Chiffre, Geheimtext, Attacke</keywords>
   <replacements lang="de">
@@ -28,10 +28,10 @@
     <replacement key="$key-string$"
       value="Schlüssel als Text" />
     <replacement key="$key-matrix$" value="Schlüssel als Matrix" />
-    <replacement key="$cipher-text$" value="XQBWVYYZX" />
+    <replacement key="$cipher-text$" value="QWFQKNGLTLJZFECTDHDFUBUFTOWBBXFYMRJHMIKNIASIAHZRNPXNIDZTGDSBPWFKELXFMFXZSNGIAYNDWNANHMPMQOYCYWANWWXPYTSKQPOKDNHMFOSJNBPBUSRVIONXOCBTOOQVKKUIDRQKHMHJVTOBPDWZCPUVIOBBJGKEHNSPIRBRGFNRYSVXKLNXCHZIDVSHDETWJLXHHBNDRUDSHYYCPFFGSTVHQUDYTTCHWSGYHLNWPWWTHCXGHFXYUZTJUOTACLOHPZZAWBAUCPSKUYUIIUJDEYTHROURSKRJRSKUZCGNEIRFXPJNTZKJKRZHUAIZSFUTBPTLELKUTOQBIZHTJXISGJICTVDADBKXLTSPOYYOFCASYZQIFCBKDVTPYJIDQHECNGTLHWBANBMSGOUGIYZUHXQH" />
     <replacement
       key="$memo$"
-      value="" />
+      value="Für den Ciphertext-Only Angriff erwartet die Komponente ein Wörterbuch bzw. ein Array aus Wörtern, es werden alle Wörter aussortiert die eine Länge von 5 unterschreiten. \nIn den Einstellungen kann festgelegt werden in wie weit der neu genrierte Geheimtext von der Geheimtext Eingabe abweichen kann. Wird 0 ausgewählt, wird eine gänzöiche Übereinstimmung angestrebt.\nDieser Angriff wird so lange fortgesetzt bis der Ciphertext für eine Dimension zu Ende ist." />
   </replacements>
 
   <icon file="HillCiphertextOnlyAttack.png" />

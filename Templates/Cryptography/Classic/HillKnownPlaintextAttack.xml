@@ -13,7 +13,7 @@
     <replacement key="$plain-text$" value="CDMJBGHFD" />
     <replacement key="$cipher-text$" value="XQBWVYYZX" />
     <replacement key="$memo$"
-      value="" />
+      value="In the known-plaintext attack, the plaintext and ciphertext are expected as input in the form of strings. If the plaintext is shorter than the ciphertext, it is padded. The component itself provides information on the calculation progress. This means it shows whether an invertible matrix has been found or which key has been calculated, if applicable. The output provides the key as text and as a matrix. If the output is not empty, a key has been found that is invertible and, when used to encrypt the plaintext, results in the given ciphertext." />
   </replacements>
 
   <title lang="de">Hill-Chiffre: Known-Plaintext Attacke</title>
@@ -33,7 +33,7 @@
     <replacement key="$cipher-text$" value="XQBWVYYZX" />
     <replacement
       key="$memo$"
-      value="" />
+      value="Bei dem Known-Plaintext Angriff werden als Eingabe der Klartext und Geheimtext als String erwartet. Ist der Klartext Kürzer als der Geheimtext wird dieser aufgefüllt. In der Komponente selbst erhält man Informationen zum Berechnungsfortshritt. D.h. es wird angezeigt ob eine Invertierbare Matrix gefunen wurde oder auch welcher Schlüssel ggf. berechnet wurde. Als Ausgabe erhält man den Schlüssel als Text und als Matrix. Ist die Ausgabe nicht leer wurde ein Schlüssel gefunden, der invertierbar ist und bei der Verschlüsselung des Klartexts den angegebenen Geheimtext ergibt." />
   </replacements>
 
   <icon file="Known-Plaintext-Attack-Template.png" />

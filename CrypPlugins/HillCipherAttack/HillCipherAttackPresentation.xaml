@@ -8,7 +8,7 @@
 
              mc:Ignorable="d" >
 
-    <crypanalysisviewcontrol:CrypAnalysisViewControl  ResultListCaption="{Loc TopTenL}">
+    <crypanalysisviewcontrol:CrypAnalysisViewControl  ResultListCaption="{Loc TopRes}">
         <crypanalysisviewcontrol:CrypAnalysisViewControl.AdditionalSections>
             <crypanalysisviewcontrol:SectionControl Visibility="Visible">
                 <StackPanel Background="Orchid">

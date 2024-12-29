@@ -72,9 +72,16 @@
   </usage>
 
   <presentation lang="en">
+    In the ciphertext-only attack, the presentation interface is filled with up to 25 entries. These 25 entries are sorted in descending order by points. The rank, the selected plaintext, the dimension, and the key as a string are displayed. The entries are updated during execution.
+    <newline/>
+    In one section, the ciphertext, the alphabet, and the value for modulo are shown, as these values do not change during execution.
   </presentation>
 
   <presentation lang="de-DE">
+    Beim der Ciphertext-Only Angriff wird die Präsentationsoberfläche mit bis zu 25 Einträgen gefüllt. Diese 25 Einträge sind Absteigend nach Punkten sortiert. Es wird der Rang, der ausgewählte Klartext, die Dimension und der Schlüssel als String angezeigt.
+    Die Einträge werden während der Ausführung aktualisiert.
+    <newline/>
+    In einem Abschnitt wird der Ciphertext, das Alphabet und der Wert für Modulo angezeigt, da diese Werte sich  während der Ausführung nicht ändern.
   </presentation>
 
   <references>

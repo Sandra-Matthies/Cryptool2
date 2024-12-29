@@ -193,9 +193,9 @@ namespace CrypTool.Plugins.HillCipherAttack
                         GuiLogMessage(Properties.Resources.NoDictionary, NotificationLevel.Error);
                         return;
                     }
-                    // for testing only 10 words
-                    string[] words = { "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT", "ACTION" , "AUTOMOBIL", "WIRTSCHAFT"};
-                    Dict = words;
+                    // for testing purpose
+                    //string[] words = { "WORDS", "VARIOUS", "LENGTHS", "ANOTHER", "SELECTION", "PROCESS", "TESTING", "FILTERING", "DEVELOPMENT", "ACTION" , "AUTOMOBIL", "WIRTSCHAFT"};
+                    //Dict = words;
 
                     plain = HillCipherAttackUtils.GeneratePlainTextForCiphertextOnlyAttack(Dict, key_dimension);
 
@@ -616,11 +616,9 @@ namespace CrypTool.Plugins.HillCipherAttack
 
     public class BestListEntry
     { 
-        public int Ranking;
+        public int Ranking { get; set; }
         public string Key { get; set; }
-
         public string KeyMatrix { get; set; }
-
         public string Plain { get; set; }
         public int KeyDimension { get; set; }
         public double Score { get; set; }

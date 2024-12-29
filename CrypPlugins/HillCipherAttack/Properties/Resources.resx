@@ -186,6 +186,12 @@
   <data name="Keydimension" xml:space="preserve">
     <value>Keydimension</value>
   </data>
+  <data name="KeyDimensionHeader" xml:space="preserve">
+    <value>Dimension</value>
+  </data>
+  <data name="KeyHeader" xml:space="preserve">
+    <value>Key</value>
+  </data>
   <data name="KeyValue" xml:space="preserve">
     <value>Key: {0}</value>
   </data>
@@ -237,16 +243,25 @@
   <data name="PCaption" xml:space="preserve">
     <value>Plaintext Input</value>
   </data>
+  <data name="PlainHeader" xml:space="preserve">
+    <value>Plaintext</value>
+  </data>
   <data name="Plaintext" xml:space="preserve">
     <value>Plaintext</value>
   </data>
   <data name="PTooltip" xml:space="preserve">
     <value>Plain Text Input</value>
   </data>
+  <data name="ScoreHeader" xml:space="preserve">
+    <value>Score</value>
+  </data>
   <data name="StartKeyDimensionCaption" xml:space="preserve">
     <value>Start Key Dimension</value>
   </data>
   <data name="StartKeyDimensionTooltip" xml:space="preserve">
     <value>The Calculation of the key starts at this dimension +1</value>
+  </data>
+  <data name="TopRes" xml:space="preserve">
+    <value>Top 25</value>
   </data>
 </root>

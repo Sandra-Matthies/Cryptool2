@@ -268,6 +268,24 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dimension ähnelt.
+        /// </summary>
+        internal static string KeyDimensionHeader {
+            get {
+                return ResourceManager.GetString("KeyDimensionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Key ähnelt.
+        /// </summary>
+        internal static string KeyHeader {
+            get {
+                return ResourceManager.GetString("KeyHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Key: {0} ähnelt.
         /// </summary>
         internal static string KeyValue {
@@ -423,6 +441,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Plaintext ähnelt.
         /// </summary>
+        internal static string PlainHeader {
+            get {
+                return ResourceManager.GetString("PlainHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Plaintext ähnelt.
+        /// </summary>
         internal static string Plaintext {
             get {
                 return ResourceManager.GetString("Plaintext", resourceCulture);
@@ -435,6 +462,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string PTooltip {
             get {
                 return ResourceManager.GetString("PTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Score ähnelt.
+        /// </summary>
+        internal static string ScoreHeader {
+            get {
+                return ResourceManager.GetString("ScoreHeader", resourceCulture);
             }
         }
         
@@ -453,6 +489,15 @@ namespace CrypTool.Plugins.HillCipherAttack.Properties {
         internal static string StartKeyDimensionTooltip {
             get {
                 return ResourceManager.GetString("StartKeyDimensionTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Top 25 ähnelt.
+        /// </summary>
+        internal static string TopRes {
+            get {
+                return ResourceManager.GetString("TopRes", resourceCulture);
             }
         }
     }
