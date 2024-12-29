@@ -42,7 +42,7 @@
   breakatwhitespace=false,
   title=\lstname,
   escapeinside={\%*}{*)},
-  morekeywords={void, int, string}
+  morekeywords={void, int, string, HillCipherAttackRessources}
 }
 
 \captionsetup[lstlisting]{labelfont=bf, textfont=normal, singlelinecheck=false, labelsep=colon, labelformat=simple}
@@ -64,7 +64,7 @@ Krefeld, Germany}
 \maketitle
 
 \begin{abstract}
-  This project implements the Known-Plaintext Attack and the Ciphertext-Only Attack for the Hill Cipher in Cryptool 2. 
+This project implements the Known-Plaintext Attack and the Ciphertext-Only Attack for the Hill Cipher in Cryptool 2. 
 \end{abstract}
 
 \section{Introduction}
@@ -150,7 +150,7 @@ public void GetCofactor(int[,] temp, int p, int q, int n)
 \end{lstlisting}
 
 \subsubsection{Eigenvalues and Eigenvectors}
-The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers. As a result, rounding errors may occur and a key  cannot be calculated.
+The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers. As a result, rounding errors may occur and a key cannot be calculated.
 \\
 
 \begin{lstlisting}[caption={InverseByEigenVectors method}, label={lst:calcInverseEigenVec}]
@@ -207,7 +207,10 @@ private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) Calcula
 }
 \end{lstlisting}
 
-The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters. General settings that are applicable to both attacks and attack-specific settings ca be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
+The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters in user interface. General settings that are applicable to both attacks and attack-specific settings can be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
+\\
+Generally, it is also determined at which dimension the calculation should start. This serves to narrow down the search space if something is known about the dimension; otherwise, the calculation starts by default with the 2nd dimension.
+Futhermore for both attacks, the calculation method can also be determined. The choice consists of specifying the method of the inverse method, which includes either the method with the adjugate matrix or the method with eigenvalues and eigenvectors.
 \\
 Before retrieving the inverse it must be determined what dimension is involved, as an inverse can only be calculated if the matrix is square and the determinant is not zero and coprime to \(m\). Since the dimension is usually unknown, an attempt is made to find a key for each dimension as long as the ciphertext provides enough data for a dimension.
 \\
@@ -222,6 +225,83 @@ Once a potential key is found, it is checked whether it is invertible and whethe
 \subsection{Introduction}
 In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. In this case a dictionary is used for generation, which results in a dictionary attack.
 \subsection{Implementation}
+For the execution of the ciphertext-only attack, this is selected in the settings, and the language to be used is set. The language setting and the threshold setting are used to evaluate the calculated keys. Depending on the language, the frequencies of bigrams, trigrams, etc., differ. The threshold indicates how much the ciphertext from the calculated valid key and the plaintext may differ from the given ciphertext. The measurement is done using the Levenshtein distance.
+
+\begin{lstlisting}[caption={CompareCipherTextWithTreshhold method}, label={lst:calcDist}]
+private bool CompareCipherTextWithTreshhold(HillCipherAttackMatrix key, HillCipherAttackMatrix[] plain_mats, Dictionary<string, int> alphabet_numbers, int treshold)
+{
+    var _cipherText = Encrypt(key, plain_mats, alphabet_numbers);
+    if (_cipherText == null)
+    {
+        return false;
+    }
+
+    // uses Levenshtein Distance with treshhold
+    int sourceLength = Cipher.Length;
+    int targetLength = _cipherText.Length;
+
+    int[,] distance = new int[sourceLength + 1, targetLength + 1];
+
+    for (int i = 0; i <= sourceLength; distance[i, 0] = i++) { }
+    for (int j = 0; j <= targetLength; distance[0, j] = j++) { }
+
+    for (int i = 1; i <= sourceLength; i++)
+    {
+        for (int j = 1; j <= targetLength; j++)
+        {
+            int cost = (_cipherText[j - 1] == Cipher[i - 1]) ? 0 : 1;
+            distance[i, j] = Math.Min(
+                Math.Min(distance[i - 1, j] + 1, distance[i, j - 1] + 1),
+                distance[i - 1, j - 1] + cost);
+        }
+    }
+
+    return distance[sourceLength, targetLength] <= treshold;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={CalculateScore method}, label={lst:calcScore}]
+internal static double CalculateScore(string plaintext, Dictionary<string, int> alphabet, int language)
+{
+    double score = 0;
+    // English
+    var letterFrequency = HillCipherAttackRessources.LetterFrequenciesEN;
+    var bigramFrequency = HillCipherAttackRessources.BigramFrequenciesEN;
+    var trigramFrequency = HillCipherAttackRessources.TrigramFrequenciesEN;
+    if (language == 1)
+    {
+        // German
+        bigramFrequency = HillCipherAttackRessources.BigramFrequenciesDE;
+        trigramFrequency = HillCipherAttackRessources.TrigramFrequenciesDE;
+        letterFrequency = HillCipherAttackRessources.LetterFrequenciesDE;
+    }
+    // Calculates the score for the plaintext with the alphabet from the settings and the frequencies of the language in the Ressources
+    foreach (char c in plaintext)
+    {
+        if (alphabet.ContainsKey(c.ToString()))
+        {
+            score += letterFrequency[c];
+        }
+    }
+    for (int i = 0; i < plaintext.Length - 1; i++)
+    {
+        string bigram = plaintext.Substring(i, 2);
+        if (bigramFrequency.ContainsKey(bigram))
+        {
+            score += bigramFrequency[bigram];
+        }
+    }
+    for (int i = 0; i < plaintext.Length - 2; i++)
+    {
+        string trigram = plaintext.Substring(i, 3);
+        if (trigramFrequency.ContainsKey(trigram))
+        {
+            score += trigramFrequency[trigram];
+        }
+    }
+    return (score * 100)/ plaintext.Length;
+}
+\end{lstlisting}
 
 \begin{thebibliography}{9}
 \bibitem{b1} Wikipedia contributors, "Hill cipher," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Hill_cipher} (last edited October 17, 2024)

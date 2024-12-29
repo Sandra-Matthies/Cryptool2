@@ -36,7 +36,7 @@
             </crypanalysisviewcontrol:SectionControl>
         </crypanalysisviewcontrol:CrypAnalysisViewControl.AdditionalSections>
         
-        <crypanalysisviewcontrol:CrypAnalysisResultListView Name="CrypAnalysisResultListView" ItemsSource="{Binding BestList}" ResultItemAction="HandleResultItemAction">
+        <crypanalysisviewcontrol:CrypAnalysisResultListView Name="CrypAnalysisResultListView" ItemsSource="{Binding BestList}">
             <crypanalysisviewcontrol:CrypAnalysisResultListView.View>
                 <GridView>
                     <GridViewColumn Header="#" DisplayMemberBinding="{Binding Ranking}" Width="25">
