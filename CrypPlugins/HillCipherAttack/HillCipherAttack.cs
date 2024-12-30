@@ -235,7 +235,7 @@ namespace CrypTool.Plugins.HillCipherAttack
                             GuiLogMessage(string.Format(Properties.Resources.NotInvertable, plain_sq_mat.ToString()), NotificationLevel.Warning);
                             continue;
                         }
-                        if (_settings.IsAdjointCalculation)
+                        if (_settings.IsAdjugateCalculation)
                         {
                             key = KnownPlainTextAttackAdjointMatrix(plain_sq_mat, cipher_sq_mat);
                         }

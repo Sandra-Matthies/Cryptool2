@@ -71,21 +71,21 @@ This project implements the Known-Plaintext Attack and the Ciphertext-Only Attac
 
 \section{Introduction}
 The Hill cipher, invented by Lester S. Hill, is based on linear algebra and matrix multiplication for encryption and decryption. 
-Due to the simple matrix multiplication, the method is susceptible to known-plaintext attacks and allows ciphertext-only 
+Due to the simple matrix multiplication, the method is susceptible to Known-Plaintext Attacks and allows Ciphertext-Only 
 attacks. By forming plaintext and ciphertext pairs, the key can be calculated in certain cases. The implementation in CrypTool 2 
 allows an automated calculation of large key matrices.
 
 \section{Hill Cipher}
 
-For the Hill Cipher, an alphabet is defined, where each letter is assigned an integer number. The length of the alphabet defines the modulo value \( m \). The key is an \( n \times n \) matrix that is invertible modulo \( m \). The plaintext is divided into column vectors based on the alphabet so. The rows of the columvectors have to be equal to the columns of the key matrix.//
-The cipher is the result of the multiplication of the key matrix and the plaintext vectors. For the decryption the inverted key is multiplied by th vectors of the ciphertext.
+For the Hill Cipher, an alphabet is defined, where each letter is assigned an integer number. The length of the alphabet defines the modulo value \( m \). The key is an \( n \times n \) matrix that is invertible modulo \( m \). The plaintext is divided into column vectors based on the alphabet so. The rows of the columvectors have to be equal to the columns of the key matrix.\\
+The cipher is the result of the multiplication of the key matrix and the plaintext vectors. For the decryption the inverted key is multiplied by th vectors of the ciphertext\cite{b1}.
 
 \section{Known-Plaintext Attack}
 \subsection{Introduction}
 For the Known-Plaintext Attack the plaintext and its corresponding ciphertext is available. By analyzing these pairs, it is possible to calculate the encryption key used in the cipher. In the context of the Hill cipher, this involves using linear algebra techniques to solve for the key matrix. Once the key matrix is determined, it can be used to decrypt other ciphertexts encrypted with the same key.
 \subsection{Implementation}
-To implement the known-plaintext attack, a system of equations for \[P \cdot K \equiv C \mod m\] must be created to calculate K.
-Instead of the system of equations, the equation can also be rearranged to \[P^{-1} \cdot C \equiv K \mod m\] This way, only the inverse of the plaintext matrix needs to be calculated, and by multiplying it with the ciphertext matrix, the key can be obtained.
+To implement the Known-Plaintext Attack, a system of equations for \[P \cdot K \equiv C \mod m\] must be created to calculate K.
+Instead of the system of equations, the equation can also be rearranged to \[P^{-1} \cdot C \equiv K \mod m\] This way, only the inverse\cite{b2} of the plaintext matrix needs to be calculated, and by multiplying it with the ciphertext matrix, the key can be obtained.
 For the implementation, a matrix class as shown in Figure \ref{lst:matrixclass} was created. This class contains matrix-specific functions, such as matrix multiplication, determinant and inverse calculation.
 \\
 \begin{lstlisting}[caption={HillCipherAttackMatrix class}, label={lst:matrixclass}]
@@ -100,16 +100,15 @@ public class HillCipherAttackMatrix
 
 For the first prototype, a console application was created that implements the Gaussian algorithm. After embedding the prototype as a plugin in Cryptool 2, it became apparent that this approach leads to high runtimes and it is complex to maintain. An alternative is offered by using the adjugate matrix or eigenvalues and eigenvectors.
 \\
-The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters in user interface. General settings that are applicable to both attacks and attack-specific settings can be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used.
+The Cryptool 2 application enables the possibility to implement settings for the individual adjustment of parameters in a user interface. General settings that are applicable to both attacks and attack-specific settings can be adjusted. The settings fundamentally determine which attack is to be applied and which alphabet is to be used. In addition, methods are implemented in \textit{HillCipherAttackUtils}, which are not only used in the Known-Plaintext Attack but are also significant for the Ciphertext-Only Attack. Part of this class includes, for example, the assignment of letters to numbers, the conversion between matrices and vectors and vice versa or some methods for verification.
 \\
 Generally, it is also determined at which dimension the calculation should start. This serves to narrow down the search space if something is known about the dimension; otherwise, the calculation starts by default with the 2nd dimension.
 Futhermore for both attacks, the calculation method can also be determined. The choice consists of specifying the method of the inverse method, which includes either the method with the adjugate matrix or the method with eigenvalues and eigenvectors.
 \\
 
-
 \subsubsection{Adjugate Matrix}
 
-The adjugate matrix also known as the classical adjoint is the transpose of the cofactor matrix of a \( n \times n \) matrix . To rephrase, the adjugate matrix is formed by exchanging the rows and columns of the cofactor matrix.
+The adjugate matrix also known as the classical adjoint is the transpose of the cofactor matrix of a \( n \times n \) matrix \cite{b4}. To rephrase, the adjugate matrix is formed by exchanging the rows and columns of the cofactor matrix.
 The Cofactor of an Matrix element is calculated by removing the row and the column to get the submatrix. Then calculate determinant of the submatrix and multiply it by \((-1)^{i+j}\) where \(i\) and \(j\) are the row and the column of the element. 
 In Figure \ref{lst:calcAdj} is the calculation method of the adjugate matrix displayed and according to the adjugate calculation in Figure \ref{lst:calcCofa} is the cofactorcalculation in detail represented.
 \\
@@ -137,6 +136,8 @@ public void CalculateAdjugate(int[,] adj)
 }
 \end{lstlisting}
 
+The calculation of the determinant as shown in the CalculateAdjugate method, is implemented as a separate method, as it is used in various places. Among other things, it is used to determine whether the calculation of the inverse is possible or whether a key is valid.
+
 \begin{lstlisting}[caption={GetCofactor method}, label={lst:calcCofa}]
 public void GetCofactor(int[,] temp, int p, int q, int n)
 {
@@ -160,7 +161,7 @@ public void GetCofactor(int[,] temp, int p, int q, int n)
 \end{lstlisting}
 
 \subsubsection{Eigenvalues and Eigenvectors}
-The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers. As a result, rounding errors may occur and a key cannot be calculated.
+The basis for this approach is that the eigenvalues of a matrix \(A\) are also the eigenvalues of the inverse of \(A\). The \textit{MathNet.Numerics.LinearAlgebra} library is used for the eigenvalue/eigenvector calculation. This calculation is designed to compute the eigenvalues and eigenvectors in real or complex numbers \cite{b3}. As a result, rounding errors may occur and a key cannot be calculated.
 \\
 Figure \ref{lst:calcInverseEigenVec} is showing how the library is used to calculate the eigenvectors. According to the eigenvectors calculation Figure \ref{lst:calcEigenVal} shows the calculation of the eigenvalues.
 
@@ -200,6 +201,8 @@ public HillCipherAttackMatrix InverseByEigenVectors(int mod)
 }
 \end{lstlisting}
 
+For the calculation of the eigenvectors, the matrix or the vectors must first be converted into double values. In the present class for matrices (Figure \ref{lst:matrixclass}), the data is stored as integer values and cannot be processed by the library in this form. After the calculation, the values are mapped back to integer values.\\
+
 \begin{lstlisting}[caption={CalculateEigenValues method}, label={lst:calcEigenVal}]
 private static (Vector<double> eigenvalues, Matrix<double> eigenvectors) CalculateEigenValues(Matrix<double> matrix, int modulus)
 {
@@ -223,12 +226,17 @@ Before retrieving the inverse it must be determined what dimension is involved, 
 \\
 For a dimension \(n\), square matrices are created for plaintext and ciphertext from their vectors. It may happen that some vectors of the plaintext do not create an invertible matrix for a dimension. In such cases, another vector from plaintext and ciphertext is always added to include all possibilities of a dimension, in case no suitable key was found previously.
 \\\\
-Once a potential key is found, it is checked whether it is invertible and whether encrypting the plaintext results in the ciphertext, not just a part of it.\\
-
-
+Once a potential key is found, it is checked whether it is invertible and whether encrypting the plaintext results in the ciphertext, not just a part of it.
+\\
+For the testing purpose of the calculation, plaintext and ciphertext pairs were created from dimension 2 to dimension 10. It was important to use plaintexts that are invertible with modulo \(m\) in the corresponding dimension. It turned out that the identity matrix of the respective dimension is suitable as a test object. Corresponding keys also had to be created, which, by definition, must also be invertible. With the version of the Hill cipher implemented in Cryptool 2, the examples could be adjusted and verified.
+\\
+For the application of the Known-Plaintext Attack, there is a template with the correct input and output windows, as well as a brief guide on how to use the component for this attack. The input windows are filled with example values that lead to a result.
+\\
 
 \subsection{Evaluation}
 
+To compare the two calculation methods, the runtime for the calculation is measured. Each measurement starts with the first dimension. The time is measured in milliseconds. The average of ten runs per dimension is compared. The values of the time measurement are shown in the Table \ref{tab:runtime_table}.
+\\
 \begin{table}[h!]
 \centering
 \caption{Comparison of the runtimes regarding the calculation methods}
@@ -250,13 +258,20 @@ Once a potential key is found, it is checked whether it is invertible and whethe
 \hline
 \end{tabular}
 \end{table}
+\\
+From the comparison, it can be seen that the calculation in higher dimensions is significantly faster with eigenvectors. However, it should be noted that with eigenvectors, it is not always guaranteed to find a solution, as calculations are performed with double values.
+\\
+In contrast, the calculation with the adjugate matrix finds a solution if the plaintext matrix and the key are invertible.
+\\\\
 
-\section{Ciphertext-Only attack}
+\section{Ciphertext-Only Attack}
 \subsection{Introduction}
-In a ciphertext-only attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. In this case a dictionary is used for generation, which results in a dictionary attack.
+In a Ciphertext-Only Attack, only the ciphertext is known. To calculate the key, a plaintext must be generated. There are various methods for generating the plaintext. In this case a dictionary is used for generation, which results in a dictionary attack. This offers the advantage of using individual or topic-based dictionaries. It should be noted that the content of the dictionaries must be passed as an array.
 \subsection{Implementation}
-For the execution of the ciphertext-only attack, this is selected in the settings, and the language to be used is set. The language setting and the threshold setting are used to evaluate the calculated keys. Depending on the language, the frequencies of bigrams, trigrams, etc., differ. The threshold indicates how much the ciphertext from the calculated valid key and the plaintext may differ from the given ciphertext. The measurement is done using the Levenshtein distance.
-
+For the execution of the Ciphertext-Only Attack, this is selected in the settings, and the language to be used is set. The language setting and the threshold setting are used to evaluate the calculated keys. Depending on the language, the frequencies of letters, bigrams and trigrams differ. The threshold indicates how much the ciphertext from the calculated valid key and the plaintext may differ from the given ciphertext. The measurement is done using the Levenshtein distance \cite{b5}.
+\\
+For each key that has been calculated and meets the requirements of generating a ciphertext within the Levenshtein distance as in Figure \ref{lst:calcDist} and being invertible, an entry is created in the presentation interface. 
+\\
 \begin{lstlisting}[caption={CompareCipherTextWithTreshhold method}, label={lst:calcDist}]
 private bool CompareCipherTextWithTreshhold(HillCipherAttackMatrix key, HillCipherAttackMatrix[] plain_mats, Dictionary<string, int> alphabet_numbers, int treshold)
 {
@@ -289,6 +304,8 @@ private bool CompareCipherTextWithTreshhold(HillCipherAttackMatrix key, HillCiph
     return distance[sourceLength, targetLength] <= treshold;
 }
 \end{lstlisting}
+
+The higher the Levenshtein distance is set, the more can potentially be found; however, the solutions will correspondingly be less accurate. With a value of 0, it is expected that the calculated key will reproduce the ciphertext, which may result in no solution being found.\\
 
 \begin{lstlisting}[caption={CalculateScore method}, label={lst:calcScore}]
 internal static double CalculateScore(string plaintext, Dictionary<string, int> alphabet, int language)
@@ -333,17 +350,29 @@ internal static double CalculateScore(string plaintext, Dictionary<string, int> 
 }
 \end{lstlisting}
 
-For each key that has been calculated and meets the requirements of generating a ciphertext within the Levenshtein distance as in Figure \ref{lst:calcDist} and being invertible, an entry is created in the presentation interface. 
-\\
 The presentation interface contains information about the selected alphabet, ciphertext, and the modulo value. A successfully calculated key is entered into the so-called leaderboard, for which a score is calculated as shown in Figure  \ref{lst:calcScore}. 
-The score calculation includes resources that indicate the frequencies of letters, bigrams, and trigrams. A distinction is made between the German and English languages. Each entry implemented as a dictionary is assigned a percentage value based on its frequency.
+The score calculation includes resources that indicate the frequencies of letters, bigrams, and trigrams. A distinction is made between the German and English languages. Each entry implemented as a dictionary is assigned a percentage value based on its frequency. The letter and bigram frequencies are based on online sources \cite{b6} and vary from language to language. Those for German and English are applied and stored in the  \textit{HillCipherAttackRessources} class.
 \\
-The list is sorted in descending order based on this score. The first entry in this list, i.e., the best result, is taken, and its key is used as the output.
+The list is sorted in descending order based on this score. The first entry in this list is the best result based on the score, and its key is used as the output. For testing the Ciphertext-Only Attack, a significantly reduced version of a dictionary was used, which was embedded in the code to keep the execution time manageable.
+\\
+For the application of the Ciphertext-Only Attack, there is a template with the correct input and output windows, as well as a brief guide on how to use the component for this attack. Here, one input window is a dictionary. The input window for the ciphertext is filled with an example that leads to a result.
+\\
+
+\section{Conclusion}
+
+During the creation of the attacks for Cryptool 2, it turned out that the intuitive implementation with the Gaussian algorithm did not lead to the desired result. The alternative implementation with the adjugate matrix or with the eigenvectors made the calculation of the inverse clearer and more efficient. Using the library for eigenvalues and eigenvectors was a way to achieve a result within the scope of this time-limited project. For the revision or to ensure that a solution can be found just as reliably with this approach as with the adjugate matrix, a calculation of the eigenvalues or eigenvectors with integers in modulo \( m \) should be implemented.
+\\
+A future extension can be the enhancement of the score calculation based on frequencies and Levenshtein distance.
+Furthermore regarding the Ciphertext-Only Attack other analyses for the generated plaintext can also be introduced. It may be useful to integrate large language models or to expand the analysis to other languages.
+\\
 
 \begin{thebibliography}{9}
 \bibitem{b1} Wikipedia contributors, "Hill cipher," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Hill_cipher} (last edited October 17, 2024)
 \bibitem{b2} Wikipedia contributors, "Invertible Matrix," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Invertible_matrix} (last edited December 16, 2024).
-\bibitem{b3}  Wikipedia contributors, "Adjugate Matrix," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Adjugate_matrix} (last edited November 15, 2024).
+\bibitem{b3} Winfried Just, \textit{Eigenvectors and Eigenvalues of Inverse Matrices and Matrix Transposes}, Department of Mathematics, Ohio University, MATH3200: Applied Linear Algebra, 2024.
+\bibitem{b4} Wikipedia contributors, "Adjugate Matrix," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Adjugate_matrix} (last edited November 15, 2024).
+\bibitem{b5} Wikipedia contributors, "Levenshtein distance," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Levenshtein_distance} (last edited August 28, 2024)
+\bibitem{b6} Wikipedia contributors, "Letter frequency," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/wiki/Letter_frequency} (last edited December 19, 2024)
 \end{thebibliography}
 
 

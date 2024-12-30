@@ -32,7 +32,7 @@ namespace CrypTool.Plugins.HillCipherAttack
 
         private bool isUnkownPlaintextAttack = false;    // false = known plaintext attack, true = unknown plaintext attack
 
-        private bool isAdjointCalculation = true; // true = use adjoint matrix, false = use eigenvectors
+        private bool isAdjugateCalculation = true; // true = use adjugate matrix, false = use eigenvectors
 
         private int language = 0; // 0 = English, 1 = German
 
@@ -61,15 +61,15 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("InversCalcTypeCaption", "InversCalcTypeCaption", null, 2, false, ControlType.ComboBox, new string[] { "Eigenvectors", "Adjoint" })]
-        public bool IsAdjointCalculation
+        [TaskPane("InversCalcTypeCaption", "InversCalcTypeCaption", null, 2, false, ControlType.ComboBox, new string[] { "Eigenvectors", "Adjugate" })]
+        public bool IsAdjugateCalculation
         {
-            get => isAdjointCalculation;
+            get => isAdjugateCalculation;
             set
             {
-                if (value != isAdjointCalculation)
+                if (value != isAdjugateCalculation)
                 {
-                    isAdjointCalculation = value;
+                    isAdjugateCalculation = value;
                     OnPropertyChanged("IsAdjointCalculation");
                 }
             }
