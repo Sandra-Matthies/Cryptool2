@@ -103,7 +103,7 @@ namespace CrypTool.Plugins.HillCipherAttack
             }
         }
 
-        [TaskPane("StartKeyDimensionCaption","StartKeyDimensionTooltip", null, 5, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 1, 100)]
+        [TaskPane("StartKeyDimensionCaption","StartKeyDimensionTooltip", null, 5, false, ControlType.NumericUpDown, ValidationType.RangeInteger, 0, 100)]
         public int StartKeyDimension
         {
             get
