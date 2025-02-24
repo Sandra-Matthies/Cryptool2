@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{datetime}
+\usepackage{hyperref}
+
+
+\newdate{date1}{15}{10}{2024}
+\newdate{date2}{23}{10}{2024}
+\newdate{date3}{30}{10}{2024}
+\newdate{date4}{03}{11}{2024}
+\newdate{date5}{17}{11}{2024}
+\newdate{date6}{19}{11}{2024}
+\newdate{date7}{08}{12}{2024}
+
+\newdate{date8}{15}{12}{2024}
+\newdate{date9}{25}{12}{2024}
+
+\newdate{date10}{29}{12}{2024}
+\newdate{date11}{30}{12}{2024}
+\newdate{date12}{13}{01}{2025}
+
+
+
+\begin{document}
+
+\section*{Development Diary}
+
+\subsection*{\displaydate{date1}}
+\textbf{Author:} Sandra Matthies
+
+Starting the prototype for the HillCipher Known Plaintext Attack. Implement classes, methods and logic for the calculation.
+Implement HillCipher Encryption and Decryption for testing the attack.
+
+\subsection*{\displaydate{date2}}
+\textbf{Author:} Sandra Matthies
+
+Finish the prototype for the HillCipher Known Plaintext Attack. The prototype can calculate the key matrix of a Hill Cipher based on a known plaintext and the corresponding ciphertext. The prototype is tested with different plaintexts and ciphertexts.
+
+\subsection*{\displaydate{date3}}
+\textbf{Author:} Sandra Matthies
+
+Creation of an empty Plugin-File for the HillCipherAttack in the Cryptool 2 application.
+
+\subsection*{\displaydate{date4}}
+\textbf{Author:} Sandra Matthies
+
+Transfer of the calculation methods for the HillCipherAttack from the HillCipher Prototype to the HillCipherAttack Plugin and Refactoring. 
+
+\subsection*{\displaydate{date5}}
+\textbf{Author:} Sandra Matthies
+
+Add Validations and Error Handling to the HillCipherAttack Plugin. The Plugin now checks if the input data is valid and if the key matrix is invertible. If the key matrix is not invertible, the plugin throws an exception. I also added a method to calculate the modular inverse of a number. This method is used to calculate the inverse of the determinant of the key matrix.
+
+\subsection*{\displaydate{date6}}
+\textbf{Author:} Sandra Matthies
+
+Update search for key, so that as long as the key is not found, the search continues if enough data is available. This is necessary because sometimes the key is not found in the first iteration, but in the second or third iteration.
+
+\subsection*{\displaydate{date7}}
+\textbf{Author:} Sandra Matthies
+
+Update eigenvalue calculation to use the new method for calculating the modular inverse of a number. The eigenvalue calculation is used to calculate the determinant of the key matrix. The determinant is needed to calculate the inverse of the key matrix.
+
+\subsection*{\displaydate{date8}}
+\textbf{Author:} Sandra Matthies
+
+Implement the Ciphertext Only Attack based on the Known Plaintext Attack. Add Settings, Inputs, Outputs and Visualization to the Plugin.
+
+\subsection*{\displaydate{date9}}
+\textbf{Author:} Sandra Matthies
+
+Add Templates and Descriptions to the Plugin. Add a wiki page for the HillCipherAttack Plugin.
+
+\subsection*{\displaydate{date10}}
+\textbf{Author:} Sandra Matthies
+
+Extend documentation, update the wiki page for the HillCipherAttack Plugin and update Outputs.
+
+\subsection*{\displaydate{date11}}
+\textbf{Author:} Sandra Matthies
+
+Set default settings for the HillCipherAttack Plugin. Final Testing and remove Logs, Comments and unused Code.
+
+\subsection*{\displaydate{date12}}
+\textbf{Author:} Sandra Matthies
+
+Finalize documentation and testing of the HillCipherAttack Plugin.
+
+\end{document}
